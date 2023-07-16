@@ -22,6 +22,7 @@ yabai -m config mouse_action_drop	swap
 
 # FLOATING_APPS
 yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^CleanMyMac X$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^About$" manage=off

@@ -2,14 +2,14 @@
 # ----------------------------------------------------------------- #
 
 # CHANGING_FOCUS_OF_WINDOWS
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - h : yabai -m window --focus west
-alt - l : yabai -m window --focus east
+lalt - j : yabai -m window --focus south
+lalt - k : yabai -m window --focus north
+lalt - h : yabai -m window --focus west
+lalt - l : yabai -m window --focus east
 
 # CHANGING_FOCUS_OF_DISPLAYS
-alt - g : yabai -m display --focus next || yabai -m display --focus first
-alt - s : yabai -m display --focus prev || yabai -m display --focus last
+lalt - g : yabai -m display --focus next || yabai -m display --focus first
+lalt - s : yabai -m display --focus prev || yabai -m display --focus last
 
 # CHANGING_FOCUS_OF_SPACES
 # ctrl - h : mac --select_space prev
@@ -33,19 +33,19 @@ alt - s : yabai -m display --focus prev || yabai -m display --focus last
 # ------------------------------------------ #
 
 # MAXIMIZING_WINDOW
-ctrl + alt - m : yabai -m window --toggle zoom-fullscreen
+lctrl + alt - m : yabai -m window --toggle zoom-fullscreen
 
 # BALANCING_WINDOWS
-ctrl + alt - b : yabai -m space --balance
+lctrl + alt - b : yabai -m space --balance
 
 # RESIZING_WINDOWS
-ctrl + alt - down : yabai -m window --resize bottom:0:10 || yabai -m window --resize top:0:10
-ctrl + alt - up : yabai -m window --resize top:0:-10 || yabai -m window --resize bottom:0:-10
-ctrl + alt - left : yabai -m window --resize left:-10:0 || yabai -m window --resize right:-10:0
-ctrl + alt - right : yabai -m window --resize right:10:0 || yabai -m window --resize left:10:0
+lctrl + alt - down : yabai -m window --resize bottom:0:10 || yabai -m window --resize top:0:10
+lctrl + alt - up : yabai -m window --resize top:0:-10 || yabai -m window --resize bottom:0:-10
+lctrl + alt - left : yabai -m window --resize left:-10:0 || yabai -m window --resize right:-10:0
+lctrl + alt - right : yabai -m window --resize right:10:0 || yabai -m window --resize left:10:0
 
 # FLOAT_TOGGLE
-ctrl + alt - f : yabai -m window --toggle float
+lctrl + alt - f : yabai -m window --toggle float
 
 # GRIDS
 # TODO
@@ -69,28 +69,29 @@ rshift + alt - h : yabai -m window --warp west
 rshift + alt - l : yabai -m window --warp east
 
 # MOVE_WINDOWS_TO_SPACES
-ctrl + alt - l : yabai -m window --space next || yabai -m window --space first
-ctrl + alt - h : yabai -m window --space prev || yabai -m window --space last
+lctrl + alt - l : yabai -m window --space next || yabai -m window --space first
+lctrl + alt - h : yabai -m window --space prev || yabai -m window --space last
 
-ctrl + alt - 1 : yabai -m window --space 1
-ctrl + alt - 2 : yabai -m window --space 2
-ctrl + alt - 3 : yabai -m window --space 3
-ctrl + alt - 4 : yabai -m window --space 4
-ctrl + alt - 5 : yabai -m window --space 5
-ctrl + alt - 6 : yabai -m window --space 6
-ctrl + alt - 7 : yabai -m window --space 7
-ctrl + alt - 8 : yabai -m window --space 8
-ctrl + alt - 9 : yabai -m window --space 9
-ctrl + alt - 0 : yabai -m window --space 0
+lctrl + alt - 1 : yabai -m window --space 1
+lctrl + alt - 2 : yabai -m window --space 2
+lctrl + alt - 3 : yabai -m window --space 3
+lctrl + alt - 4 : yabai -m window --space 4
+lctrl + alt - 5 : yabai -m window --space 5
+lctrl + alt - 6 : yabai -m window --space 6
+lctrl + alt - 7 : yabai -m window --space 7
+lctrl + alt - 8 : yabai -m window --space 8
+lctrl + alt - 9 : yabai -m window --space 9
+lctrl + alt - 0 : yabai -m window --space 0
 
 # MOVE_WINDOWS_TO_DISPLAYS
-ctrl + alt - g : (yabai -m window --display next || yabai -m window --display first) && (yabai -m display --focus next || yabai -m display --focus first)
-ctrl + alt - s : (yabai -m window --display prev || yabai -m window --display last) && (yabai -m display --focus prev || yabai -m display --focus last)
+lctrl + alt - g : (yabai -m window --display next || yabai -m window --display first) && (yabai -m display --focus next || yabai -m display --focus first)
+lctrl + alt - s : (yabai -m window --display prev || yabai -m window --display last) && (yabai -m display --focus prev || yabai -m display --focus last)
 
 # # <-- Moving windows between each other, to other spaces and displays end # #
 # --------------------------------------------------------------------------- #
 
 # TURN_YABAI_ON_OR_OFF 
 
-ctrl + alt - x : yabai --stop-service
-ctrl + alt - z : yabai --start-service
+lctrl + alt - x : yabai --stop-service
+lctrl + alt - z : yabai --start-service
+
