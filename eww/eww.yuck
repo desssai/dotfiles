@@ -1,0 +1,81 @@
+(defwindow bar
+           :monitor 0
+           :geometry (geometry :x "0px"
+                               :y "0px"
+                               :width "100%"
+                               :height "30px"
+                               :anchor "top center")
+           :stacking "fg"
+           :exclusive true
+           :focusable false
+           (bar))
+
+(defwindow background
+           :monitor 0
+           :geometry (geometry :x "0px"
+                               :y "0px"
+                               :width "100%"
+                               :height "100%")
+           (background))
+
+
+(defwidget background []
+  (image :class "background"
+         :image-width 3440
+         :image-height 1440
+         :path "./wallpapers/wp1.jpg"))
+
+(defwidget bar []
+  (centerbox :orientation "h"
+    (global-menu)
+    (workspaces :spaces spaces-total-json 
+                :active_space space-active-json)
+    (controls)))
+
+(defwidget global-menu []
+  (box :class "bar-item"
+       :halign "start"
+    (eventbox :class "menu-item logo" "●")
+    (eventbox :class "menu-item" 
+              :width 50
+      title-active
+    )
+  )
+)
+
+(defwidget workspaces [spaces active_space]
+  (box :class "bar-item"
+       :height 0
+       :orientation "h"
+       :valign "center"
+       :spacing 8
+    (for space in spaces
+      (eventbox :class {jq(active_space, "[.id]") == jq(space, "[.id]") ? "active_space" : "inactive_space"}
+              :width 15
+              :height 15
+              :wexpand true
+              :onclick {'hyprctl dispatch workspace ' + space.id}
+      )
+    )
+  )
+)
+
+(defwidget controls []
+  (box :class "bar-item"
+       :halign "end"
+       time
+  )
+)
+
+(deflisten spaces-total-json :initial "[]" "./scripts/hypr_spaces_total.sh")
+(deflisten space-active-json :initial "[]" "./scripts/hypr_space_active.sh")
+(deflisten title-active "./scripts/hypr_title_active.sh")
+
+(defvar time-visible false)
+(defpoll time :interval "1s"
+              :initial "initial-value"
+              :run-while time-visible
+  `date '+%a %e %b  %H:%M:%S'`
+)
+
+

@@ -1,0 +1,49 @@
+* {
+  all: unset;
+}
+
+.bar {
+  background-color: rgba(49,48,48,0.2);
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+.bar .bar-item {
+  font-family: "FiraCodeNerd Mono";
+  font-weight: bold
+}
+
+.bar .logo {
+  font-size: 32px;
+}
+
+.bar .menu-item {
+  border-radius: 8px;
+  min-width: 100px;
+}
+
+.bar .menu-item:hover {
+  background-color: rgba(170,170,170,1);
+}
+
+.active_space {
+  padding: 5px;
+  min-width: 35px;
+  background-color: rgba(255,0,0,1);
+  border-radius: 15px;
+}
+
+.inactive_space:hover {
+  padding: 10px;
+  background-color: rgba(255,255,255,1);
+  border-radius: 15px;
+}
+
+.inactive_space {
+  padding: 5px;
+  background-color: rgba(0,0,0,1);
+  border-radius: 15px;
+}
+
+
+
