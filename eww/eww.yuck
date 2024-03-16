@@ -7,9 +7,8 @@
                                :height "1440px")
            :stacking "bottom"
            :exclusive false
-           :focusable true
+           :focusable false
            (background))
-           ;; (bar))
 
 (defwindow bar
            :monitor 0
@@ -73,9 +72,9 @@
   )
 )
 
-(deflisten spaces-total-json :initial "[]" "./scripts/hypr_spaces_total.sh")
-(deflisten space-active-json :initial "[]" "./scripts/hypr_space_active.sh")
-(deflisten title-active "./scripts/hypr_title_active.sh")
+(defvar spaces-total-json `[{"id":1,"name":""}]`)
+(defvar space-active-json `{"id":1,"name":""}`)
+(defvar title-active "")
 
 (defvar time-visible false)
 (defpoll time :interval "1s"
