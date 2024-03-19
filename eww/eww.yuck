@@ -1,86 +1,102 @@
 
-(defwindow background
-           :monitor 0
-           :geometry (geometry :x "0px"
-                               :y "0px"
-                               :width "3440px"
-                               :height "1440px")
-           :stacking "bottom"
-           :exclusive false
-           :focusable false
-           (background))
+(defwindow  background 
+            :monitor 0
+            :geometry (geometry :x "0px" :y "0px" :width "3440px" :height "1440px")
+            :stacking "bottom"
+            :exclusive false
+            :focusable false
+            (background)
+)
 
-(defwindow bar
-           :monitor 0
-           :geometry (geometry :x "0px"
-                               :y "0px"
-                               :width "100%"
-                               :height "30px"
-                               :anchor "top center")
-           :stacking "fg"
-           :exclusive false
-           :focusable false
-           (bar))
+(defwindow  bar
+            :monitor 0
+            :geometry (geometry :x "0px" :y "0px" :width "100%" :height "30px" :anchor "top center")
+            :stacking "fg"
+            :exclusive false
+            :focusable false
+            (bar)
+)
 
 
 
-(defwidget background []
-  (image :class "background"
-         :width 3440
-         :height 1440
-         :path "./wallpapers/wp1.jpg"))
-
-(defwidget bar []
-  (centerbox :orientation "h"
-    (global-menu)
-    (workspaces :spaces spaces-total-json 
-                :active_space space-active-json)
-    (controls)))
-
-(defwidget global-menu []
-  (box :class "bar-item"
-       :halign "start"
-    (eventbox :class "menu-item logo" "●")
-    (eventbox :class "menu-item" 
-              :width 50
-      title-active
-    )
+(defwidget  background []
+  (image  :class "background" 
+          :width 3440 
+          :height 1440 
+          :path "./wallpapers/wp1.jpg"
   )
 )
 
-(defwidget workspaces [spaces active_space]
-  (box :class "bar-item"
-       :height 0
-       :orientation "h"
-       :valign "center"
-       :spacing 8
-    (for space in spaces
-      (eventbox :class {jq(active_space, "[.id]") == jq(space, "[.id]") ? "active_space" : "inactive_space"}
-              :width 15
-              :height 15
-              :vexpand true
-              :onclick {'hyprctl dispatch workspace ' + space.id}
-      )
-    )
+(defwidget  bar []
+  (centerbox  :orientation "h"
+              (global-menu)
+              (workspaces)
+              (controls)
   )
 )
 
-(defwidget controls []
-  (box :class "bar-item"
-       :halign "end"
-       time
+(defwidget  global-menu []
+  (box  :class "bar-item start-item"
+        :halign "start"
+        (box      :class "logo"
+                  (eventbox :class "logo" "")
+        )
+        (eventbox :class "menu-item"
+                  title-active
+        )
+  )
+)
+
+(defwidget workspaces []
+  (box  :class "bar-item center-item"
+        :height 40
+        :halign "center"
+        :valign "center"
+        :spacing 8
+        (for space in spaces-total-json
+          (workspace :space space :active-space space-active-json)
+        )
+  )
+)
+
+(defwidget  workspace [space active-space]
+  (eventbox :class {jq(space-active-json, "[.id]") == jq(space, "[.id]") ? "active workspace" : "inactive workspace"}
+            :width 32
+            :height 16
+            :onclick {"hyprctl dispatch workspace " + space.id}
+  )
+)
+
+(defwidget  controls []
+  (box  :class "bar-item end-item"
+        :space-evenly false
+        :width 100
+        (bluetooth)
+        (datetime)
+  )
+)
+
+(defwidget bluetooth []
+  (box  :class "bluetooth"
+        :width 40
+        :height 40
+        "BL"
+  )
+)
+(defwidget datetime []
+  (eventbox  :class "datetime"
+        :width 100
+        :height 40
+        "datetime"
   )
 )
 
 (defvar spaces-total-json `[{"id":1,"name":""}]`)
 (defvar space-active-json `{"id":1,"name":""}`)
 (defvar title-active "")
-
 (defvar time-visible false)
 (defpoll time :interval "1s"
               :initial "initial-value"
               :run-while time-visible
-  `date '+%a %e %b  %H:%M:%S'`
+              `date '+%a %e %b  %H:%M:%S'`
 )
-
-

@@ -1,4 +1,4 @@
-return {
+local plugin = {
 	defaults = { lazy = true },
 	install = { colorscheme = { "tokyonight" } },
 
@@ -46,3 +46,5 @@ return {
 		},
 	},
 }
+
+return plugin

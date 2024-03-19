@@ -3,47 +3,40 @@
 }
 
 .bar {
-  background-color: rgba(49,48,48,0.2);
-  padding-left: 10px;
-  padding-right: 20px;
+  background-color: rgba(49, 48, 48, 0.2);
 }
 
 .bar .bar-item {
   font-family: "FiraCodeNerd Mono";
-  font-weight: bold
+  font-weight: bold;
 }
 
-.bar .logo {
-  font-size: 32px;
+.bar .start-item {
+  margin-left: 16px;
+  background-color: rgba(255, 0, 0, 0.2);
 }
 
-.bar .menu-item {
+.bar .center-item {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+.bar .workspace {
   border-radius: 8px;
-  min-width: 100px;
 }
 
-.bar .menu-item:hover {
-  background-color: rgba(170,170,170,1);
+.bar .end-item {
+  margin-right: 16px;
+  background-color: rgba(0, 0, 255, 0.2);
 }
 
-.active_space {
-  padding: 5px;
-  min-width: 35px;
-  background-color: rgba(255,0,0,1);
-  border-radius: 15px;
+.bar .active {
+  background-color: rgba(255, 0, 0, 1);
 }
 
-.inactive_space:hover {
-  padding: 10px;
-  background-color: rgba(255,255,255,1);
-  border-radius: 15px;
+.bar .inactive {
+  background-color: rgba(0, 0, 0, 1);
 }
-
-.inactive_space {
-  padding: 5px;
-  background-color: rgba(0,0,0,1);
-  border-radius: 15px;
-}
-
-
-
