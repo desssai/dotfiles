@@ -1,0 +1,7 @@
+(defwidget  background []
+  (image  :class "background" 
+          :width 3440 
+          :height 1440 
+          :path "./wallpapers/wp2.jpg"
+  )
+)

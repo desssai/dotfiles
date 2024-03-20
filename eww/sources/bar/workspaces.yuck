@@ -1,0 +1,23 @@
+(defvar spaces-total-json `[{"id":1,"name":""}]`)
+(defvar space-active-json `{"id":1,"name":""}`)
+
+(defwidget workspaces []
+  (box  :class "bar-item center-item"
+        :halign "center"
+        :valign "center"
+        :space-evenly false
+        :spacing 8
+        (for space in spaces-total-json
+          (workspace :space space :active-space space-active-json)
+        )
+  )
+)
+
+(defwidget  workspace [space active-space]
+  (eventbox :class {jq(space-active-json, "[.id]") == jq(space, "[.id]") ? "workspace workspace-active" : "workspace workspace-inactive"}
+            :width {jq(space-active-json, "[.id]") == jq(space, "[.id]") ? 32 : 16}
+            :height 16
+            :onclick {"hyprctl dispatch workspace " + space.id}
+  )
+)
+

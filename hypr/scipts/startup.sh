@@ -13,3 +13,4 @@ gsettings set org.gnome.desktop.interface cursor-theme 'WhiteSur-cursors'
 hyprctl setcursor 'WhiteSur-cursors' 24
 
 eww open bar
+eww open bg

@@ -1,0 +1,12 @@
+(include "./sources/bar/global-menu.yuck")
+(include "./sources/bar/workspaces.yuck")
+(include "./sources/bar/controls.yuck")
+
+(defwidget  bar []
+  (centerbox  :orientation "h"
+              (global-menu)
+              (workspaces)
+              (controls)
+  )
+)
+

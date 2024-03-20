@@ -3,7 +3,7 @@
 }
 
 .bar {
-  background-color: rgba(49, 48, 48, 0.2);
+  background-color: rgba(49, 48, 48, 0.3);
 }
 
 .bar .bar-item {
@@ -19,8 +19,8 @@
 .bar .center-item {
   padding-left: 16px;
   padding-right: 16px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  // padding-top: 12px;
+  // padding-bottom: 12px;
   background-color: rgba(0, 255, 0, 0.2);
 }
 
@@ -28,15 +28,75 @@
   border-radius: 8px;
 }
 
+.bar .workspace-active {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+.bar .workspace-inactive {
+  background-color: rgba(0, 0, 0, 1);
+}
+
 .bar .end-item {
   margin-right: 16px;
   background-color: rgba(0, 0, 255, 0.2);
 }
 
-.bar .active {
+.bar .bluetooth-menu-container {
   background-color: rgba(255, 0, 0, 1);
 }
 
-.bar .inactive {
-  background-color: rgba(0, 0, 0, 1);
+.icon:hover {
+  border-radius: 16px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+// Calendar
+.cal {
+  background-color: #0f0f17;
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 18px;
+  font-weight: normal;
+
+  .cal-in {
+    padding: 0px 10px 0px 10px;
+    color: #bfc9db;
+
+    .cal {
+      &.highlight {
+        padding: 20px;
+      }
+
+      padding: 5px 5px 5px 5px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.dummy {
+  background-color: #bfc9db;
+}
+
+calender {
+  color: #bfc9db;
+}
+calendar:selected {
+  color: #a1bdce;
+}
+
+calendar.header {
+  color: #a1bdce;
+  font-weight: bold;
+}
+
+calendar.button {
+  color: #afbea2;
+}
+
+calendar.highlight {
+  color: #a1bdce;
+  font-weight: bold;
+}
+
+calendar:indeterminate {
+  color: #bfc9db;
 }

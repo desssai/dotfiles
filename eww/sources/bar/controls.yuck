@@ -1,0 +1,80 @@
+(defvar time-visible false)
+(defvar docker false)
+(defvar sound false)
+(defvar power false)
+(defvar network false)
+(defvar bluetooth false)
+(defvar calendar false)
+
+(defpoll time :interval "1s"
+              :initial "initial-value"
+              :run-while time-visible
+              `date '+%a %e %b  %H:%M'`
+)
+
+(defwidget  controls []
+  (box  :class "bar-item end-item"
+        :halign "end"
+        :valign "center"
+        :space-evenly false
+        :spacing 8
+        (docker-icon)
+        (sound-icon)
+        (power-icon)
+        (network-icon)
+        (bluetooth-icon)
+        (calendar-icon)
+  )
+)
+
+(defwidget docker-icon []
+  (eventbox :class "bluetooth-icon icon"
+            :width 30
+            :height 30
+            :onclick "./scripts/toggle_window.sh docker"
+            "D"
+  )
+)
+
+(defwidget sound-icon []
+  (eventbox :class "bluetooth-icon icon"
+            :width 30
+            :height 30
+            :onclick "./scripts/toggle_window.sh sound"
+            "S"
+  )
+)
+
+(defwidget power-icon []
+  (eventbox :class "power-icon icon"
+            :width 30
+            :height 30
+            :onclick "./scripts/toggle_window.sh power"
+            "P"
+  )
+)
+
+(defwidget network-icon []
+  (eventbox :class "network-icon icon"
+            :width 30
+            :height 30
+            :onclick "./scripts/toggle_window.sh network"
+            "N"
+  )
+)
+
+(defwidget bluetooth-icon []
+  (eventbox :class "bluetooth-icon icon"
+            :width 30
+            :onclick "./scripts/toggle_window.sh bluetooth"
+            "B"
+  )
+)
+
+(defwidget calendar-icon []
+  (eventbox :class "calendar-icon calendar"
+            :onclick "./scripts/toggle_window.sh calendar"
+        time
+  )
+)
+

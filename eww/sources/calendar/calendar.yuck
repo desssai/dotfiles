@@ -1,0 +1,8 @@
+(defwidget calendar-container []
+	(box  :class "cal" 
+        :orientation "v"
+	  (box  :class "cal-in"
+	        (calendar :class "cal")
+    )
+  )
+)

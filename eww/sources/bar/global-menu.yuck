@@ -1,0 +1,16 @@
+(defvar title-active "")
+
+(defwidget  global-menu []
+  (box  :class "bar-item start-item"
+        :halign "start"
+        :valign "center"
+        :space-evenly false
+        (box      :class "logo"
+                  (eventbox :class "logo" "")
+        )
+        (eventbox :class "menu-item"
+                  title-active
+        )
+  )
+)
+
