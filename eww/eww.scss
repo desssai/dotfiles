@@ -3,104 +3,104 @@
 }
 
 .bar {
-  background-color: rgba(255, 255, 255, 0.5);
-  // background-color: rgba(255, 255, 255, 0.5);
-  background-image: url("./wallpapers/bar_gray.jpg");
-  // background-image: url("./wallpapers/bar_white.jpg");
-  background-blend-mode: color-burn;
-}
-
-.bar .bar-item {
+  background-color: rgba(255, 255, 255, 0.1);
   font-family: "FiraCodeNerd Mono";
   font-weight: bold;
+  color: #000;
 }
 
-.bar .start-item {
+.bar-color-burn {
+  background-color: rgba(147, 147, 147, 0.1);
+}
+
+.dummy {
+  opacity: 0.5;
+  background: rgba(147, 147, 147, 0.1);
+}
+
+.bar-start-item {
   margin-left: 16px;
-  background-color: rgba(255, 0, 0, 0.2);
 }
 
-.bar .center-item {
+.bar-center-item {
   padding-left: 16px;
   padding-right: 16px;
-  // padding-top: 12px;
-  // padding-bottom: 12px;
-  background-color: rgba(0, 255, 0, 0.2);
 }
 
-.bar .workspace {
-  border-radius: 8px;
-}
-
-.bar .workspace-active {
-  background-color: rgba(255, 0, 0, 1);
-}
-
-.bar .workspace-inactive {
-  background-color: rgba(0, 0, 0, 1);
-}
-
-.bar .end-item {
+.bar-end-item {
   margin-right: 16px;
-  background-color: rgba(0, 0, 255, 0.2);
 }
 
-.bar .bluetooth-menu-container {
-  background-color: rgba(255, 0, 0, 1);
+.workspace {
+  border-radius: 8px;
+  box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.25);
 }
+
+.workspace-active {
+  background-color: #a5a5a5;
+}
+
+.workspace-inactive {
+  background-color: #f5f5f5;
+}
+
+.icon {
+  font-size: 20;
+}
+
+// .bluetooth-icon {
+//   background-image: url("~/.local/share/icons/WhiteSur/status/24/blueman-tray.svg");
+// color: #000;
+// }
 
 .icon:hover {
   border-radius: 16px;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-// Calendar
-.cal {
-  background-color: #0f0f17;
-  font-family: JetBrainsMono Nerd Font;
-  font-size: 18px;
-  font-weight: normal;
+// // Calendar
+// .cal {
+//   background-color: #0f0f17;
+//   font-family: JetBrainsMono Nerd Font;
+//   font-size: 18px;
+//   font-weight: normal;
 
-  .cal-in {
-    padding: 0px 10px 0px 10px;
-    color: #bfc9db;
+//   .cal-in {
+//     padding: 0px 10px 0px 10px;
+//     color: #bfc9db;
 
-    .cal {
-      &.highlight {
-        padding: 20px;
-      }
+//     .cal {
+//       &.highlight {
+//         padding: 20px;
+//       }
 
-      padding: 5px 5px 5px 5px;
-      margin-left: 10px;
-    }
-  }
-}
+//       padding: 5px 5px 5px 5px;
+//       margin-left: 10px;
+//     }
+//   }
+// }
 
-.dummy {
-  background-color: #bfc9db;
-}
+// calender {
+//   color: #bfc9db;
+// }
+// calendar:selected {
+//   color: #a1bdce;
+// }
 
-calender {
-  color: #bfc9db;
-}
-calendar:selected {
-  color: #a1bdce;
-}
+// calendar.header {
+//   color: #a1bdce;
+//   font-weight: bold;
+// }
 
-calendar.header {
-  color: #a1bdce;
-  font-weight: bold;
-}
+// calendar.button {
+//   color: #afbea2;
+// }
 
-calendar.button {
-  color: #afbea2;
-}
+// calendar.highlight {
+//   color: #a1bdce;
+//   font-weight: bold;
+// }
 
-calendar.highlight {
-  color: #a1bdce;
-  font-weight: bold;
-}
-
-calendar:indeterminate {
-  color: #bfc9db;
-}
+// calendar:indeterminate {
+//   color: #bfc9db;
+// }

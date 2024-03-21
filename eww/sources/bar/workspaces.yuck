@@ -2,7 +2,7 @@
 (defvar space-active-json `{"id":1,"name":""}`)
 
 (defwidget workspaces []
-  (box  :class "bar-item center-item"
+  (box  :class "bar-center-item"
         :halign "center"
         :valign "center"
         :space-evenly false

@@ -1,6 +1,27 @@
 (include "./sources/bar/global-menu.yuck")
 (include "./sources/bar/workspaces.yuck")
 (include "./sources/bar/controls.yuck")
+(include "./sources/docker/docker.yuck")
+
+(defwindow  bar
+            :monitor 0
+            :geometry (geometry :x "0px" :y "0px" :width "100%" :height "30px" :anchor "top center")
+            :stacking "fg"
+            :exclusive false
+            :focusable false
+            :namespace "eww-bar"
+            (bar)
+)
+
+(defwindow  bar-color-burn
+            :monitor 0
+            :geometry (geometry :x "0px" :y "0px" :width "100%" :height "30px" :anchor "top center")
+            :stacking "fg"
+            :exclusive false
+            :focusable false
+            :namespace "eww-bar"
+            (bar-color-burn)
+)
 
 (defwidget  bar []
   (centerbox  :orientation "h"
@@ -10,3 +31,6 @@
   )
 )
 
+(defwidget  bar-color-burn []
+  (box :class "bar-color-burn")
+)

@@ -1,0 +1,12 @@
+(defwindow  docker
+            :monitor 0
+            :geometry (geometry :x "24px" :y "54px" :width "400px" :height "300px" :anchor "top right")
+            :stacking "fg"
+            :exclusive false
+            :focusable false
+            (docker-container)
+)
+
+(defwidget docker-container []
+  (box :class "dummy")
+)
