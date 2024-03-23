@@ -35,7 +35,7 @@
         :space-evenly false
         (box      :class "logo-box"
                   (eventbox :class "os-icon"
-                            :width 30
+                            :width 50
                             :height 30
                             (label :text "󰀵")
                   )

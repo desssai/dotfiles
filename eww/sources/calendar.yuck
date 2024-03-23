@@ -35,10 +35,10 @@
 )
 
 (defwidget calendar-icon []
-  (eventbox :class "calendar-icon"
-            :width 130
+  (eventbox :class "calendar-icon icon"
+            :width 150
             :onclick "./scripts/toggle_window.sh calendar"
-            (label :text time :xalign 1)
+            (label :text time)
   )
 )
 

@@ -1,9 +1,16 @@
 (defvar bluetooth false)
-(defpoll bluetooth-status :initial "off" :interval "1s" ``)
+(defvar bluetooth-status "off")
+(defvar bluetooth-status-name "bluetooth-status")
+(defvar bluetooth-window-height "300px")
+(defvar bluetooth-button-x-pos 0)
+(defvar bluetooth-button-x-pos-start 0)
+(defvar bluetooth-button-x-pos-end 16)
+(defvar bluetooth-button-name "bluetooth-button-x-pos")
+
 
 (defwindow  bluetooth
             :monitor 0
-            :geometry (geometry :x "24px" :y "54px" :width "400px" :height "300px" :anchor "top right")
+            :geometry (geometry :x "366px" :y "40px" :width "340px" :height "300px" :anchor "top right")
             :stacking "fg"
             :exclusive false
             :focusable false
@@ -13,7 +20,7 @@
 
 (defwindow  bluetooth-color-burn
             :monitor 0
-            :geometry (geometry :x "24px" :y "54px" :width "420px" :height "320px" :anchor "top right")
+            :geometry (geometry :x "356px" :y "30px" :width "360px" :height "320px" :anchor "top right")
             :stacking "fg"
             :exclusive false
             :focusable false
@@ -22,18 +29,19 @@
 )
 
 (defwidget bluetooth-burn-container []
-  (box :class "dummy-burn"
-       :valign "center"
-       :halign "center"
-       :width 400
-       :height 300)
+  (box  :class "dummy-burn"
+        :valign "center"
+        :halign "center"
+        :width 340
+        :height 300   
+  )
 )
 
 (defwidget bluetooth-icon []
   (eventbox :class "bluetooth-icon icon"
             :width 50
             :onclick "./scripts/toggle_window.sh bluetooth"
-            (label :text {bluetooth-status == "off" ? "󰂲" : 
+            (label :text {bluetooth-status == "no" ? "󰂲" : 
                             bluetooth-status == "searching" ? "󰂰" : 
                               bluetooth-status == "connected" ? "󰂱" : "󰂯" }
             )
@@ -41,5 +49,56 @@
 )
 
 (defwidget bluetooth-container []
-  (box :class "dummy")
+  (box  :class "dummy"
+        (bluetooth-power-state)
+        ;; (bluetooth-devices)
+        ;; (bluetooth-settings)
+  )
+)
+
+(defwidget bluetooth-power-state []
+  (box  :class "widget-container"
+        (label  :class "title"
+                :text "Bluetooth"
+                :valign "start"
+                :halign "start"
+        )
+        (button-container :state bluetooth-status 
+                          :status-name bluetooth-status-name
+                          :button-name bluetooth-button-name
+                          :button-start bluetooth-button-x-pos-start
+                          :button-end bluetooth-button-x-pos-end
+                          :button-pos bluetooth-button-x-pos
+        )
+  )
+)
+
+(defwidget button-container [state status-name button-name button-start button-end button-pos]
+  (button :class {state == "on" ? "button-on button-container" : "button-off button-container" }
+          :timeout "300ms"
+          :valign "start"
+          :halign "end"
+          :width 40
+          :height 22
+          :onclick {state == "on" ? "eww update ${status-name}=off; $HOME/.config/eww/scripts/move_elements.sh ${button-end} ${button-start} 1 0.0015 ${button-name}" : "eww update ${status-name}=on; $HOME/.config/eww/scripts/move_elements.sh ${button-start} ${button-end} 1 0.0015 ${button-name}" }
+          (box  :class "button-circle-container"
+                (transform :translate-x bluetooth-button-x-pos
+                          (box  :class "button-circle"
+                                :valign "center"
+                                :halign "start"
+                                :width 20
+                                :height 20
+                          )
+                )
+                ;; (revealer :reveal {state == "on"}
+                ;;           :duration "500ms"
+                ;;           (box  :class "button-circle"
+                ;;                 :valign "center"
+                ;;                 :halign "end"
+                ;;                 :width 20
+                ;;                 :height 20
+                ;;           )
+                ;; )
+          )
+  )
 )

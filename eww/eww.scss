@@ -31,12 +31,18 @@
 }
 
 .dummy {
-  background: rgba(0, 0, 0, 0.28);
+  background: rgba(40, 40, 40, 0.6);
+  padding: 16px;
   // background: rgba(234, 234, 234, 0.84);
   border-radius: 12px;
-  // border-style: solid;
-  // border-color: #a5a5a5;
-  // border-width: 1px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.2);
+  border-width: 1px;
+}
+
+.widget-container > .title {
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .bar-start-item {
@@ -91,6 +97,10 @@
   font-size: 20px;
 }
 
+.calendar-icon {
+  font-size: 14px;
+}
+
 .control-center-icon,
 .spotlight-icon {
   font-size: 16px;
@@ -101,6 +111,46 @@
   // transition-duration: 100ms;
   // border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.button-on {
+  background: linear-gradient(rgba(21, 94, 206, 1), rgba(24, 104, 229, 1));
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05) inline;
+  outline: solid 0.5px rgba(255, 255, 255, 0.12);
+}
+
+.button-container {
+  border-radius: 12px;
+  transition-duration: 200ms;
+}
+
+.button-container:active,
+.button-container:active > .button-circle-container > .button-circle {
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.48),
+    rgba(255, 255, 255, 0.56)
+  );
+}
+
+.button-off {
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.14),
+    rgba(255, 255, 255, 0.28)
+  );
+  box-shadow:
+    0px 0.5px 0px 0px rgba(255, 255, 255, 0.15) inline,
+    0px 0px 1px 0px rgba(0, 0, 0, 0.25);
+}
+
+.button-circle-container {
+  padding: 2px;
+}
+
+.button-circle {
+  border-radius: 10px;
+  background-color: rgba(200, 200, 200, 1);
+  box-shadow: 0px 0.5px 4px 0px rgba(0, 0, 0, 0.2);
+  outline: solid 0.5px rgba(0, 0, 0, 0.2);
 }
 
 // // Calendar
