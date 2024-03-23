@@ -1,16 +1,14 @@
 (defvar bluetooth false)
 (defvar bluetooth-status "off")
-(defvar bluetooth-status-name "bluetooth-status")
-(defvar bluetooth-window-height "300px")
 (defvar bluetooth-button-x-pos 0)
 (defvar bluetooth-button-x-pos-start 0)
 (defvar bluetooth-button-x-pos-end 16)
-(defvar bluetooth-button-name "bluetooth-button-x-pos")
+(defvar bluetooth-container-height 50)
 
 
 (defwindow  bluetooth
             :monitor 0
-            :geometry (geometry :x "366px" :y "40px" :width "340px" :height "300px" :anchor "top right")
+            :geometry (geometry :x "366px" :y "30px" :width "340px" :height "300px" :anchor "top right")
             :stacking "fg"
             :exclusive false
             :focusable false
@@ -24,16 +22,16 @@
             :stacking "fg"
             :exclusive false
             :focusable false
-            :namespace "eww-color-burn"
+            :namespace "eww-shadow"
             (bluetooth-burn-container)
 )
 
 (defwidget bluetooth-burn-container []
   (box  :class "dummy-burn"
-        :valign "center"
+        :valign "start"
         :halign "center"
         :width 340
-        :height 300   
+        :height 300
   )
 )
 
@@ -50,6 +48,8 @@
 
 (defwidget bluetooth-container []
   (box  :class "dummy"
+        :valign "start"
+        :height bluetooth-container-height
         (bluetooth-power-state)
         ;; (bluetooth-devices)
         ;; (bluetooth-settings)
@@ -64,8 +64,8 @@
                 :halign "start"
         )
         (button-container :state bluetooth-status 
-                          :status-name bluetooth-status-name
-                          :button-name bluetooth-button-name
+                          :status-name "bluetooth-status"
+                          :button-name "bluetooth-button-x-pos"
                           :button-start bluetooth-button-x-pos-start
                           :button-end bluetooth-button-x-pos-end
                           :button-pos bluetooth-button-x-pos
@@ -80,7 +80,7 @@
           :halign "end"
           :width 40
           :height 22
-          :onclick {state == "on" ? "eww update ${status-name}=off; $HOME/.config/eww/scripts/move_elements.sh ${button-end} ${button-start} 1 0.0015 ${button-name}" : "eww update ${status-name}=on; $HOME/.config/eww/scripts/move_elements.sh ${button-start} ${button-end} 1 0.0015 ${button-name}" }
+          :onclick {state == "on" ? "eww update ${status-name}=off; $HOME/.config/eww/scripts/move_elements.sh ${button-end} ${button-start} 1 0.001 ${button-name}" : "eww update ${status-name}=on; $HOME/.config/eww/scripts/move_elements.sh ${button-start} ${button-end} 1 0.001 ${button-name}" }
           (box  :class "button-circle-container"
                 (transform :translate-x bluetooth-button-x-pos
                           (box  :class "button-circle"
