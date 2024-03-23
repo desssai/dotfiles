@@ -1,0 +1,48 @@
+(defvar network false)
+(defpoll network-status :initial 100 :interval "1s" `echo 21`)
+
+(defwindow  network
+            :monitor 0
+            :geometry (geometry :x "24px" :y "54px" :width "400px" :height "300px" :anchor "top right")
+            :stacking "fg"
+            :exclusive false
+            :focusable false
+            :namespace "eww-widget"
+            (network-container)
+)
+
+(defwindow  network-color-burn
+            :monitor 0
+            :geometry (geometry :x "24px" :y "54px" :width "420px" :height "320px" :anchor "top right")
+            :stacking "fg"
+            :exclusive false
+            :focusable false
+            :namespace "eww-color-burn"
+            (network-burn-container)
+)
+
+(defwidget network-burn-container []
+  (box :class "dummy-burn"
+       :valign "center"
+       :halign "center"
+       :width 400
+       :height 300)
+)
+(defwidget network-icon []
+  (eventbox :class "network-icon icon"
+            :width 50
+            :height 30
+            :onclick "./scripts/toggle_window.sh network"
+            (label  :text {network-status == 0 ? "󰤯" :
+                             network-status == 1 ? "󰤟" :
+                               network-status == 2 ? "󰤢" :
+                                 network-status == 3 ? "󰤥" :
+                                   network-status == 4 ? "󰤨" : "󰤮" }
+                    :xalign 0.4
+            )
+  )
+)
+
+(defwidget network-container []
+  (box :class "dummy")
+)

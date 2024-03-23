@@ -1,0 +1,45 @@
+(defvar bluetooth false)
+(defpoll bluetooth-status :initial "off" :interval "1s" ``)
+
+(defwindow  bluetooth
+            :monitor 0
+            :geometry (geometry :x "24px" :y "54px" :width "400px" :height "300px" :anchor "top right")
+            :stacking "fg"
+            :exclusive false
+            :focusable false
+            :namespace "eww-widget"
+            (bluetooth-container)
+)
+
+(defwindow  bluetooth-color-burn
+            :monitor 0
+            :geometry (geometry :x "24px" :y "54px" :width "420px" :height "320px" :anchor "top right")
+            :stacking "fg"
+            :exclusive false
+            :focusable false
+            :namespace "eww-color-burn"
+            (bluetooth-burn-container)
+)
+
+(defwidget bluetooth-burn-container []
+  (box :class "dummy-burn"
+       :valign "center"
+       :halign "center"
+       :width 400
+       :height 300)
+)
+
+(defwidget bluetooth-icon []
+  (eventbox :class "bluetooth-icon icon"
+            :width 50
+            :onclick "./scripts/toggle_window.sh bluetooth"
+            (label :text {bluetooth-status == "off" ? "󰂲" : 
+                            bluetooth-status == "searching" ? "󰂰" : 
+                              bluetooth-status == "connected" ? "󰂱" : "󰂯" }
+            )
+  )
+)
+
+(defwidget bluetooth-container []
+  (box :class "dummy")
+)

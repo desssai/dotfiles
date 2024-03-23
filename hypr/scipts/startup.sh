@@ -6,8 +6,9 @@ if [ -f /proc/acpi/button/lid/LID0/state ]; then
   fi
 fi
 
-gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-Light-solid'
-gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur'
+gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-Dark-solid'
+gsettings set org.gnome.desktop.interface font-name 'SF Pro Display'
+gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur-Dark'
 gsettings set org.gnome.desktop.interface cursor-theme 'WhiteSur-cursors'
 
 hyprctl setcursor 'WhiteSur-cursors' 24

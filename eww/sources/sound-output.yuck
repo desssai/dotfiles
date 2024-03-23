@@ -1,0 +1,47 @@
+(defvar sound-output false)
+(defpoll sound-output-status :initial "off" :interval "1s" ``)
+
+(defwindow  sound-output
+            :monitor 0
+            :geometry (geometry :x "24px" :y "54px" :width "400px" :height "300px" :anchor "top right")
+            :stacking "fg"
+            :exclusive false
+            :focusable false
+            :namespace "eww-widget"
+            (sound-output-container)
+)
+
+(defwindow  sound-output-color-burn
+            :monitor 0
+            :geometry (geometry :x "24px" :y "54px" :width "420px" :height "320px" :anchor "top right")
+            :stacking "fg"
+            :exclusive false
+            :focusable false
+            :namespace "eww-color-burn"
+            (sound-output-burn-container)
+)
+
+(defwidget sound-output-burn-container []
+  (box :class "dummy-burn"
+       :valign "center"
+       :halign "center"
+       :width 400
+       :height 300)
+)
+
+(defwidget sound-output-icon []
+  (eventbox :class "sound-output-icon icon"
+            :width 50
+            :height 30
+            :onclick "./scripts/toggle_window.sh sound-output"
+            (label :text {sound-output-status == "high" ? "󰕾" : 
+                            sound-output-status == "low" ? "󰕿" : 
+                              sound-output-status == "medium" ? "󰖀" : "󰖁"}
+                   :xalign 0.45
+            )
+  )
+)
+
+(defwidget sound-output-container []
+  (box :class "dummy")
+)

@@ -1,0 +1,54 @@
+(defvar calendar false)
+(defvar time-visible false)
+(defpoll time :interval "1s"
+              :initial "initial-value"
+              :run-while time-visible
+              `date '+%a %b %e  %H:%M'`
+)
+
+(defwindow  calendar
+            :monitor 0
+            :geometry (geometry :x "24px" :y "54px" :width "400px" :height "300px" :anchor "top right")
+            :stacking "fg"
+            :exclusive false
+            :focusable false
+            :namespace "eww-widget"
+            (calendar-container)
+)
+
+(defwindow  calendar-color-burn
+            :monitor 0
+            :geometry (geometry :x "24px" :y "54px" :width "420px" :height "320px" :anchor "top right")
+            :stacking "fg"
+            :exclusive false
+            :focusable false
+            :namespace "eww-color-burn"
+            (calendar-burn-container)
+)
+
+(defwidget calendar-burn-container []
+  (box :class "dummy-burn"
+       :valign "center"
+       :halign "center"
+       :width 400
+       :height 300)
+)
+
+(defwidget calendar-icon []
+  (eventbox :class "calendar-icon"
+            :width 130
+            :onclick "./scripts/toggle_window.sh calendar"
+            (label :text time :xalign 1)
+  )
+)
+
+(defwidget calendar-container []
+	(box  :class "cal" 
+        :orientation "v"
+	  (box  :class "cal-in"
+	        (calendar :class "cal")
+    )
+  )
+)
+
+

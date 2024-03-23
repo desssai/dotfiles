@@ -1,0 +1,57 @@
+(defvar power false)
+(defpoll power-status :initial 100 :interval "1s" `echo 21`)
+
+(defwindow  power
+            :monitor 0
+            :geometry (geometry :x "24px" :y "54px" :width "400px" :height "300px" :anchor "top right")
+            :stacking "fg"
+            :exclusive false
+            :focusable false
+            :namespace "eww-widget"
+            (power-container)
+)
+
+(defwindow  power-color-burn
+            :monitor 0
+            :geometry (geometry :x "24px" :y "54px" :width "420px" :height "320px" :anchor "top right")
+            :stacking "fg"
+            :exclusive false
+            :focusable false
+            :namespace "eww-color-burn"
+            (power-burn-container)
+)
+
+(defwidget power-burn-container []
+  (box :class "dummy-burn"
+       :valign "center"
+       :halign "center"
+       :width 400
+       :height 300)
+)
+
+(defwidget power-icon []
+  (eventbox :class "power-icon icon"
+            :width 50
+            :height 30
+            :onclick "./scripts/toggle_window.sh power"
+            (label :text {power-status >= 95 ? "󰁹" :
+                            power-status >= 90 ? "󰂂" :
+                              power-status >= 80 ? "󰂁" :
+                                power-status >= 70 ? "󰂀" :
+                                  power-status >= 60 ? "󰁿" :
+                                    power-status >= 50 ? "󰁾" :
+                                      power-status >= 40 ? "󰁽" :
+                                        power-status >= 30 ? "󰁼" :
+                                          power-status >= 20 ? "󰁻" :
+                                            power-status >= 10 ? "󰁺" :
+                                              power-status >= 5 ? "󰂎" : "󱉞"}
+                  :yalign {power-status >= 5 ? 0.55 : 0.35 }
+                  :xalign 0.55
+                  :angle 270
+            )
+  )
+)
+
+(defwidget power-container []
+  (box :class "dummy")
+)
