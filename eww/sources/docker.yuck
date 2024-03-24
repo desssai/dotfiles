@@ -10,24 +10,6 @@
             (docker-container)
 )
 
-(defwindow  docker-color-burn
-            :monitor 0
-            :geometry (geometry :x "290px" :y "30px" :width "420px" :height "320px" :anchor "top right")
-            :stacking "fg"
-            :exclusive false
-            :focusable false
-            :namespace "eww-color-burn"
-            (docker-burn-container)
-)
-
-(defwidget docker-burn-container []
-  (box :class "dummy-burn"
-       :valign "center"
-       :halign "center"
-       :width 400
-       :height 300)
-)
-
 (defwidget docker-icon []
   (eventbox :class "docker-icon icon"
             :width 50

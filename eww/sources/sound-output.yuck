@@ -11,24 +11,6 @@
             (sound-output-container)
 )
 
-(defwindow  sound-output-color-burn
-            :monitor 0
-            :geometry (geometry :x "24px" :y "54px" :width "420px" :height "320px" :anchor "top right")
-            :stacking "fg"
-            :exclusive false
-            :focusable false
-            :namespace "eww-color-burn"
-            (sound-output-burn-container)
-)
-
-(defwidget sound-output-burn-container []
-  (box :class "dummy-burn"
-       :valign "center"
-       :halign "center"
-       :width 400
-       :height 300)
-)
-
 (defwidget sound-output-icon []
   (eventbox :class "sound-output-icon icon"
             :width 50

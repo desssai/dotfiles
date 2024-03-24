@@ -11,24 +11,6 @@
             (power-container)
 )
 
-(defwindow  power-color-burn
-            :monitor 0
-            :geometry (geometry :x "24px" :y "54px" :width "420px" :height "320px" :anchor "top right")
-            :stacking "fg"
-            :exclusive false
-            :focusable false
-            :namespace "eww-color-burn"
-            (power-burn-container)
-)
-
-(defwidget power-burn-container []
-  (box :class "dummy-burn"
-       :valign "center"
-       :halign "center"
-       :width 400
-       :height 300)
-)
-
 (defwidget power-icon []
   (eventbox :class "power-icon icon"
             :width 50

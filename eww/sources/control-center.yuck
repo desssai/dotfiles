@@ -11,24 +11,6 @@
             (control-center-container)
 )
 
-(defwindow  control-center-color-burn
-            :monitor 0
-            :geometry (geometry :x "24px" :y "54px" :width "420px" :height "320px" :anchor "top right")
-            :stacking "fg"
-            :exclusive false
-            :focusable false
-            :namespace "eww-color-burn"
-            (control-center-burn-container)
-)
-
-(defwidget control-center-burn-container []
-  (box :class "dummy-burn"
-       :valign "center"
-       :halign "center"
-       :width 400
-       :height 300)
-)
-
 (defwidget control-center-icon []
   (eventbox :class "control-center-icon icon"
             :width 50
