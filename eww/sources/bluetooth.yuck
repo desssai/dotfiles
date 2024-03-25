@@ -1,7 +1,4 @@
 (defvar bluetooth false)
-
-(defpoll bluetooth-devices )
-
 (defvar bluetooth-status "off")
 (defvar bluetooth-button-x-pos 0)
 (defvar bluetooth-button-x-pos-start 0)
