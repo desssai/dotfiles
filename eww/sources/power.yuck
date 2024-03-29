@@ -15,18 +15,20 @@
             :width 50
             :height 30
             :onclick "./scripts/toggle_window.sh power"
-            (label :text {jq(EWW_BATTERY, '.BAT1.capacity') >= 95 ? "󰁹" :
-                            jq(EWW_BATTERY, '.BAT1.capacity') >= 90 ? "󰂂" :
-                              jq(EWW_BATTERY, '.BAT1.capacity') >= 80 ? "󰂁" :
-                                jq(EWW_BATTERY, '.BAT1.capacity') >= 70 ? "󰂀" :
-                                  jq(EWW_BATTERY, '.BAT1.capacity') >= 60 ? "󰁿" :
-                                    jq(EWW_BATTERY, '.BAT1.capacity') >= 50 ? "󰁾" :
-                                      jq(EWW_BATTERY, '.BAT1.capacity') >= 40 ? "󰁽" :
-                                        jq(EWW_BATTERY, '.BAT1.capacity') >= 30 ? "󰁼" :
-                                          jq(EWW_BATTERY, '.BAT1.capacity') >= 20 ? "󰁻" :
-                                            jq(EWW_BATTERY, '.BAT1.capacity') >= 10 ? "󰁺" :
-                                              jq(EWW_BATTERY, '.BAT1.capacity') >= 5 ? "󰂎" : "󱉞"}
-                  :yalign {jq(EWW_BATTERY, '.BAT1.capacity') >= 5 ? 0.55 : 0.35 }
+            (label :text {EWW_BATTERY == "" ? "󰁹" :
+                            EWW_BATTERY && jq(EWW_BATTERY, '.BAT1.capacity') >= 95 ? "󰁹" :
+                              jq(EWW_BATTERY, '.BAT1.capacity') >= 90 ? "󰂂" :
+                                jq(EWW_BATTERY, '.BAT1.capacity') >= 80 ? "󰂁" :
+                                  jq(EWW_BATTERY, '.BAT1.capacity') >= 70 ? "󰂀" :
+                                    jq(EWW_BATTERY, '.BAT1.capacity') >= 60 ? "󰁿" :
+                                      jq(EWW_BATTERY, '.BAT1.capacity') >= 50 ? "󰁾" :
+                                        jq(EWW_BATTERY, '.BAT1.capacity') >= 40 ? "󰁽" :
+                                          jq(EWW_BATTERY, '.BAT1.capacity') >= 30 ? "󰁼" :
+                                            jq(EWW_BATTERY, '.BAT1.capacity') >= 20 ? "󰁻" :
+                                              jq(EWW_BATTERY, '.BAT1.capacity') >= 10 ? "󰁺" :
+                                                jq(EWW_BATTERY, '.BAT1.capacity') >= 5 ? "󰂎" : "󱉞"}
+                  :yalign {EWW_BATTERY == "" ? 0.55 : 
+                            jq(EWW_BATTERY, '.BAT1.capacity') >= 5 ? 0.55 : 0.35 }
                   :xalign 0.55
                   :angle 270
             )
