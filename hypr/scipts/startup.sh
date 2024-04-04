@@ -12,8 +12,3 @@ gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur-Dark'
 gsettings set org.gnome.desktop.interface cursor-theme 'WhiteSur-cursors'
 
 hyprctl setcursor 'WhiteSur-cursors' 24
-
-eww update bluetooth-status=$(bluetoothctl show | grep Powered | awk '{print $2}')
-
-eww open bar
-eww open bg

@@ -22,7 +22,7 @@ local plugin = {
 			-- "dockerls", -- Docker LSP
 			-- "docker-compose-language-service", -- Docker-Compose LSP
 			"marksman", -- Markdown LSP
-			-- "typescript-language-server", -- TS & JS LSP
+			"tsserver", -- TS & JS LSP
 		}
 
 		lspconfig.lua_ls.setup({
