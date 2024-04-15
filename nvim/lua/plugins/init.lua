@@ -22,6 +22,7 @@ local plugins = {
 
 	-- Workflow
 	require("plugins.configs.folke_trouble"),
+	require("plugins.configs.kdheepak_lazygit"),
 	require("plugins.configs.lewis6991_gitsigns"),
 	require("plugins.configs.leoluz_nvim-dap-go"),
 	require("plugins.configs.rcarriga_nvim-dap-ui"),

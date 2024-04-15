@@ -60,7 +60,6 @@ local mappings = {
 			end,
 			"LSP signature help",
 		},
-		-- ["<leader>rn"] = { function() require("nvchad_ui.renamer").open() end, "LSP rename" },
 		["<leader>sa"] = {
 			function()
 				vim.lsp.buf.code_action()
