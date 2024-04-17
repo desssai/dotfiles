@@ -89,11 +89,11 @@ local plugin = {
 					scrollbar = false,
 					scrolloff = 1,
 					border = nil,
-					winhighlight = "Normal:NormalFloat,CursorLine:lualine_a_normal,FloatBorder:FloatBorder",
+					winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder",
 				},
 				documentation = {
 					border = nil,
-					winhighlight = "Normal:FloatBorder",
+					winhighlight = "Normal:Pmenu",
 				},
 			},
 			formatting = {

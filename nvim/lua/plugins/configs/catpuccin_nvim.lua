@@ -5,7 +5,7 @@ local plugin = {
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
-			flavour = "mocha", -- latte, frappe, macchiato, mocha
+			flavour = "macchiato", -- latte, frappe, macchiato, mocha
 			background = { -- :h background
 				light = "latte",
 				dark = "mocha",
@@ -22,22 +22,40 @@ local plugin = {
 			-- no_bold = false,
 			-- no_underline = false,
 			-- styles = { -- (see `:h highlight-args`):
-			-- comments = { "italic" },
-			--     conditionals = { "italic" },
-			--     loops = {},
-			--     functions = {},
-			--     keywords = {},
-			--     strings = {},
-			--     variables = {},
-			--     numbers = {},
-			--     booleans = {},
-			--     properties = {},
-			--     types = {},
-			--     operators = {},
+			-- 	comments = { "italic" },
+			-- 	conditionals = { "italic" },
+			-- 	loops = {},
+			-- 	functions = {},
+			-- 	keywords = {},
+			-- 	strings = {},
+			-- 	variables = {},
+			-- 	numbers = {},
+			-- 	booleans = {},
+			-- 	properties = {},
+			-- 	types = {},
+			-- 	operators = {},
 			-- },
-			-- color_overrides = {},
-			-- custom_highlights = {},
+			-- color_overrides = {}
+			custom_highlights = function(colors)
+				return {
+					LineNr = { fg = colors.peach },
+					Comment = { fg = colors.overlay1 },
+
+					Pmenu = { bg = colors.mantle },
+					PmenuSel = { fg = colors.mantle, bg = colors.blue },
+
+					NoiceCmdlinePopup = { bg = colors.mantle },
+
+					TelescopeNormal = { bg = colors.mantle },
+					TelescopeBorder = { bg = colors.mantle },
+					TelescopeTitle = { bg = colors.mantle },
+					TelescopeSelection = { fg = colors.mantle, bg = colors.blue },
+				}
+			end,
 			integrations = {
+				default_integrations = false,
+				dap = true,
+				dap_ui = true,
 				cmp = true,
 				noice = true,
 				mason = true,

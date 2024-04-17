@@ -7,6 +7,7 @@ local mappings = {
 		["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "Find string" },
 		["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
 		["<leader>f?"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
+		["<leader>fh"] = { "<cmd> Telescope highlights <CR>", "Find highlights" },
 		["<leader>fk"] = { "<cmd> Telescope keymaps <CR>", "Available mappings" },
 		["<leader>fd"] = { "<cmd> Telescope diagnostics <CR>", "Suggested diagnostics" },
 		["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
