@@ -5,6 +5,7 @@ local plugins = {
 	require("plugins.configs.folke_which-key"),
 	require("plugins.configs.famiu_bufdelete"),
 	require("plugins.configs.numtostr_comment"),
+	require("plugins.configs.norcalli_nvim-colorizer"),
 	require("plugins.configs.nvim-treesitter_treesitter"),
 
 	-- Lsp features
