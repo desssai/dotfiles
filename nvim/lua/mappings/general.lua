@@ -36,13 +36,13 @@ local mappings = {
 
 		-- Buffer Management
 		["<C-n>"] = { "<cmd> enew <CR>", "New buffer" },
-		["<C-w>"] = { "<cmd> w <CR>", "Save buffer" },
+		["<C-s>"] = { "<cmd> w <CR>", "Save buffer" },
 		["<C-y>"] = { "<cmd> %y+ <CR>", "Copy whole buffer" },
 		["<tab>"] = { "<cmd> bn <CR>", "Next buffer" },
 		["<S-tab>"] = { "<cmd> bp <CR>", "Previous buffer" },
 
 		-- Window Management
-		["<leader>wq"] = { "<cmd> close <CR>", "Close current window" },
+		["<leader>q"] = { "<cmd> close <CR>", "Close current window" },
 		["<leader>v"] = { "<C-w>v", "Split windows vertically" },
 		["<leader>x"] = { "<C-w>s", "Split windows horizontally" },
 		["<leader>b"] = { "<C-w>=", "Balance open windows" },

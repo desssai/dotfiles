@@ -16,6 +16,8 @@ local plugin = {
 				extra = false,
 			},
 		})
+		local ft = require("Comment.ft")
+		ft.hyprlang = "# %s"
 	end,
 }
 
