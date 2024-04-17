@@ -13,11 +13,11 @@ local plugin = {
 	config = function()
 		require("neo-tree").setup({
 			close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
-			popup_border_style = "rounded",
+			popup_border_style = nil,
 			enable_git_status = true,
 			enable_diagnostics = true,
 			-- enable_normal_mode_for_inputs = false, -- Enable normal mode for input dialogs. -- removed
-			open_files_do_not_replace_types = { "terminal", "trouble", "qf", "mason", "lazy" }, -- when opening files, do not use windows containing these filetypes or buftypes
+			open_files_do_not_replace_types = { "terminal", "trouble", "qf", "mason", "lazy", "telescope" }, -- when opening files, do not use windows containing these filetypes or buftypes
 			sort_case_insensitive = false, -- used when sorting files and directories in the tree
 			sort_function = nil, -- use a custom function for sorting files and directories in the tree
 			-- sort_function = function (a,b)
@@ -80,20 +80,16 @@ local plugin = {
 				},
 				-- If you don't want to use these columns, you can set `enabled = false` for each of them individually
 				file_size = {
-					enabled = true,
-					required_width = 64, -- min width of window required to show this column
+					enabled = false,
 				},
 				type = {
-					enabled = true,
-					required_width = 122, -- min width of window required to show this column
+					enabled = false,
 				},
 				last_modified = {
-					enabled = true,
-					required_width = 88, -- min width of window required to show this column
+					enabled = false,
 				},
 				created = {
-					enabled = true,
-					required_width = 110, -- min width of window required to show this column
+					enabled = false,
 				},
 				symlink_target = {
 					enabled = false,
