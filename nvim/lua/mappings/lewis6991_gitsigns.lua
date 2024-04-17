@@ -37,7 +37,7 @@ local mappings = {
 		["<leader>ghu"] = { gs.undo_stage_hunk, "Git undo current hunk" },
 		["<leader>ghp"] = { gs.preview_hunk, "Git preview current hunk" },
 		["<leader>ghd"] = { gs.toggle_deleted, "Git toggle deleted" },
-		["<leader>gi"] = { gs.toggle_current_line_blame, "Git toggle blame line" },
+		["<leader>gl"] = { gs.toggle_current_line_blame, "Git toggle blame line" },
 		["<leader>gd"] = { gs.diffthis, "Git toggle diff this" },
 		["<leader>gD"] = {
 			function()

@@ -1,7 +1,7 @@
 local ensure_installed = {
 	-- LSP SERVERS
 	"bash-language-server", -- Bash LSP
-	-- "clangd", -- C, C++ LSP
+	"clangd", -- C, C++ LSP
 	-- "cmake-language-server", -- CMake LSP
 	"dockerfile-language-server", -- Docker LSP
 	"docker-compose-language-service", -- Docker-Compose LSP
@@ -11,17 +11,17 @@ local ensure_installed = {
 	"css-lsp", -- CSS LSP
 	"html-lsp", -- HTML LSP
 	"typescript-language-server", -- TS & JS LSP
+	"templ", -- Golang HTML Templates LSP
 
 	-- LINTING
 	"luacheck",
 
 	-- FORMATTING
-	-- "clang-format", -- C, C++ Formatting
+	"clang-format", -- C, C++ Formatting
 	"stylua", -- Lua Formatting
 	"gofumpt", -- Go Formatting
 	"golines", -- Go lines Formatting
 	"goimports", -- Go imports Formatting
-	-- "djlint", -- Go & HTML Templates Formatting
 	"prettier", -- HTML, CSS, JS Formatting
 	"sqlfmt", -- SQL Formatting
 
