@@ -28,11 +28,11 @@ local mappings = {
 		["<C-j>"] = { "<cmd> cnext <CR>", "Next diagnostics buffer" },
 		["<C-k>"] = { "<cmd> cprev <CR>", "Previous diagnostics buffer" },
 
-		-- Switch Between Windows
-		["<leader>h"] = { "<C-w>h", "Window left" },
-		["<leader>l"] = { "<C-w>l", "Window right" },
-		["<leader>j"] = { "<C-w>j", "Window down" },
-		["<leader>k"] = { "<C-w>k", "Window up" },
+		-- Switch Between Windows as Fallback
+		["<M-h>"] = { "<C-w>h", "Window left" },
+		["<M-l>"] = { "<C-w>l", "Window right" },
+		["<M-j>"] = { "<C-w>j", "Window down" },
+		["<M-k>"] = { "<C-w>k", "Window up" },
 
 		-- Toggle Line Numbers
 		["<leader>nn"] = { "<cmd> set nu! <CR>", "Toggle line number" },
@@ -47,8 +47,8 @@ local mappings = {
 
 		-- Window Management
 		["<leader>q"] = { "<cmd> close <CR>", "Close current window" },
-		["<leader>v"] = { "<C-w>v", "Split windows vertically" },
-		["<leader>x"] = { "<C-w>s", "Split windows horizontally" },
+		["<leader>\\"] = { "<C-w>v", "Split windows vertically" },
+		["<leader>-"] = { "<C-w>s", "Split windows horizontally" },
 		["<leader>b"] = { "<C-w>=", "Balance open windows" },
 	},
 

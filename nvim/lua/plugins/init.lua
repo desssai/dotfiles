@@ -7,6 +7,7 @@ local plugins = {
 	require("plugins.configs.numtostr_comment"),
 	require("plugins.configs.norcalli_nvim-colorizer"),
 	require("plugins.configs.nvim-treesitter_treesitter"),
+	require("plugins.configs.christoomey_vim-tmux-navigator"),
 
 	-- Lsp features
 	require("plugins.configs.williamboman_mason"),
