@@ -24,3 +24,4 @@ ags/types
 nvim/lazy-lock.json
 vlc
 lazygit
+tmux/plugins
