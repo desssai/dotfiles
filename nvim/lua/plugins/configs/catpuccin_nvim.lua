@@ -46,10 +46,12 @@ local plugin = {
 
 					NoiceCmdlinePopup = { bg = colors.mantle },
 
-					TelescopeNormal = { bg = colors.mantle },
-					TelescopeBorder = { bg = colors.mantle },
-					TelescopeTitle = { bg = colors.mantle },
-					TelescopeSelection = { fg = colors.mantle, bg = colors.blue },
+					TelescopeNormal = { bg = colors.base },
+					TelescopeBorder = { bg = colors.base },
+					TelescopeTitle = { bg = colors.base },
+					TelescopeSelection = { fg = colors.base, bg = colors.blue },
+
+					NormalFloat = { bg = colors.base },
 				}
 			end,
 			integrations = {
