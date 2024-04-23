@@ -78,24 +78,24 @@ local mappings = {
 			end,
 			"Diagnostic setloclist",
 		},
-		-- ["<leader>wa"] = {
-		-- 	function()
-		-- 		vim.lsp.buf.add_workspace_folder()
-		-- 	end,
-		-- 	"Add workspace folder",
-		-- },
-		-- ["<leader>wr"] = {
-		-- 	function()
-		-- 		vim.lsp.buf.remove_workspace_folder()
-		-- 	end,
-		-- 	"Remove workspace folder",
-		-- },
-		-- ["<leader>wl"] = {
-		-- 	function()
-		-- 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		-- 	end,
-		-- 	"List workspace folders",
-		-- },
+		["<leader>wa"] = {
+			function()
+				vim.lsp.buf.add_workspace_folder()
+			end,
+			"Add workspace folder",
+		},
+		["<leader>wr"] = {
+			function()
+				vim.lsp.buf.remove_workspace_folder()
+			end,
+			"Remove workspace folder",
+		},
+		["<leader>wl"] = {
+			function()
+				print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+			end,
+			"List workspace folders",
+		},
 	},
 }
 

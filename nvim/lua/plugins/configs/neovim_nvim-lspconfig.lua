@@ -19,8 +19,8 @@ local plugin = {
 			"cssls",
 			"clangd",
 			"bashls", -- Bash LSP
-			-- "dockerls", -- Docker LSP
-			-- "docker-compose-language-service", -- Docker-Compose LSP
+			"dockerfile-language-server", -- Docker LSP
+			"docker-compose-language-service", -- Docker-Compose LSP
 			"marksman", -- Markdown LSP
 			"tsserver", -- TS & JS LSP
 		}
