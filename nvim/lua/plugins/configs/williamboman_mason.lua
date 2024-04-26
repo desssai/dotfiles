@@ -12,6 +12,7 @@ local ensure_installed = {
 	"html-lsp", -- HTML LSP
 	"typescript-language-server", -- TS & JS LSP
 	"templ", -- Golang HTML Templates LSP
+	"python-lsp-server", -- Python LSP
 
 	-- LINTING
 	"luacheck",
@@ -24,6 +25,7 @@ local ensure_installed = {
 	"goimports", -- Go imports Formatting
 	"prettier", -- HTML, CSS, JS Formatting
 	"sqlfmt", -- SQL Formatting
+	"black", -- Python Formatting
 
 	-- DEBUGGING
 	"delve", -- Go Debug server

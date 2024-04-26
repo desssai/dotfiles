@@ -14,6 +14,7 @@ local plugin = {
 				null_ls.builtins.formatting.prettier,
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.sqlfmt,
+				null_ls.builtins.formatting.black,
 			},
 			on_attach = function(client, bufnr)
 				if client.supports_method("textDocument/formatting") then
