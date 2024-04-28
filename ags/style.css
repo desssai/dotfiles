@@ -5,18 +5,17 @@
 .workspace {
   border-radius: 8px;
   box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.28);
+  transition: background-color 0.4s ease-in-out;
 }
 
 .workspace-active {
-  background-color: rgba(255, 255, 255, 0.85);
-  border-radius: 8px;
-  box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 0.75);
+  animation: expandWorkspace 0.3s ease-in-out forwards;
 }
 
 .workspace-inactive {
-  background-color: rgba(0, 0, 0, 0.28);
-  border-radius: 8px;
-  box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.25);
+  animation: shrinkWorkspace 0.3s ease-in-out forwards;
 }
 
 .ags-bar {
@@ -32,4 +31,76 @@
 
 .ags-background {
   background-image: url("/home/ncarob/.config/eww/wallpapers/Wallpaper.png");
+}
+
+@keyframes shrinkWorkspace {
+  from {
+    min-width: 32px;
+  }
+  to {
+    min-width: 16px;
+  }
+}
+
+@keyframes expandWorkspace {
+  from {
+    min-width: 16px;
+  }
+  to {
+    min-width: 32px;
+  }
+}
+
+window.notification-popups box.notifications {
+  padding: 0.5em;
+}
+.icon {
+  min-width: 68px;
+  min-height: 68px;
+  margin-right: 1em;
+}
+
+.icon image {
+  font-size: 58px;
+  /* to center the icon */
+  margin: 5px;
+}
+
+.icon box {
+  min-width: 68px;
+  min-height: 68px;
+  border-radius: 7px;
+}
+
+.notification {
+  min-width: 350px;
+  border-radius: 11px;
+  padding: 1em;
+  margin: 0.5em;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.notification.critical {
+  border: 1px solid lightcoral;
+}
+
+.title {
+  font-size: 1.4em;
+}
+
+.body {
+  background: rgba(0, 0, 0, 1);
+}
+
+.actions .action-button {
+  margin: 0 0.4em;
+  margin-top: 0.8em;
+}
+
+.actions .action-button:first-child {
+  margin-left: 0;
+}
+
+.actions .action-button:last-child {
+  margin-right: 0;
 }

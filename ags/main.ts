@@ -1,107 +1,43 @@
-import { forMonitors } from "utils";
+import { forMonitors, setBars, setBackrounds } from "./sources/utils.ts";
+import { Bar } from "./sources/bar/bar.ts";
+import { applauncher } from "sources/menu/applications.ts";
+import { NotificationPopups } from "sources/notifications/popups.ts";
 
-const hyprland = await Service.import("hyprland");
-const notifications = await Service.import("notifications");
-// const mpris = await Service.import("mpris")
-const audio = await Service.import("audio");
-const battery = await Service.import("battery");
-const systemtray = await Service.import("systemtray");
+function Backgrounds(monitor: Monitor) {
+  return Widget.Window({
+    name: `ags-bg-${monitor.id}`,
+    class_name: "ags-background",
+    anchor: ["bottom"],
+    monitor,
+    layer: "background",
+    child: Widget.Box({
+      css: `min-height: ${monitor.height}px; min-width: ${monitor.width}px;`,
+    }),
+  });
+}
 
-const date = Variable("", {
-  poll: [1000, `date '+%a %b %e  %H:%M'`],
+function Bars(monitor: Monitor) {
+  return Widget.Window({
+    name: `ags-bar-${monitor.id}`,
+    class_name: "ags-bar",
+    monitor,
+    anchor: ["top", "left", "right"],
+    exclusivity: "exclusive",
+    child: Bar(),
+  });
+}
+
+App.config({
+  style: "./style.css",
+  windows: [
+    ...forMonitors(Bars),
+    ...forMonitors(Backgrounds),
+    ...forMonitors(NotificationPopups),
+    applauncher,
+  ],
 });
 
-function Workspaces() {
-  const activeId = hyprland.active.workspace.bind("id");
-  const workspaces = hyprland.bind("workspaces");
-
-  workspaces.as((ws) =>
-    ws.map(({ id }) =>
-      Widget.Button({
-        hpack: "center",
-        vpack: "center",
-
-        css: activeId.as(
-          (i) =>
-            `${i === id ? "min-width: 32px; min-height: 16px;" : "min-width: 16px; min-height: 16px;"}`,
-        ),
-
-        on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
-        class_name: activeId.as(
-          (i) => `${i === id ? "workspace-active" : "workspace-inactive"}`,
-        ),
-      }),
-    ),
-  );
-  // const workspaces = hyprland.bind("workspaces").as((ws) =>
-  //   ws.map(({ id }) =>
-  //     Widget.Box({
-  //       hpack: "center",
-  //       vpack: "center",
-  //       css: "min-width: 40px; min-height: 40px;",
-  //       homogeneous: false,
-  //       child: Widget.Button({
-  //         hpack: "center",
-  //         vpack: "center",
-
-  //         css: activeId.as(
-  //           (i) =>
-  //             `${i === id ? "min-width: 32px; min-height: 16px;" : "min-width: 16px; min-height: 16px;"}`,
-  //         ),
-
-  //         on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
-  //         class_name: activeId.as(
-  //           (i) => `${i === id ? "workspace-active" : "workspace-inactive"}`,
-  //         ),
-  //       }),
-  //     }),
-  //   ),
-  // );
-
-  return Widget.Box({
-    class_name: "workspaces",
-    children: workspaces,
-  });
-}
-
-function ClientTitle() {
-  return Widget.Label({
-    class_name: "client-title",
-    label: hyprland.active.client.bind("title"),
-  });
-}
-
-function SystemSettings() {
-  return Widget.Label({
-    class_name: "system-settings",
-    label: "󰣇",
-  });
-}
-
-function Clock() {
-  return Widget.Label({
-    class_name: "clock",
-    label: date.bind(),
-  });
-}
-
-// we don't need dunst or any other notification daemon
-// because the Notifications module is a notification daemon itself
-function Notification() {
-  const popups = notifications.bind("popups");
-  return Widget.Box({
-    class_name: "notification",
-    visible: popups.as((p) => p.length > 0),
-    children: [
-      Widget.Icon({
-        icon: "preferences-system-notifications-symbolic",
-      }),
-      Widget.Label({
-        label: popups.as((p) => p[0]?.summary || ""),
-      }),
-    ],
-  });
-}
+// const mpris = await Service.import("mpris")
 
 // function Media() {
 //   const label = Utils.watch("", mpris, "player-changed", () => {
@@ -121,142 +57,3 @@ function Notification() {
 //     child: Widget.Label({ label }),
 //   });
 // }
-
-function Volume() {
-  const icons = {
-    101: "overamplified",
-    67: "high",
-    34: "medium",
-    1: "low",
-    0: "muted",
-  };
-
-  function getIcon() {
-    const icon = audio.speaker.is_muted
-      ? 0
-      : [101, 67, 34, 1, 0].find(
-          (threshold) => threshold <= audio.speaker.volume * 100,
-        );
-
-    return `audio-volume-${icons[icon]}-symbolic`;
-  }
-
-  const icon = Widget.Icon({
-    icon: Utils.watch(getIcon(), audio.speaker, getIcon),
-  });
-
-  const slider = Widget.Slider({
-    hexpand: true,
-    draw_value: false,
-    on_change: ({ value }) => (audio.speaker.volume = value),
-    setup: (self) =>
-      self.hook(audio.speaker, () => {
-        self.value = audio.speaker.volume || 0;
-      }),
-  });
-
-  return Widget.Box({
-    class_name: "volume",
-    css: "min-width: 180px",
-    children: [icon, slider],
-  });
-}
-
-function Battery() {
-  const value = battery.bind("percent").as((p) => (p > 0 ? p / 100 : 0));
-
-  return Widget.Box({
-    class_name: "battery",
-    visible: battery.bind("available"),
-    children: [
-      Widget.LevelBar({
-        widthRequest: 140,
-        vpack: "center",
-        value,
-      }),
-    ],
-  });
-}
-
-function SysTray() {
-  const items = systemtray.bind("items").as((items) =>
-    items.map((item) =>
-      Widget.Button({
-        child: Widget.Icon({ icon: item.bind("icon") }),
-        on_primary_click: (_, event) => item.activate(event),
-        on_secondary_click: (_, event) => item.openMenu(event),
-        tooltip_markup: item.bind("tooltip_markup"),
-      }),
-    ),
-  );
-
-  return Widget.Box({
-    children: items,
-  });
-}
-
-// layout of the bar
-function Left() {
-  return Widget.Box({
-    hpack: "start",
-    spacing: 8,
-    margin_left: 16,
-    children: [SystemSettings(), ClientTitle()],
-  });
-}
-
-function Center() {
-  return Widget.Box({
-    hpack: "center",
-    spacing: 8,
-    children: [Workspaces() /* Notification() */],
-  });
-}
-
-function Right() {
-  return Widget.Box({
-    hpack: "end",
-    spacing: 8,
-    margin_right: 16,
-    children: [SysTray(), Volume(), Battery(), Clock()],
-  });
-}
-
-function setBackgrounds(monitor: any) {
-  return Widget.Window({
-    name: `ags-bg-${monitor.id}`,
-    class_name: "ags-background",
-    anchor: ["bottom"],
-    monitor,
-    layer: "background",
-    child: Widget.Box({
-      css: `min-height: ${monitor.height}px; min-width: ${monitor.width}px;`,
-    }),
-  });
-}
-
-function setBars(monitor: any) {
-  return Widget.Window({
-    name: `ags-bar-${monitor.id}`,
-    class_name: "ags-bar",
-    monitor,
-    anchor: ["top", "left", "right"],
-    exclusivity: "exclusive",
-    child: Widget.CenterBox({
-      css: "min-height: 30px;",
-      start_widget: Left(),
-      center_widget: Center(),
-      end_widget: Right(),
-    }),
-  });
-}
-
-function forMonitors(window: (monitor: any) => any) {
-  const monitors = hyprland.monitors.map(window).flat(1);
-  return monitors;
-}
-
-App.config({
-  style: "./style.css",
-  windows: [...forMonitors(setBars), ...forMonitors(setBackgrounds)],
-});
