@@ -1,16 +1,17 @@
 import { forMonitors, setBars, setBackrounds } from "./sources/utils.ts";
 import { Bar } from "./sources/bar/bar.ts";
 import { applauncher } from "sources/menu/applications.ts";
+import { OutputVolumeControls } from "sources/bar/sound.js";
 import { NotificationPopups } from "sources/notifications/popups.ts";
 
 function Backgrounds(monitor: Monitor) {
   return Widget.Window({
     name: `ags-bg-${monitor.id}`,
-    class_name: "ags-background",
     anchor: ["bottom"],
     monitor,
     layer: "background",
     child: Widget.Box({
+      class_name: "ags-background",
       css: `min-height: ${monitor.height}px; min-width: ${monitor.width}px;`,
     }),
   });
@@ -19,7 +20,6 @@ function Backgrounds(monitor: Monitor) {
 function Bars(monitor: Monitor) {
   return Widget.Window({
     name: `ags-bar-${monitor.id}`,
-    class_name: "ags-bar",
     monitor,
     anchor: ["top", "left", "right"],
     exclusivity: "exclusive",
@@ -33,6 +33,8 @@ App.config({
     ...forMonitors(Bars),
     ...forMonitors(Backgrounds),
     ...forMonitors(NotificationPopups),
+    OutputVolumeControls(600, 400),
+
     applauncher,
   ],
 });

@@ -54,6 +54,7 @@
 window.notification-popups box.notifications {
   padding: 0.5em;
 }
+
 .icon {
   min-width: 68px;
   min-height: 68px;
@@ -64,6 +65,7 @@ window.notification-popups box.notifications {
   font-size: 58px;
   /* to center the icon */
   margin: 5px;
+  color: @theme_fg_color;
 }
 
 .icon box {
@@ -77,6 +79,7 @@ window.notification-popups box.notifications {
   border-radius: 11px;
   padding: 1em;
   margin: 0.5em;
+  border: 1px solid @wm_borders_edge;
   background: rgba(0, 0, 0, 0.18);
 }
 
@@ -85,11 +88,12 @@ window.notification-popups box.notifications {
 }
 
 .title {
+  color: @theme_fg_color;
   font-size: 1.4em;
 }
 
 .body {
-  background: rgba(0, 0, 0, 1);
+  color: @theme_unfocused_fg_color;
 }
 
 .actions .action-button {
@@ -103,4 +107,19 @@ window.notification-popups box.notifications {
 
 .actions .action-button:last-child {
   margin-right: 0;
+}
+
+.input-volume-button:hover,
+.output-volume-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+}
+
+.output-volume-controls-container {
+  background: rgba(40, 40, 40, 0.56);
+  border-radius: 8px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.2);
+  border-width: 1px;
+  padding: 4px;
 }

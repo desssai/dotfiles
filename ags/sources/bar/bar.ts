@@ -1,6 +1,6 @@
 import { Workspaces, ClientClass } from "./hyprland.ts";
 import { SystemSettingsLogo } from "./system_settings.ts";
-import { Volume } from "./sound.ts";
+import { InputVolume, OutputVolume } from "./sound.ts";
 import { Battery } from "./power.ts";
 import { Clock } from "./calendar.ts";
 
@@ -24,14 +24,23 @@ function Center() {
 function Right() {
   return Widget.Box({
     hpack: "end",
-    spacing: 16,
     margin_right: 16,
-    children: [Volume(), Battery(), Clock()],
+    children: [
+      // SysTray(),
+      InputVolume(),
+      OutputVolume(),
+      // Bluetooth(),
+      Battery(),
+      // WiFi(),
+      // ControlCentre(),
+      Clock(),
+    ],
   });
 }
 
 export function Bar() {
   return Widget.CenterBox({
+    class_name: "ags-bar",
     css: "min-height: 30px;",
     start_widget: Left(),
     center_widget: Center(),
