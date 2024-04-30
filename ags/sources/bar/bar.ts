@@ -1,6 +1,7 @@
 import { Workspaces, ClientClass } from "./hyprland.ts";
 import { SystemSettingsLogo } from "./system_settings.ts";
-import { InputVolume, OutputVolume } from "./sound.ts";
+import { InputVolume } from "./InputVolume.ts";
+import { OutputVolume } from "./OutputVolume.ts";
 import { Battery } from "./power.ts";
 import { Clock } from "./calendar.ts";
 

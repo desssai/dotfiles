@@ -1,7 +1,8 @@
 import { forMonitors, setBars, setBackrounds } from "./sources/utils.ts";
 import { Bar } from "./sources/bar/bar.ts";
 import { applauncher } from "sources/menu/applications.ts";
-import { OutputVolumeControls } from "sources/bar/sound.js";
+import { OutputVolumeControls } from "sources/bar/OutputVolume.ts";
+import { InputVolumeControls } from "sources/bar/InputVolume.ts";
 import { NotificationPopups } from "sources/notifications/popups.ts";
 
 function Backgrounds(monitor: Monitor) {
@@ -34,6 +35,7 @@ App.config({
     ...forMonitors(Backgrounds),
     ...forMonitors(NotificationPopups),
     OutputVolumeControls(600, 400),
+    InputVolumeControls(600, 400),
 
     applauncher,
   ],

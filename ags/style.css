@@ -115,11 +115,41 @@ window.notification-popups box.notifications {
   border-radius: 6px;
 }
 
-.output-volume-controls-container {
+.volume-controls-container {
   background: rgba(40, 40, 40, 0.56);
   border-radius: 8px;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.2);
   border-width: 1px;
-  padding: 4px;
+  padding: 12px;
+}
+
+.volume-controls-slider {
+  /* margin: 8px 32px; */
+}
+
+.volume-controls-slider trough {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+.volume-controls-slider highlight {
+  min-height: 20px;
+  min-width: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.volume-controls-separator {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.clock {
+  padding: 0px 12px;
+  /* font-family: SF Pro; */
+  /* font-size: 15px; */
+  /* font-weight: 590; */
+  /* line-height: 20px; */
+  /* text-align: left; */
 }
