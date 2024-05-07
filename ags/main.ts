@@ -1,9 +1,9 @@
-import { forMonitors, setBars, setBackrounds } from "./sources/utils.ts";
-import { Bar } from "./sources/bar/bar.ts";
-import { applauncher } from "sources/menu/applications.ts";
-import { OutputVolumeControls } from "sources/bar/OutputVolume.ts";
-import { InputVolumeControls } from "sources/bar/InputVolume.ts";
-import { NotificationPopups } from "sources/notifications/popups.ts";
+import { forMonitors } from "./sources/utils.ts";
+import { Bar } from "./sources/Bar/Bar.ts";
+import { applauncher } from "sources/Menu/applications.ts";
+import { OutputVolumeControls } from "sources/Bar/OutputVolume.ts";
+import { InputVolumeControls } from "sources/Bar/InputVolume.ts";
+import { NotificationPopups } from "sources/Notifications/Popups.ts";
 
 function Backgrounds(monitor: Monitor) {
   return Widget.Window({
@@ -30,6 +30,7 @@ function Bars(monitor: Monitor) {
 
 App.config({
   style: "./style.css",
+  iconTheme: "/usr/share/icons/WhiteSur",
   windows: [
     ...forMonitors(Bars),
     ...forMonitors(Backgrounds),

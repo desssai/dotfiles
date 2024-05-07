@@ -109,6 +109,7 @@ window.notification-popups box.notifications {
   margin-right: 0;
 }
 
+.battery-button:hover,
 .input-volume-button:hover,
 .output-volume-button:hover {
   background-color: rgba(255, 255, 255, 0.2);
@@ -126,6 +127,10 @@ window.notification-popups box.notifications {
 
 .volume-controls-slider {
   /* margin: 8px 32px; */
+}
+
+.battery {
+  background: black;
 }
 
 .volume-controls-slider trough {
