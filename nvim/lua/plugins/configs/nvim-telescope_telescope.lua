@@ -3,6 +3,8 @@ local plugin = {
 	dependencies = {
 		{ "nvim-treesitter/nvim-treesitter" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{ "nvim-lua/popup.nvim" },
+		{ "nvim-telescope/telescope-media-files.nvim" },
 	},
 	cmd = "Telescope",
 	init = function()
@@ -64,8 +66,17 @@ local plugin = {
 					},
 				},
 			},
-			extensions_list = { "noice" },
+			extensions = {
+				media_files = {
+					-- filetypes whitelist defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+					filetypes = { "svg" },
+					-- find command (defaults to `fd`)
+					find_cmd = "rg",
+				},
+			},
+			extensions_list = { "noice", "media_files" },
 		})
+		require("telescope").load_extension("media_files")
 	end,
 }
 

@@ -13,6 +13,7 @@ local ensure_installed = {
 	"typescript-language-server", -- TS & JS LSP
 	"templ", -- Golang HTML Templates LSP
 	"python-lsp-server", -- Python LSP
+	"sqlls", -- SQL LSP
 
 	-- LINTING
 	"luacheck",

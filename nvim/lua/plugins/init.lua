@@ -14,6 +14,7 @@ local plugins = {
 	require("plugins.configs.neovim_nvim-lspconfig"),
 	require("plugins.configs.hrsh7th_nvim-cmp"),
 	require("plugins.configs.nvimtools_none-ls"),
+	require("plugins.configs.jidn_vim-dbml"),
 
 	-- UI elements
 	require("plugins.configs.folke_zen-mode"),
