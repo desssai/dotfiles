@@ -13,9 +13,10 @@ local plugin = {
 				"query", -- Mandatory TS package
 				"bash",
 				"regex",
-				"css",
 				"csv",
+				"css",
 				"html",
+				"templ",
 				"javascript",
 				"python",
 				"cmake",
