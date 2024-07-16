@@ -24,6 +24,7 @@ local plugin = {
 			"marksman", -- Markdown LSP
 			"tsserver", -- TS & JS LSP
 			"pylsp", -- Python LSP
+			"templ", -- Templ LSP
 			"sqlls", -- SQL LSP
 		}
 
