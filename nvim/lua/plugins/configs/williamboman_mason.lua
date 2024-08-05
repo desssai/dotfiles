@@ -9,11 +9,11 @@ local ensure_installed = {
 	"lua-language-server", -- Lua LSP
 	"marksman", -- Markdown LSP
 	"css-lsp", -- CSS LSP
-	"html-lsp", -- HTML LSP
 	"typescript-language-server", -- TS & JS LSP
 	"templ", -- Golang HTML Templates LSP
 	"python-lsp-server", -- Python LSP
 	"sqlls", -- SQL LSP
+	"tailwindcss-language-server", -- Tailwindcss LSP
 
 	-- LINTING
 	"luacheck",
