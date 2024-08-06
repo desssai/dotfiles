@@ -6,7 +6,7 @@ local plugin = {
 		local lsp_defaults = lspconfig.util.default_config
 
 		lsp_defaults.capabilities = require("cmp_nvim_lsp").default_capabilities()
-		-- lsp_defaults.capabilities.textDocument.completion.completionItem.snippetSupport = true
+		lsp_defaults.capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 		local on_attach = function(client, bufnr)
 			client.server_capabilities.documentFormattingProvider = false
@@ -16,7 +16,6 @@ local plugin = {
 		end
 
 		local servers = {
-			"cssls", -- CSS LSP
 			"clangd", -- C,C++ LSP
 			"bashls", -- Bash LSP
 			"dockerls", -- Docker LSP
@@ -67,6 +66,19 @@ local plugin = {
 					usePlaceholders = true,
 					analyses = {
 						unusedparams = true,
+					},
+				},
+			},
+		})
+
+		lspconfig["tailwindcss"].setup({
+			on_attach = on_attach,
+			capabilities = lsp_defaults.capabilities,
+			filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+			settings = {
+				tailwindCSS = {
+					includeLanguages = {
+						templ = "html",
 					},
 				},
 			},
