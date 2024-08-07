@@ -8,6 +8,28 @@ local plugin = {
 		lsp_defaults.capabilities = require("cmp_nvim_lsp").default_capabilities()
 		lsp_defaults.capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+		local templ_attach = function(client, bufnr)
+			-- 	local templ_format = function()
+			-- 		local filename = vim.api.nvim_buf_get_name(bufnr)
+			-- 		local cmd = "templ fmt " .. vim.fn.shellescape(filename)
+
+			-- 		vim.fn.jobstart(cmd, {
+			-- 			on_exit = function()
+			-- 				-- Reload the buffer only if it's still the current buffer
+			-- 				if vim.api.nvim_get_current_buf() == bufnr then
+			-- 					vim.cmd("e!")
+			-- 				end
+			-- 			end,
+			-- 		})
+			-- 	end
+			-- 	vim.api.nvim_create_autocmd({ "BufWritePost" }, { pattern = { "*.templ" }, callback = templ_format })
+
+			client.server_capabilities.documentFormattingProvider = false
+			client.server_capabilities.documentRangeFormattingProvider = false
+
+			require("core.mappings").set("mappings.neovim_nvim-lspconfig", bufnr)
+		end
+
 		local on_attach = function(client, bufnr)
 			client.server_capabilities.documentFormattingProvider = false
 			client.server_capabilities.documentRangeFormattingProvider = false
@@ -23,9 +45,7 @@ local plugin = {
 			"marksman", -- Markdown LSP
 			"tsserver", -- TS & JS LSP
 			"pylsp", -- Python LSP
-			"templ", -- Templ LSP
 			"sqlls", -- SQL LSP
-			"tailwindcss", -- Tailwindcss LSP
 		}
 
 		lspconfig.lua_ls.setup({
@@ -82,6 +102,11 @@ local plugin = {
 					},
 				},
 			},
+		})
+
+		lspconfig["templ"].setup({
+			on_attach = templ_attach,
+			capabilities = lsp_defaults.capabilities,
 		})
 	end,
 }
