@@ -18,6 +18,7 @@ local plugin = {
 		})
 		local ft = require("Comment.ft")
 		ft.hyprlang = "# %s"
+		ft.templ = "// %s"
 	end,
 }
 

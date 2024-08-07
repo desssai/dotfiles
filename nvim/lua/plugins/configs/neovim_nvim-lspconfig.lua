@@ -8,26 +8,43 @@ local plugin = {
 		lsp_defaults.capabilities = require("cmp_nvim_lsp").default_capabilities()
 		lsp_defaults.capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-		local templ_attach = function(client, bufnr)
-			-- 	local templ_format = function()
-			-- 		local filename = vim.api.nvim_buf_get_name(bufnr)
-			-- 		local cmd = "templ fmt " .. vim.fn.shellescape(filename)
+		local augroup = vim.api.nvim_create_augroup("LspFormatting", {
+			clear = false,
+		})
 
-			-- 		vim.fn.jobstart(cmd, {
-			-- 			on_exit = function()
-			-- 				-- Reload the buffer only if it's still the current buffer
-			-- 				if vim.api.nvim_get_current_buf() == bufnr then
-			-- 					vim.cmd("e!")
-			-- 				end
-			-- 			end,
-			-- 		})
-			-- 	end
-			-- 	vim.api.nvim_create_autocmd({ "BufWritePost" }, { pattern = { "*.templ" }, callback = templ_format })
+		local templ_attach = function(client, bufnr)
+			vim.api.nvim_clear_autocmds({
+				group = augroup,
+				buffer = bufnr,
+			})
 
 			client.server_capabilities.documentFormattingProvider = false
 			client.server_capabilities.documentRangeFormattingProvider = false
 
 			require("core.mappings").set("mappings.neovim_nvim-lspconfig", bufnr)
+
+			local templ_format = function()
+				local filename = vim.api.nvim_buf_get_name(bufnr)
+				local cmd = "templ fmt " .. vim.fn.shellescape(filename)
+
+				vim.fn.jobstart(cmd, {
+					on_exit = function()
+						-- Reload the buffer only if it's still the current buffer
+						if vim.api.nvim_get_current_buf() == bufnr then
+							vim.cmd("e!")
+						end
+					end,
+				})
+			end
+
+			vim.api.nvim_create_autocmd("BufWritePost", {
+				group = augroup,
+				buffer = bufnr,
+				callback = templ_format,
+				-- callback = function()
+				-- 	vim.lsp.buf.format({ bufnr = bufnr })
+				-- end,
+			})
 		end
 
 		local on_attach = function(client, bufnr)
