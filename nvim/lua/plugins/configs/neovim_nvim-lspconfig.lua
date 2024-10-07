@@ -60,7 +60,7 @@ local plugin = {
 			"dockerls", -- Docker LSP
 			"docker_compose_language_service", -- Docker-Compose LSP
 			"marksman", -- Markdown LSP
-			"tsserver", -- TS & JS LSP
+			"ts_ls", -- TS & JS LSP
 			"pylsp", -- Python LSP
 			"sqlls", -- SQL LSP
 		}
