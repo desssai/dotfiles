@@ -28,8 +28,8 @@ local plugin = {
 				"markdown",
 				"markdown_inline",
 				"sql",
-				"yuck",
 				"hyprlang",
+				"tsx",
 			},
 
 			highlight = {
