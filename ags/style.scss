@@ -10,10 +10,10 @@ $accent: #f0ebd8;
 $text: #f9f9f9;
 
 @use "./widget/menu/Menu.scss";
-/* @use "./widget/bar/Bar.scss"; */
+@use "./widget/bar/Bar.scss";
 
-/* image { */
-/*   -gtk-icon-size: 20px; */
-/*   -gtk-icon-style: symbolic; */
-/*   color: $text; */
-/* } */
+image {
+  -gtk-icon-size: 20px;
+  -gtk-icon-style: symbolic;
+  color: $text;
+}

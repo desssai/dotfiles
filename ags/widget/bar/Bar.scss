@@ -5,12 +5,27 @@ $secondary: #3e5c76;
 $accent: #f0ebd8;
 $text: #f9f9f9;
 
-* {
-  all: unset;
+/* * { */
+/*   all: unset; */
+/* } */
+
+window#overlay {
+  background: transparent;
+  button {
+    all: unset;
+    background-color: transparent;
+    background-size: cover;
+  }
+  /* button { */
+  /*   background: transparent; */
+  /*   min-width: 0; */
+  /*   min-height: 0; */
+  /* } */
+  /* background-color: rgba(0, 0, 0, 0.01); */
 }
 
-window.Bar {
-  /* background: $background; */
+window#bar {
+  background: $background;
   /* background: transparent; */
   color: $text;
   font-size: 1rem;

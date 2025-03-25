@@ -122,14 +122,15 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 
   return (
     <window
-      visible
-      name={`bar-${gdkmonitor}`}
+      name={"bar"}
       cssClasses={["Bar"]}
       gdkmonitor={gdkmonitor}
-      exclusivity={Astal.Exclusivity.EXCLUSIVE}
+      layer={Astal.Layer.TOP}
+      exclusivity={Astal.Exclusivity.NORMAL}
       anchor={TOP | LEFT | RIGHT}
       application={App}
       defaultHeight={8}
+      onHoverLeave={() => App.toggle_window("bar")}
     >
       <centerbox cssName="bar">
         <StartWidget />
