@@ -13,6 +13,7 @@ export default function BarOverlay(gdkmonitor: Gdk.Monitor) {
       layer={Astal.Layer.OVERLAY}
       anchor={TOP | LEFT | RIGHT}
       application={App}
+      heightRequest={10}
       defaultHeight={10}
       onHoverEnter={() => App.toggle_window("bar")}
     ></window>

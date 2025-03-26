@@ -1,4 +1,4 @@
-import { App, Astal, Gtk, Gdk, hook } from "astal/gtk4";
+import { App, Astal, Gtk, Gdk, Utils, hook } from "astal/gtk4";
 import { bind, GLib, Variable } from "astal";
 import Hyprland from "gi://AstalHyprland";
 import WirePlumber from "gi://AstalWp";
@@ -122,6 +122,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 
   return (
     <window
+      // visible
       name={"bar"}
       cssClasses={["Bar"]}
       gdkmonitor={gdkmonitor}
