@@ -1,0 +1,12 @@
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+
+@use "scheme";
+@use "bar";
+@use "menu";
+@use "background";
+
+image {
+  /* -gtk-icon-size: 20px; */
+  /* -gtk-icon-style: symbolic; */
+  color: scheme.$text_color;
+}

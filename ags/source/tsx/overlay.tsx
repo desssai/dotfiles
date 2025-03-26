@@ -1,4 +1,4 @@
-import { App, Astal, Gtk, Gdk, hook } from "astal/gtk4";
+import { App, Astal, Gtk, Gdk, hook } from "astal/gtk3";
 
 export default function BarOverlay(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
@@ -7,8 +7,8 @@ export default function BarOverlay(gdkmonitor: Gdk.Monitor) {
     <window
       visible
       name={`overlay`}
-      gdkmonitor={gdkmonitor}
       namespace={"hello"}
+      gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.IGNORE}
       layer={Astal.Layer.OVERLAY}
       anchor={TOP | LEFT | RIGHT}

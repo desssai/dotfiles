@@ -1,0 +1,10 @@
+@use "scheme";
+
+window#bar {
+  centerbox {
+    background: transparent;
+    box {
+      background: scheme.$fg_color;
+    }
+  }
+}

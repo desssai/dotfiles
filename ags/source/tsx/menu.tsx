@@ -1,6 +1,6 @@
-import Apps from "gi://AstalApps";
 import { App, Astal, Gdk, Gtk } from "astal/gtk4";
 import { Variable } from "astal";
+import Apps from "gi://AstalApps";
 
 const MAX_ITEMS = 128;
 

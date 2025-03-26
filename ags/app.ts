@@ -1,14 +1,15 @@
 import { App } from "astal/gtk4";
-import style from "./style.scss";
-import Bar from "./widget/bar/Bar";
-import Overlay from "./widget/bar/Overlay";
-import Menu from "./widget/menu/Menu";
+import style from "./source/scss/style.scss";
+import bar from "./source/tsx/bar";
+// import overlay from "./source/tsx/overlay";
+import menu from "./source/tsx/menu";
+import background from "./source/tsx/background";
 
 App.start({
   css: style,
   main() {
-    App.get_monitors().map(Bar);
-    App.get_monitors().map(Overlay);
-    App.get_monitors().map(Menu);
+    App.get_monitors().map(background);
+    App.get_monitors().map(bar);
+    App.get_monitors().map(menu);
   },
 });
