@@ -1,32 +1,19 @@
 @use "../../scheme";
 
-/* * { */
-/*   all: unset; */
-/* } */
-
-window#overlay {
-  background: transparent;
-  min-height: 10px;
-  background-color: rgba(0, 0, 0, 1);
-}
-
-window#background {
-  background: black;
+* {
+  all: unset;
 }
 
 window#bar {
-  background: $bg_color;
+  /* background: $bg_color; */
   /* background: transparent; */
   color: $text;
   font-size: 1rem;
   font-weight: bold;
-  min-height: 40px;
 
-  input-sound,
-  output-sound {
-    &:hover {
-      min-width: 100px;
-      background: $accent;
+  centerbox {
+    box {
+      background: white;
     }
   }
 
@@ -41,83 +28,3 @@ window#bar {
   /*   } */
   /* } */
 
-  bar {
-    margin: 0px 12px;
-
-    workspaces {
-      margin: 4px 6px;
-      background: $fg_color;
-      border-radius: 20px;
-
-      workspace {
-        margin: 0px 6px;
-        min-width: 20px;
-        min-height: 20px;
-
-        button {
-          background: $fg_color;
-          border-radius: 12px;
-          animation: shrinkWorkspace 0.3s ease-in-out forwards;
-          transition: background-color 0.4s ease-in-out;
-
-          &.active {
-            background: $primary;
-          }
-
-          &.focused {
-            background: $accent;
-            animation: expandWorkspace 0.3s ease-in-out forwards;
-
-            dot {
-              animation: expandDot 0.3s ease-in-out forwards;
-            }
-          }
-
-          dot {
-            min-width: 8px;
-            min-height: 8px;
-            border-radius: 4px;
-            background: $bg_color;
-            animation: shrinkDot 0.3s ease-in-out forwards;
-          }
-        }
-      }
-    }
-
-    @keyframes shrinkWorkspace {
-      from {
-        min-width: 32px;
-      }
-      to {
-        min-width: 20px;
-      }
-    }
-
-    @keyframes expandWorkspace {
-      from {
-        min-width: 20px;
-      }
-      to {
-        min-width: 32px;
-      }
-    }
-
-    @keyframes shrinkDot {
-      from {
-        min-width: 16px;
-      }
-      to {
-        min-width: 8px;
-      }
-    }
-
-    @keyframes expandDot {
-      from {
-        min-width: 8px;
-      }
-      to {
-        min-width: 16px;
-      }
-    }
-  }
-}

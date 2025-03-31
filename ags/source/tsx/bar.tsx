@@ -7,12 +7,18 @@ export default function bar(monitor: Gdk.Monitor): Astal.Window {
     <window
       visible
       name={"bar"}
+      application={App}
       layer={Astal.Layer.TOP}
       anchor={LEFT | TOP | RIGHT}
       gdkmonitor={monitor}
     >
-      <centerbox halign={Gtk.Align.CENTER}>
-        <box widthRequest={1000} heightRequest={8} hexpand={false} />
+      <centerbox halign={Gtk.Align.CENTER} valign={Gtk.Align.START}>
+        <box />
+        <box hexpand={false}>
+          <box name="settings" vexpand hexpand></box>
+          <box name="multimedia" vexpand hexpand></box>
+        </box>
+        <box />
       </centerbox>
     </window>
   );

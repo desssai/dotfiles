@@ -19,3 +19,7 @@ $insensitive_fg_color: #{"@insensitive_fg_color"};
 $warning_color: #{"@warning_color"};
 $error_color: #{"@error_color"};
 $success_color: #{"@success_color"};
+
+* {
+  all: unset;
+}
