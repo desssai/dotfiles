@@ -9,7 +9,7 @@ App.start({
   css: style,
   main() {
     App.get_monitors().map(background);
-    App.get_monitors().map(bar);
+    // App.get_monitors().map(bar);
     App.get_monitors().map(menu);
   },
 });
