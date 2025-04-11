@@ -8,8 +8,8 @@ local plugin = {
 		require("tailwind-tools").setup({
 			document_color = {
 				enabled = true, -- can be toggled by commands
-				kind = "inline", -- "inline" | "foreground" | "background"
-				inline_symbol = "󰝤 ", -- only used in inline mode
+				kind = "background", -- "inline" | "foreground" | "background"
+				-- inline_symbol = "󰝤 ", -- only used in inline mode
 				debounce = 200, -- in milliseconds, only applied in insert mode
 			},
 			conceal = {
@@ -23,11 +23,6 @@ local plugin = {
 			-- see the extension section to learn more
 			extension = {
 				queries = { "templ" }, -- a list of filetypes having custom `class` queries
-				patterns = { -- a map of filetypes to Lua pattern lists
-					-- exmaple:
-					-- rust = { "class=[\"']([^\"']+)[\"']" },
-					-- javascript = { "clsx%(([^)]+)%)" },
-				},
 			},
 		})
 	end,

@@ -1,8 +1,10 @@
 local mappings = {
 	n = {
-		["<leader>tt"] = { "<cmd> TroubleToggle document_diagnostics <CR>", "Toggle document diagnostics" },
-		["<leader>tw"] = { "<cmd> TroubleToggle workspace_diagnostics <CR>", "Toggle workspace diagnostics" },
-		["<leader>tr"] = { "<cmd> TroubleToggle LspReferences <CR>", "Toggle LspReferences" },
+		["<leader>tt"] = { "<cmd> Trouble diagnostics toggle <CR>", "Toggle diagnostics (Trouble)" },
+		["<leader>tc"] = { "<cmd> Trouble symbols toggle focus=false<CR>", "Toggle symbols (Trouble)" },
+		["<leader>tl"] = { "<cmd> Trouble loclist <CR>", "Toggle LocList (Trouble)" },
+		["<leader>tq"] = { "<cmd> Trouble qflist <CR>", "Toggle QuickFix (Trouble)" },
+		["<leader>tr"] = { "<cmd> Trouble lsp <CR>", "Toggle Lsp (Trouble)" },
 	},
 }
 

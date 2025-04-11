@@ -20,47 +20,6 @@ local plugin = {
 	},
 
 	config = function()
-		-- local function border(hl_name)
-		-- 	return {
-		-- 		{ "┌", hl_name },
-		-- 		{ "─", hl_name },
-		-- 		{ "┐", hl_name },
-		-- 		{ "│", hl_name },
-		-- 		{ "┘", hl_name },
-		-- 		{ "─", hl_name },
-		-- 		{ "└", hl_name },
-		-- 		{ "│", hl_name },
-		-- 	}
-		-- end
-
-		-- local cmp_kinds = {
-		-- 	Text = "  ",
-		-- 	Method = "  ",
-		-- 	Function = "  ",
-		-- 	Constructor = "  ",
-		-- 	Field = "  ",
-		-- 	Variable = "  ",
-		-- 	Class = "  ",
-		-- 	Interface = "  ",
-		-- 	Module = "  ",
-		-- 	Property = "  ",
-		-- 	Unit = "  ",
-		-- 	Value = "  ",
-		-- 	Enum = "  ",
-		-- 	Keyword = "  ",
-		-- 	Snippet = "  ",
-		-- 	Color = "  ",
-		-- 	File = "  ",
-		-- 	Reference = "  ",
-		-- 	Folder = "  ",
-		-- 	EnumMember = "  ",
-		-- 	Constant = "  ",
-		-- 	Struct = "  ",
-		-- 	Event = "  ",
-		-- 	Operator = "  ",
-		-- 	TypeParameter = "  ",
-		-- }
-
 		local tailwind = require("tailwind-tools.cmp")
 		local lspkind = require("lspkind")
 		local cmp = require("cmp")
@@ -111,30 +70,6 @@ local plugin = {
 					before = tailwind.lspkind_format,
 				}),
 			},
-			-- formatting = {
-			-- 	fields = { "abbr", "kind", "menu" },
-			-- 	format = function(entry, item)
-			-- 		item.kind = (cmp_kinds[item.kind] or "") .. item.kind
-			-- 		item.menu = ({
-			-- 			path = "Path",
-			-- 			nvim_lsp = "Lsp",
-			-- 			nvim_lua = "Lua",
-			-- 			buffer = "Buffer",
-			-- 			cmdline = "Command",
-			-- 			luasnip = "Snippet",
-			-- 		})[entry.source.name]
-
-			-- 		local len = string.len(item.abbr .. item.kind .. item.menu)
-
-			-- 		if len > 58 then
-			-- 			item.abbr = item.abbr:sub(58 - string.len(item.kind .. item.menu))
-			-- 		elseif len < 58 then
-			-- 			item.abbr = item.abbr .. string.rep(" ", 58 - len, "")
-			-- 		end
-
-			-- 		return item
-			-- 	end,
-			-- },
 			mapping = require("mappings.hrsh7th_nvim-cmp"),
 		})
 
