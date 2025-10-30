@@ -9,7 +9,7 @@ local plugins = {
 	require("plugins.configs.norcalli_nvim-colorizer"),
 	require("plugins.configs.nvim-treesitter_treesitter"),
 	require("plugins.configs.christoomey_vim-tmux-navigator"),
-	require("plugins.configs.luckasranarison_tailwind-tools"),
+	-- require("plugins.configs.luckasranarison_tailwind-tools"),
 
 	-- Lsp features
 	require("plugins.configs.williamboman_mason"),

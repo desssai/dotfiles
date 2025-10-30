@@ -6,7 +6,7 @@ local plugin = {
 		require("plugins.configs.l3m0n4d3_luasnip"),
 		require("plugins.configs.onsails_lspkind-nvim"),
 		require("plugins.configs.windwp_nvim-autopairs"),
-		require("plugins.configs.luckasranarison_tailwind-tools"),
+		-- require("plugins.configs.luckasranarison_tailwind-tools"),
 
 		-- cmp sources plugins
 		{
@@ -20,7 +20,7 @@ local plugin = {
 	},
 
 	config = function()
-		local tailwind = require("tailwind-tools.cmp")
+		-- local tailwind = require("tailwind-tools.cmp")
 		local lspkind = require("lspkind")
 		local cmp = require("cmp")
 
@@ -67,7 +67,7 @@ local plugin = {
 					-- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
 					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 					show_labelDetails = true, -- show labelDetails in menu. Disabled by default
-					before = tailwind.lspkind_format,
+					-- before = tailwind.lspkind_format,
 				}),
 			},
 			mapping = require("mappings.hrsh7th_nvim-cmp"),
