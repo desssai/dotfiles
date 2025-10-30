@@ -1,131 +1,150 @@
-local plugin = {
+return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
+	dependencies = {
+		"hrsh7th/cmp-nvim-lsp",
+	},
 	config = function()
-		local lspconfig = require("lspconfig")
-		local lsp_defaults = lspconfig.util.default_config
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-		lsp_defaults.capabilities = require("cmp_nvim_lsp").default_capabilities()
-		lsp_defaults.capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-		local augroup = vim.api.nvim_create_augroup("LspFormatting", {
-			clear = false,
-		})
-
-		local templ_attach = function(client, bufnr)
-			vim.api.nvim_clear_autocmds({
-				group = augroup,
-				buffer = bufnr,
-			})
-
+		local function on_attach(client, bufnr)
+			-- use null-ls formatter and not the default lsp behaviour
+			-- disable semantic tokens so as to smooth the experience
+			-- and set up custom mappings for each buffer on attach
 			client.server_capabilities.documentFormattingProvider = false
 			client.server_capabilities.documentRangeFormattingProvider = false
-
-			require("core.mappings").set("mappings.neovim_nvim-lspconfig", bufnr)
-
-			local templ_format = function()
-				local filename = vim.api.nvim_buf_get_name(bufnr)
-				local cmd = "templ fmt " .. vim.fn.shellescape(filename)
-
-				vim.fn.jobstart(cmd, {
-					on_exit = function()
-						-- Reload the buffer only if it's still the current buffer
-						if vim.api.nvim_get_current_buf() == bufnr then
-							vim.cmd("e!")
-						end
-					end,
-				})
-			end
-
-			vim.api.nvim_create_autocmd("BufWritePost", {
-				group = augroup,
-				buffer = bufnr,
-				callback = templ_format,
-				-- callback = function()
-				-- 	vim.lsp.buf.format({ bufnr = bufnr })
-				-- end,
-			})
-		end
-
-		local on_attach = function(client, bufnr)
-			client.server_capabilities.documentFormattingProvider = false
-			client.server_capabilities.documentRangeFormattingProvider = false
-
+			client.server_capabilities.semanticTokensProvider = nil
 			require("core.mappings").set("mappings.neovim_nvim-lspconfig", bufnr)
 		end
 
-		local servers = {
-			"clangd", -- C,C++ LSP
-			"bashls", -- Bash LSP
-			"dockerls", -- Docker LSP
-			"docker_compose_language_service", -- Docker-Compose LSP
-			"marksman", -- Markdown LSP
-			"ts_ls", -- TS & JS LSP
-			"pylsp", -- Python LSP
-			"sqlls", -- SQL LSP
+		-- set default capabilities and on_attach for all language servers
+		vim.lsp.config["*"] = {
+			on_attach = on_attach,
+			capabilities = capabilities,
 		}
 
-		lspconfig.lua_ls.setup({
-			on_attach = on_attach,
-			capabilities = lsp_defaults.capabilities,
+		local servers = {
+			"bashls", -- Bash
+			"clangd", -- C/C++
+			"dockerls", -- Dockerfile
+			"docker_compose_language_service", -- Docker Compose
+			"marksman", -- Markdown
+			"ts_ls", -- TypeScript/JavaScript
+			"pylsp", -- Python
+			"sqlls", -- SQL Language Server
+		}
 
+		for _, name in ipairs(servers) do
+			vim.lsp.enable(name)
+		end
+
+		-- lua_ls
+		vim.lsp.config["lua_ls"] = {
+			on_attach = on_attach,
+			capabilities = capabilities,
+			on_init = function(client)
+				if client.workspace_folders then
+					local path = client.workspace_folders[1].name
+					if
+						path ~= vim.fn.stdpath("config")
+						and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
+					then
+						return
+					end
+				end
+			end,
 			settings = {
 				Lua = {
 					diagnostics = {
 						globals = { "vim" },
 					},
+					runtime = {
+						version = "Lua 5.4",
+						path = {
+							"/usr/share/lua/5.4/?.lua",
+							"/usr/local/share/lua/5.4/?.lua",
+							"/usr/local/share/lua/5.4/?/init.lua",
+							"/usr/share/lua/5.4/?/init.lua",
+							"/usr/local/lib/lua/5.4/?.lua",
+							"/usr/local/lib/lua/5.4/?/init.lua",
+							"/usr/lib/lua/5.4/?.lua",
+							"/usr/lib/lua/5.4/?/init.lua",
+							"./?.lua",
+							"./?/init.lua",
+							"/home/ncarob/.luarocks/share/lua/5.4/?.lua",
+							"/home/ncarob/.luarocks/share/lua/5.4/?/init.lua",
+						},
+					},
 					workspace = {
 						library = {
-							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-							[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-							[vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy"] = true,
+							vim.fn.expand("~/.luarocks/share/lua/5.4"),
+							"/usr/share/lua/5.4",
 						},
-						maxPreload = 100000,
-						preloadFileSize = 10000,
 					},
 				},
 			},
-		})
+		}
+		vim.lsp.enable("lua_ls")
 
-		for _, lsp in ipairs(servers) do
-			lspconfig[lsp].setup({
-				on_attach = on_attach,
-				capabilities = lsp_defaults.capabilities,
-			})
-		end
-
-		lspconfig["gopls"].setup({
+		-- gopls
+		vim.lsp.config["gopls"] = {
 			on_attach = on_attach,
-			capabilities = lsp_defaults.capabilities,
+			capabilities = capabilities,
 			settings = {
 				gopls = {
 					completeUnimported = true,
 					usePlaceholders = true,
-					analyses = {
-						unusedparams = true,
-					},
+					analyses = { unusedparams = true },
 				},
 			},
-		})
+		}
+		vim.lsp.enable("gopls")
 
-		lspconfig["tailwindcss"].setup({
-			on_attach = on_attach,
-			capabilities = lsp_defaults.capabilities,
-			filetypes = { "templ", "astro", "javascript", "typescript", "react" },
-			settings = {
-				tailwindCSS = {
-					includeLanguages = {
-						templ = "html",
-					},
-				},
-			},
-		})
+		-- tailwindcss (add templ support)
+		-- lspconfig.tailwindcss = {
+		-- 	on_attach = on_attach,
+		-- 	capabilities = capabilities,
+		-- 	filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+		-- 	settings = {
+		-- 		tailwindCSS = {
+		-- 			includeLanguages = { templ = "html" },
+		-- 		},
+		-- 	},
+		-- }
 
-		lspconfig["templ"].setup({
+		local augroup = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
+		local function templ_attach(client, bufnr)
+			-- same baseline tweaks as others
+			on_attach(client, bufnr)
+
+			-- ensure we don't stack autocmds when servers restart
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+
+			vim.api.nvim_create_autocmd("BufWritePost", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					local filename = vim.api.nvim_buf_get_name(bufnr)
+					-- nvim 0.11: prefer vim.system over jobstart
+					vim.system({ "templ", "fmt", filename }, { text = true }, function()
+						-- only reload if still on same buffer
+						if vim.api.nvim_get_current_buf() == bufnr then
+							vim.schedule(function()
+								vim.cmd("e!")
+							end)
+						end
+					end)
+				end,
+			})
+		end
+
+		-- templ
+		vim.lsp.config["templ"] = {
 			on_attach = templ_attach,
-			capabilities = lsp_defaults.capabilities,
-		})
+			capabilities = capabilities,
+		}
+		vim.lsp.enable("templ")
 	end,
 }
-
-return plugin
