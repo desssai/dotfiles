@@ -3,6 +3,7 @@ yay
 mimeapps.list
 libreoffice
 dconf
+btop
 gtk-2.0
 gtk-3.0
 gtk-4.0
@@ -32,3 +33,13 @@ user-dirs.locale
 menus
 cava
 amnezia
+filezilla
+configstore
+pdfcpu
+procps
+ags
+Ax-Shell
+agsnew
+agsold
+astal
+inkscape
