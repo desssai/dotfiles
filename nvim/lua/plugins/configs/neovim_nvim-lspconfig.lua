@@ -102,48 +102,62 @@ return {
 		}
 		vim.lsp.enable("gopls")
 
-		-- tailwindcss (add templ support)
-		-- lspconfig.tailwindcss = {
+		vim.lsp.config["html"] = {
+			on_attach = on_attach,
+			capabilities = capabilities,
+			filetypes = { "html", "templ" },
+		}
+		vim.lsp.enable("html")
+
+		-- vim.lsp.config["htmx"] = {
 		-- 	on_attach = on_attach,
 		-- 	capabilities = capabilities,
-		-- 	filetypes = { "templ", "astro", "javascript", "typescript", "react" },
-		-- 	settings = {
-		-- 		tailwindCSS = {
-		-- 			includeLanguages = { templ = "html" },
-		-- 		},
-		-- 	},
+		-- 	filetypes = { "html", "templ" },
 		-- }
+		-- vim.lsp.enable("htmx")
+
+		vim.lsp.config["tailwindcss"] = {
+			on_attach = on_attach,
+			capabilities = capabilities,
+			filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+			settings = {
+				tailwindCSS = {
+					includeLanguages = {
+						templ = "html",
+					},
+				},
+			},
+		}
+		vim.lsp.enable("tailwindcss")
 
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
 		local function templ_attach(client, bufnr)
-			-- same baseline tweaks as others
 			on_attach(client, bufnr)
-
-			-- ensure we don't stack autocmds when servers restart
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-
-			vim.api.nvim_create_autocmd("BufWritePost", {
+			vim.api.nvim_create_autocmd("BufWritePre", {
 				group = augroup,
 				buffer = bufnr,
-				callback = function()
-					local filename = vim.api.nvim_buf_get_name(bufnr)
-					-- nvim 0.11: prefer vim.system over jobstart
-					vim.system({ "templ", "fmt", filename }, { text = true }, function()
-						-- only reload if still on same buffer
-						if vim.api.nvim_get_current_buf() == bufnr then
-							vim.schedule(function()
-								vim.cmd("e!")
-							end)
-						end
-					end)
+				callback = function(args)
+					local filename = vim.api.nvim_buf_get_name(args.buf)
+					if filename == "" then
+						return
+					end
+					local result = vim.system({ "templ", "fmt", filename }, { text = true }):wait()
+					if result.code ~= 0 then
+						vim.notify(("templ fmt failed:\n%s"):format(result.stderr or ""), vim.log.levels.ERROR)
+						return
+					end
+					if vim.api.nvim_buf_is_valid(args.buf) and vim.api.nvim_buf_is_loaded(args.buf) then
+						vim.cmd("checktime " .. args.buf)
+					end
 				end,
 			})
 		end
 
-		-- templ
 		vim.lsp.config["templ"] = {
 			on_attach = templ_attach,
 			capabilities = capabilities,
+			filetypes = { "templ" },
 		}
 		vim.lsp.enable("templ")
 	end,

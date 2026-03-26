@@ -14,6 +14,7 @@ local ensure_installed = {
 	"python-lsp-server", -- Python LSP
 	"sqlls", -- SQL LSP
 	"tailwindcss-language-server", -- Tailwindcss LSP
+	"html-lsp", -- HTML LSP
 
 	-- LINTING
 	"luacheck",

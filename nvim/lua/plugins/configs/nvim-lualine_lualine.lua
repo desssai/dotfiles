@@ -16,7 +16,7 @@ local plugin = {
 
 		require("lualine").setup({
 			options = {
-				theme = "catppuccin",
+				theme = "catppuccin-nvim",
 				icons_enabled = true,
 				-- theme = 'auto',
 				-- section_separators = { left = "", right = "" },
