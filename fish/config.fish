@@ -6,14 +6,16 @@ function fish_prompt -d "Write out the prompt"
     (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
 end
 
+fish_add_path $HOME/.local/share/nvim/mason/bin $HOME/bin /usr/local/bin $HOME/go/bin/
+
+set -g fish_autosuggestion_enabled 0
 set -g fish_sequence_key_delay_ms 200
 set -g fish_key_bindings fish_vi_key_bindings
 bind -M insert ctrl-c kill-whole-line repaint
 
-set PATH $HOME/.local/share/nvim/mason/bin:$HOME/bin:/usr/local/bin:$HOME/go/bin/:$PATH
-set MANPATH "/usr/local/man:$MANPATH"
-set EDITOR "nvim"
-set OLLAMA_MODELS "/home/ncarob/.ollama/"
+set -x MANPATH "/usr/local/man:$MANPATH"
+set -x EDITOR "nvim"
+set -x OLLAMA_MODELS "/home/ncarob/.ollama/"
 
 if status is-interactive # Commands to run in interactive sessions can go here
   # No greeting
