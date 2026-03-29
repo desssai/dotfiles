@@ -16,8 +16,10 @@
 /home/ncarob/.config/hypr/custom/rules.conf
 /home/ncarob/.config/hypr/custom/scripts/__restore_video_wallpaper.sh
 /home/ncarob/.config/hypr/hypridle.conf
+/home/ncarob/.config/hypr/hypridle.conf.new
 /home/ncarob/.config/hypr/hyprland/colors.conf
 /home/ncarob/.config/hypr/hyprland.conf
+/home/ncarob/.config/hypr/hyprland.conf.new
 /home/ncarob/.config/hypr/hyprland/env.conf
 /home/ncarob/.config/hypr/hyprland/execs.conf
 /home/ncarob/.config/hypr/hyprland/general.conf
@@ -32,9 +34,13 @@
 /home/ncarob/.config/hypr/hyprland/scripts/start_geoclue_agent.sh
 /home/ncarob/.config/hypr/hyprland/scripts/workspace_action.sh
 /home/ncarob/.config/hypr/hyprland/scripts/zoom.sh
+/home/ncarob/.config/hypr/hyprland/shellOverrides/main.conf
 /home/ncarob/.config/hypr/hyprlock.conf
+/home/ncarob/.config/hypr/hyprlock.conf.new
 /home/ncarob/.config/hypr/monitors.conf
+/home/ncarob/.config/hypr/monitors.conf.new
 /home/ncarob/.config/hypr/workspaces.conf
+/home/ncarob/.config/hypr/workspaces.conf.new
 /home/ncarob/.config/illogical-impulse/installed_true
 /home/ncarob/.config/kdeglobals
 /home/ncarob/.config/kde-material-you-colors/config.conf
@@ -158,6 +164,7 @@
 /home/ncarob/.config/quickshell/ii/assets/icons/fluent/drink-coffee-filled.svg
 /home/ncarob/.config/quickshell/ii/assets/icons/fluent/drink-coffee.svg
 /home/ncarob/.config/quickshell/ii/assets/icons/fluent/empty.svg
+/home/ncarob/.config/quickshell/ii/assets/icons/fluent/ethernet-filled.svg
 /home/ncarob/.config/quickshell/ii/assets/icons/fluent/ethernet.svg
 /home/ncarob/.config/quickshell/ii/assets/icons/fluent/eyedropper-filled.svg
 /home/ncarob/.config/quickshell/ii/assets/icons/fluent/eyedropper.svg
@@ -344,8 +351,10 @@
 /home/ncarob/.config/quickshell/ii/modules/common/models/AdaptedMaterialScheme.qml
 /home/ncarob/.config/quickshell/ii/modules/common/models/AnimatedTabIndexPair.qml
 /home/ncarob/.config/quickshell/ii/modules/common/models/FolderListModelWithHistory.qml
+/home/ncarob/.config/quickshell/ii/modules/common/models/hyprland/HyprlandConfigOption.qml
 /home/ncarob/.config/quickshell/ii/modules/common/models/IndexModel.qml
 /home/ncarob/.config/quickshell/ii/modules/common/models/LauncherSearchResult.qml
+/home/ncarob/.config/quickshell/ii/modules/common/models/NestableObject.qml
 /home/ncarob/.config/quickshell/ii/modules/common/models/quickToggles/AntiFlashbangToggle.qml
 /home/ncarob/.config/quickshell/ii/modules/common/models/quickToggles/AudioToggle.qml
 /home/ncarob/.config/quickshell/ii/modules/common/models/quickToggles/BluetoothToggle.qml
@@ -569,6 +578,7 @@
 /home/ncarob/.config/quickshell/ii/modules/ii/mediaControls/PlayerControl.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/notificationPopup/NotificationPopup.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/onScreenDisplay/indicators/BrightnessIndicator.qml
+/home/ncarob/.config/quickshell/ii/modules/ii/onScreenDisplay/indicators/GammaIndicator.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/onScreenDisplay/indicators/VolumeIndicator.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/onScreenDisplay/OnScreenDisplay.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/onScreenDisplay/OsdValueIndicator.qml
@@ -868,9 +878,11 @@
 /home/ncarob/.config/quickshell/ii/scripts/colors/random/random_osu_wall.sh
 /home/ncarob/.config/quickshell/ii/scripts/colors/scheme_for_image.py
 /home/ncarob/.config/quickshell/ii/scripts/colors/switchwall.sh
+/home/ncarob/.config/quickshell/ii/scripts/colors/terminal/kitty-theme.conf
 /home/ncarob/.config/quickshell/ii/scripts/colors/terminal/scheme-base.json
 /home/ncarob/.config/quickshell/ii/scripts/colors/terminal/sequences.txt
 /home/ncarob/.config/quickshell/ii/scripts/hyprland/get_keybinds.py
+/home/ncarob/.config/quickshell/ii/scripts/hyprland/hyprconfigurator.py
 /home/ncarob/.config/quickshell/ii/scripts/images/find_regions.py
 /home/ncarob/.config/quickshell/ii/scripts/images/find-regions-venv.sh
 /home/ncarob/.config/quickshell/ii/scripts/images/least_busy_region.py
@@ -908,6 +920,9 @@
 /home/ncarob/.config/quickshell/ii/services/Emojis.qml
 /home/ncarob/.config/quickshell/ii/services/FirstRunExperience.qml
 /home/ncarob/.config/quickshell/ii/services/GlobalFocusGrab.qml
+/home/ncarob/.config/quickshell/ii/services/hyprlandAntiFlashbangShader/anti-flashbang.glsl
+/home/ncarob/.config/quickshell/ii/services/HyprlandAntiFlashbangShader.qml
+/home/ncarob/.config/quickshell/ii/services/HyprlandConfig.qml
 /home/ncarob/.config/quickshell/ii/services/HyprlandData.qml
 /home/ncarob/.config/quickshell/ii/services/HyprlandKeybinds.qml
 /home/ncarob/.config/quickshell/ii/services/HyprlandXkb.qml
@@ -941,6 +956,8 @@
 /home/ncarob/.config/quickshell/ii/shell.qml
 /home/ncarob/.config/quickshell/ii/translations/de_DE.json
 /home/ncarob/.config/quickshell/ii/translations/en_US.json
+/home/ncarob/.config/quickshell/ii/translations/es_MX.json
+/home/ncarob/.config/quickshell/ii/translations/fr_FR.json
 /home/ncarob/.config/quickshell/ii/translations/he_HE.json
 /home/ncarob/.config/quickshell/ii/translations/id_ID.json
 /home/ncarob/.config/quickshell/ii/translations/it_IT.json
