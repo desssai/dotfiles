@@ -10,6 +10,19 @@ local plugin = {
 				light = "latte",
 				dark = "mocha",
 			},
+			color_overrides = {
+				all = {
+					text = "#ffffff",
+				},
+				latte = {
+					base = "#ff0000",
+					mantle = "#242424",
+					crust = "#474747",
+				},
+				frappe = {},
+				macchiato = {},
+				mocha = {},
+			},
 			transparent_background = true, -- disables setting the background color.
 			custom_highlights = function(colors)
 				return {

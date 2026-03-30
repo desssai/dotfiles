@@ -10,8 +10,10 @@ add_newline = false
 # $directory $fill $git_branch $cmd_duration
 #  $character"""
 format = """
-$cmd_duration $directory$git_branch
+$cmd_duration $directory $git_branch$git_commit$git_state$git_status
   $character"""
+
+right_format = "$username$hostname $time"
 
 [fill]
 symbol = '-'
@@ -21,6 +23,10 @@ style = 'fg:245'
 [character]                            # The name of the module we are configuring is "character"
 success_symbol = "[ ](bold fg:255)"
 error_symbol = "[ ](bold fg:249)"
+vimcmd_symbol = "[N ](bold fg:255)"
+vimcmd_visual_symbol = "[V ](bold fg:255)"
+vimcmd_replace_symbol = "[R ](bold fg:255)"
+vimcmd_replace_one_symbol = "[r ](bold fg:255)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
@@ -31,7 +37,7 @@ style = "bg: 252"
 symbol = "󰘬"
 truncation_length = 12
 truncation_symbol = ""
-format = " 󰜥 [](bold fg:252)[$symbol $branch(:$remote_branch)](fg:235 bg:252)[ ](bold fg:252)"
+format = "󰜥 [](bold fg:252)[$symbol $branch(:$remote_branch)](fg:235 bg:252)[ ](bold fg:252)"
 
 [git_commit]
 commit_hash_length = 4
@@ -42,22 +48,19 @@ format = '[\($state( $progress_current of $progress_total)\)]($style) '
 cherry_pick = "[🍒 PICKING](bold red)"
 
 [git_status]
-conflicted = " 🏳 "
-ahead = " 🏎💨 "
-behind = " 😰 "
-diverged = " 😵 "
-untracked = " 🤷 ‍"
-stashed = " 📦 "
-modified = " 📝 "
-staged = '[++\($count\)](green)'
-renamed = " ✍️ "
-deleted = " 🗑 "
-
-[hostname]
-ssh_only = false
-format =  "[•$hostname](bg:252 bold fg:235)[](bold fg:252)"
-trim_at = ".companyname.com"
 disabled = false
+format = '([ $all_status $ahead_behind]($style))'
+style = "bold fg:255"
+stashed = '\$${count} '
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕${count} "
+conflicted = "=${count} "
+deleted = "✘${count} "
+renamed = "»${count} "
+modified = "!${count} "
+staged = "+${count} "
+untracked = "?${count} "
 
 [line_break]
 disabled = false
@@ -69,35 +72,30 @@ symbol = " "
 style = "bold dimmed green"
 
 [time]
-disabled = true
-format = '🕙[\[ $time \]]($style) '
+disabled = false
+format = "[](bold fg:252)[$time](fg:235 bg:252)[ ](bold fg:252)"
 time_format = "%T"
 
 [username]
-style_user = "bold bg:252 fg:235"
+style_user = "bold fg:255"
 style_root = "red bold"
-format = "[](bold fg:252)[$user]($style)"
+format = "[$user]($style)"
 disabled = false
 show_always = true
 
+[hostname]
+ssh_only = false
+format =  "[@$hostname ](bold fg:255)"
+trim_at = ".companyname.com"
+disabled = false
+
 [directory]
-home_symbol = " "
 read_only = "  "
 style = "bg:255 fg:black"
-truncation_length = 2
+truncation_length = 3
 truncation_symbol = ".../"
-format = '[](bold fg:255)[󰉋 → $path]($style)[](bold fg:255)'
-
-
-[directory.substitutions]
-"Desktop" = "  "
-"Documents" = "  "
-"Downloads" = "  "
-"Music" = " 󰎈 "
-"Pictures" = "  "
-"Videos" = "  "
-"GitHub" = " 󰊤 "
+format = '[](bold fg:255)[󰉋 : $path]($style)[](bold fg:255)'
 
 [cmd_duration]
 min_time = 0
-format = '[](bold fg:252)[󰪢 $duration](bold bg:252 fg:235)[](bold fg:252)'
+format = '[](bold fg:255)[󰪢 $duration](bold bg:255 fg:235)[](bold fg:255)'
