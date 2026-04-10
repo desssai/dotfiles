@@ -1,6 +1,7 @@
 require("core.options")
 require("core.usercmd")
 require("core.autocmd")
+require("core.colorscheme")
 require("core.statusline")
 require("core.mappings").set("mappings.general")
 require("core.pack")

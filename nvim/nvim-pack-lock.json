@@ -30,6 +30,11 @@
       "src": "https://github.com/nvim-mini/mini.icons",
       "version": ">=0.0.0"
     },
+    "nvim-treesitter": {
+      "rev": "42fc28ba918343ebfd5565147a42a26580579482",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
+      "version": ">=0.0.0"
+    },
     "oil": {
       "rev": "975a77cce3c8cb742bc1b3629f4328f5ca977dad",
       "src": "https://github.com/stevearc/oil.nvim",

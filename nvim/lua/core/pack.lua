@@ -1,5 +1,4 @@
 local plugins = {
-	require("plugins.catppuccin"),
 	require("plugins.gitsigns"),
 	require("plugins.tmux"),
 	require("plugins.which-key"),
@@ -8,6 +7,7 @@ local plugins = {
 	require("plugins.mason"),
 	require("plugins.lspconfig"),
 	require("plugins.icons"),
+	require("plugins.treesitter"),
 }
 
 vim.api.nvim_create_user_command("Pack", function()
@@ -97,6 +97,11 @@ local setup = function()
 			end
 		end
 	end
+
+	vim.schedule(function()
+		vim.cmd.packadd('nvim.undotree')
+		vim.cmd.packadd('nvim.difftool')
+	end)
 end
 
 setup()

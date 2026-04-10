@@ -1,4 +1,16 @@
-vim.api.nvim_create_user_command("BufDelete", function()
-	local bufnr = vim.api.nvim_get_current_buf()
-	vim.api.nvim_call_function('bprevious', {})
-end, { nargs = "*", bang = true, force = true })
+vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", {
+	desc = "Show LSP Info",
+})
+
+vim.api.nvim_create_user_command("LspLog", function()
+	local state_path = vim.fn.stdpath("state")
+	local log_path = vim.fs.joinpath(state_path, "lsp.log")
+
+	vim.cmd(string.format("edit %s", log_path))
+end, {
+	desc = "Show LSP log",
+})
+
+vim.api.nvim_create_user_command("LspRestart", "lsp restart", {
+	desc = "Restart LSP",
+})
