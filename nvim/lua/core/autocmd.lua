@@ -1,11 +1,11 @@
-local group = vim.api.nvim_create_augroup("Help", { clear = true })
+-- local group = vim.api.nvim_create_augroup("Help", { clear = true })
 
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  group = group,
-  callback = function(a)
-    if vim.bo[a.buf].filetype == "help" then
-      vim.cmd("wincmd K") -- pick a width you like
-      vim.cmd("horizontal resize") -- pick a width you like
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("BufWinEnter", {
+-- 	group = group,
+-- 	callback = function(a)
+-- 		if vim.bo[a.buf].filetype == "help" then
+-- 			vim.cmd("wincmd K")          -- pick a width you like
+-- 			vim.cmd("horizontal resize") -- pick a width you like
+-- 		end
+-- 	end,
+-- })

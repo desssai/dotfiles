@@ -4,8 +4,8 @@ local mappings = {
 		["gD"] = { vim.lsp.buf.declaration, "Goto declaration" },
 		['K'] = { vim.lsp.buf.hover, "Hover" },
 		-- Diagnostics: keep these plain and fast
-		['[d'] = { vim.diagnostic.goto_prev, "Prev diagnostic" },
-		[']d'] = { vim.diagnostic.goto_next, "Next diagnostic" },
+		['[d'] = { function() vim.diagnostic.jump({count=-1, float=true}) end, "Prev diagnostic" },
+		[']d'] = { function() vim.diagnostic.jump({count=1, float=true}) end, "Next diagnostic" },
 		['<leader>e'] = { vim.diagnostic.open_float, "Line diagnostics" },
 		['<leader>dq'] = { vim.diagnostic.setloclist, "Diagnostics loclist" },
 		-- Formatting

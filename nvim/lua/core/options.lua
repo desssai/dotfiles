@@ -19,9 +19,9 @@ opt.shiftround = true
 
 -- Autocompletions
 opt.autocomplete = true
-opt.pumborder = 'none'
+opt.pumborder = "none"
 opt.pummaxwidth = 40
-opt.completeopt = 'menu,menuone,noselect,nearest'
+opt.completeopt = "menuone,noselect,popup"
 
 -- Search
 opt.fillchars = { eob = " " }

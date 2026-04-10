@@ -28,8 +28,14 @@ local mappings = {
 		["<leader>fc"] = { "<cmd>FzfLua commands<CR>", "Help page" },
 		["<leader>fk"] = { "<cmd>FzfLua keymaps<CR>", "Search keymaps" },
 		["<leader>f/"] = { "<cmd>FzfLua search_history<CR>", "Search history" },
+		["<leader>fu"] = { "<cmd>FzfLua undotree<CR>", "Undo tree" },
 		["<leader>fh"] = { "<cmd>FzfLua highlights<CR>", "Find highlights" },
 		["<leader>fm"] = { "<cmd>FzfLua marks<CR>", "telescope bookmarks" },
+
+		-- Default remaps
+		["q:"] = { "<cmd>FzfLua command_history<CR>", "Command window" },
+		["q?"] = { "<cmd>FzfLua search_history<CR>", "Command window" },
+		["q/"] = { "<cmd>FzfLua search_history<CR>", "Command window" },
 	},
 }
 

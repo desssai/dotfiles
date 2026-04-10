@@ -11,7 +11,6 @@ local mappings = {
 		-- Leave insert mode
 		["jk"] = { "<ESC>", "Leave insert mode" },
 		["<M-s>"] = {"<esc><cmd> w <cr>}", "Save buffer" },
-		["<M-q>"] = {"<esc><cmd> bprevious | bdelete # <cr>}", "Close buffer" },
 	},
 
 	n = {
@@ -40,7 +39,6 @@ local mappings = {
 		["<leader>nr"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
 
 		-- Buffer Management
-		["<M-q>"] = {"<cmd> bprevious | bdelete # <cr>}", "Close buffer" },
 		["<M-n>"] = { "<cmd> enew <CR>", "New buffer" },
 		["<M-s>"] = { "<cmd> w <CR>", "Save buffer" },
 		["<tab>"] = { "<cmd> bn <CR>", "Next buffer" },

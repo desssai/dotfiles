@@ -8,6 +8,13 @@ local plugin = {
 		-- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 		-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 		local function on_attach(client, bufnr)
+			vim.lsp.completion.enable(true, client.id, bufnr, {
+				autotrigger = true,
+				convert = function(item)
+					return { abbr = item.label:gsub("%b()", "") }
+				end,
+			})
+			vim.keymap.set("i", "<C-b>", vim.lsp.completion.get, { desc = "trigger autocompletion" })
 			-- use null-ls formatter and not the default lsp behaviour
 			-- disable semantic tokens so as to smooth the experience
 			-- and set up custom mappings for each buffer on attach
@@ -25,14 +32,14 @@ local plugin = {
 		}
 
 		local servers = {
-			"bashls", -- Bash
-			"clangd", -- C/C++
-			"dockerls", -- Dockerfile
+			"bashls",                       -- Bash
+			"clangd",                       -- C/C++
+			"dockerls",                     -- Dockerfile
 			"docker_compose_language_service", -- Docker Compose
-			"marksman", -- Markdown
-			"ts_ls", -- TypeScript/JavaScript
-			"pylsp", -- Python
-			"sqlls", -- SQL Language Server
+			"marksman",                     -- Markdown
+			"ts_ls",                        -- TypeScript/JavaScript
+			"pylsp",                        -- Python
+			"sqlls",                        -- SQL Language Server
 		}
 
 		for _, name in ipairs(servers) do
@@ -47,8 +54,8 @@ local plugin = {
 				if client.workspace_folders then
 					local path = client.workspace_folders[1].name
 					if
-						path ~= vim.fn.stdpath("config")
-						and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
+							path ~= vim.fn.stdpath("config")
+							and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
 					then
 						return
 					end

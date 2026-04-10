@@ -1,12 +1,15 @@
 local plugins = {
-	require("plugins.gitsigns"),
-	require("plugins.tmux"),
 	require("plugins.which-key"),
+	require("plugins.gitsigns"),
+	require("plugins.mini-icons"),
+	require("plugins.mini-pairs"),
+	require("plugins.mini-surround"),
+	require("plugins.mini-bufremove"),
+	require("plugins.tmux"),
 	require("plugins.oil"),
 	require("plugins.fzf-lua"),
 	require("plugins.mason"),
 	require("plugins.lspconfig"),
-	require("plugins.icons"),
 	require("plugins.treesitter"),
 }
 
@@ -77,7 +80,6 @@ local setup = function()
 		table.insert(list, {
 			src = plugin.url,
 			name = plugin.name,
-			version = vim.version.range("*"),
 		})
 	end
 	vim.pack.add(list, { force = true, load = function() end })
