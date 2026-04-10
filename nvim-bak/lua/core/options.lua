@@ -3,6 +3,7 @@ local g = vim.g
 
 -- Global statusline
 opt.laststatus = 0
+opt.showmode = false
 
 -- Options for nvim behaviour
 opt.clipboard = "unnamedplus"
@@ -16,12 +17,6 @@ opt.tabstop = 2
 opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.shiftround = true
-
--- Autocompletions
-opt.autocomplete = true
-opt.pumborder = 'none'
-opt.pummaxwidth = 40
-opt.completeopt = 'menu,menuone,noselect,nearest'
 
 -- Search
 opt.fillchars = { eob = " " }
@@ -49,7 +44,7 @@ opt.splitright = true
 
 -- UI options
 opt.termguicolors = true
-opt.cursorline = true
+opt.cursorline = false
 opt.colorcolumn = "80"
 opt.listchars = "tab:│ ,multispace:·,lead:·,trail:·,nbsp:+"
 opt.list = true
@@ -78,9 +73,6 @@ end
 
 -- Add binaries instaled by Mason for LSP functionality
 vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. ":" .. vim.env.PATH
-
--- Enable filetype detection, plugins, and indentation
-vim.cmd.filetype("plugin indent on")
 
 -- cmd([[match TrailingWhitespace /\s\+$/]])
 

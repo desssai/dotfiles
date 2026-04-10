@@ -1,5 +1,4 @@
 local mappings = {
-
 	n = {
 		-- Telescope find hotkeys
 		["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },

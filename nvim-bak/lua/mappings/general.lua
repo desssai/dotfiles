@@ -1,17 +1,16 @@
 local mappings = {
+
 	i = {
 		-- Go to  beginning and end
 		["<C-a>"] = { "<ESC>^i", "Beginning of line" },
 		["<C-e>"] = { "<End>", "End of line" },
 
 		-- Cycle diagnostic buffers
-		-- ["<C-j>"] = { "<cmd> cnext <CR>", "Next diagnostics buffer" },
-		-- ["<C-k>"] = { "<cmd> cprev <CR>", "Previous diagnostics buffer" },
+		["<C-j>"] = { "<cmd> cnext <CR>", "Next diagnostics buffer" },
+		["<C-k>"] = { "<cmd> cprev <CR>", "Previous diagnostics buffer" },
 
 		-- Leave insert mode
 		["jk"] = { "<ESC>", "Leave insert mode" },
-		["<M-s>"] = {"<esc><cmd> w <cr>}", "Save buffer" },
-		["<M-q>"] = {"<esc><cmd> bprevious | bdelete # <cr>}", "Close buffer" },
 	},
 
 	n = {
@@ -26,8 +25,8 @@ local mappings = {
 		["<C-e>"] = { "<End>a", "End of line" },
 
 		-- Cycle diagnostic buffers
-		-- ["<C-j>"] = { "<cmd> cnext <CR>", "Next diagnostics buffer" },
-		-- ["<C-k>"] = { "<cmd> cprev <CR>", "Previous diagnostics buffer" },
+		["<C-j>"] = { "<cmd> cnext <CR>", "Next diagnostics buffer" },
+		["<C-k>"] = { "<cmd> cprev <CR>", "Previous diagnostics buffer" },
 
 		-- Switch Between Windows as Fallback
 		["<M-h>"] = { "<C-w>h", "Window left" },
@@ -40,9 +39,9 @@ local mappings = {
 		["<leader>nr"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
 
 		-- Buffer Management
-		["<M-q>"] = {"<cmd> bprevious | bdelete # <cr>}", "Close buffer" },
-		["<M-n>"] = { "<cmd> enew <CR>", "New buffer" },
-		["<M-s>"] = { "<cmd> w <CR>", "Save buffer" },
+		["<C-n>"] = { "<cmd> enew <CR>", "New buffer" },
+		["<C-s>"] = { "<cmd> w <CR>", "Save buffer" },
+		["<C-y>"] = { "<cmd> %y+ <CR>", "Copy whole buffer" },
 		["<tab>"] = { "<cmd> bn <CR>", "Next buffer" },
 		["<S-tab>"] = { "<cmd> bp <CR>", "Previous buffer" },
 
@@ -62,8 +61,7 @@ local mappings = {
 	},
 
 	t = {
-		["<M-q>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
-		["jk"] = { "<ESC>", "Leave terminal" },
+		["<C-q>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
 	},
 
 	x = {

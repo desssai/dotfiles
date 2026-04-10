@@ -23,7 +23,6 @@ local plugins = {
 	require("plugins.configs.catpuccin_nvim"),
 	require("plugins.configs.akinsho_bufferline"),
 	require("plugins.configs.nvim-lualine_lualine"),
-	require("plugins.configs.lukas-reineke_indent-blankline"),
 
 	-- Workflow
 	require("plugins.configs.folke_trouble"),

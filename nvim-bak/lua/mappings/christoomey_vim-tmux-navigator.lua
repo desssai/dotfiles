@@ -1,5 +1,4 @@
 local mappings = {
-
 	n = {
 		["<m-h>"] = { "<cmd>TmuxNavigateLeft<cr>", "Window left" },
 		["<m-j>"] = { "<cmd>TmuxNavigateDown<cr>", "Window right" },

@@ -1,0 +1,49 @@
+{
+  "plugins": {
+    "catppuccin": {
+      "rev": "605b4603797de970e9f3a4238c199c850da03186",
+      "src": "https://github.com/catppuccin/nvim",
+      "version": ">=0.0.0"
+    },
+    "fzf-lua": {
+      "rev": "47b85a25c0c0b2c20b4e75199ed01bb71e7814f5",
+      "src": "https://github.com/ibhagwan/fzf-lua",
+      "version": ">=0.0.0"
+    },
+    "gitsigns": {
+      "rev": "a462f416e2ce4744531c6256252dee99a7d34a83",
+      "src": "https://github.com/lewis6991/gitsigns.nvim",
+      "version": ">=0.0.0"
+    },
+    "lspconfig": {
+      "rev": "0203a9608d63eda57679b01e69f33a7b4c34b0d1",
+      "src": "https://github.com/neovim/nvim-lspconfig",
+      "version": ">=0.0.0"
+    },
+    "mason": {
+      "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
+      "src": "https://github.com/mason-org/mason.nvim",
+      "version": ">=0.0.0"
+    },
+    "mini.icons": {
+      "rev": "ff2e4f1d29f659cc2bad0f9256f2f6195c6b2428",
+      "src": "https://github.com/nvim-mini/mini.icons",
+      "version": ">=0.0.0"
+    },
+    "oil": {
+      "rev": "975a77cce3c8cb742bc1b3629f4328f5ca977dad",
+      "src": "https://github.com/stevearc/oil.nvim",
+      "version": ">=0.0.0"
+    },
+    "tmux": {
+      "rev": "85b8e5f60c1690cde57dbb66467ce39cd1b63343",
+      "src": "https://github.com/christoomey/vim-tmux-navigator",
+      "version": ">=0.0.0"
+    },
+    "whichkey": {
+      "rev": "fcbf4eea17cb299c02557d576f0d568878e354a4",
+      "src": "https://github.com/folke/which-key.nvim",
+      "version": ">=0.0.0"
+    }
+  }
+}
