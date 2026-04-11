@@ -17,9 +17,24 @@ vim.api.nvim_create_user_command("Pack", function()
 	vim.pack.update(nil, { offline = true })
 end, { nargs = "*", bang = true, force = true })
 
+vim.api.nvim_create_user_command("PackLoad", function()
+	local list = {}
+	for _, plugin in ipairs(plugins) do
+		table.insert(list, {
+			src = plugin.url,
+			name = plugin.name,
+		})
+	end
+	vim.pack.add(list, { force = true, load = function() end })
+end, { desc = "Install Pack plugins" })
+
 vim.api.nvim_create_user_command("PackSync", function()
-	vim.pack.update(nil, { targer = "lockfile" })
-end, { nargs = "*", bang = true, force = true })
+	vim.pack.update(nil, { target = "lockfile" })
+end, { desc = "Sync plugin versions with lockfile" })
+
+vim.api.nvim_create_user_command("PackUpdate", function()
+	vim.pack.update()
+end, { desc = "Update plugins to the latest version" })
 
 local onCommandHook = function(plugin)
 	local lazy = false
@@ -74,16 +89,6 @@ local onFiletypeHook = function(plugin)
 end
 
 local setup = function()
-	-- Make sure the plugins are installed
-	local list = {}
-	for _, plugin in ipairs(plugins) do
-		table.insert(list, {
-			src = plugin.url,
-			name = plugin.name,
-		})
-	end
-	vim.pack.add(list, { force = true, load = function() end })
-
 	-- Load the plugins on demand
 	for _, plugin in ipairs(plugins) do
 		if plugin.init then

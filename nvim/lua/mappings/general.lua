@@ -5,12 +5,12 @@ local mappings = {
 		["<C-e>"] = { "<End>", "End of line" },
 
 		-- Cycle diagnostic buffers
-		-- ["<C-j>"] = { "<cmd> cnext <CR>", "Next diagnostics buffer" },
-		-- ["<C-k>"] = { "<cmd> cprev <CR>", "Previous diagnostics buffer" },
+		["<C-j>"] = { "<cmd> cnext <CR>", "Next diagnostics buffer" },
+		["<C-k>"] = { "<cmd> cprev <CR>", "Previous diagnostics buffer" },
 
 		-- Leave insert mode
 		["jk"] = { "<ESC>", "Leave insert mode" },
-		["<M-s>"] = {"<esc><cmd> w <cr>}", "Save buffer" },
+		["<M-s>"] = { "<esc><cmd> w <cr>}", "Save buffer" },
 	},
 
 	n = {
@@ -25,8 +25,16 @@ local mappings = {
 		["<C-e>"] = { "<End>a", "End of line" },
 
 		-- Cycle diagnostic buffers
-		-- ["<C-j>"] = { "<cmd> cnext <CR>", "Next diagnostics buffer" },
-		-- ["<C-k>"] = { "<cmd> cprev <CR>", "Previous diagnostics buffer" },
+		["<C-j>"] = { "<cmd> cnext <CR>", "Next diagnostics buffer" },
+		["<C-k>"] = { "<cmd> cprev <CR>", "Previous diagnostics buffer" },
+
+		['gL'] = { function()
+			vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
+		end, "Toggle codelens" },
+		["gK"] = { function()
+			local new_config = not vim.diagnostic.config().virtual_text
+			vim.diagnostic.config({ virtual_text = new_config })
+		end, "Toggle diagnostic virtual_lines" },
 
 		-- Switch Between Windows as Fallback
 		["<M-h>"] = { "<C-w>h", "Window left" },

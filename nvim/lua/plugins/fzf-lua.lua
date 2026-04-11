@@ -13,6 +13,11 @@ local plugin = {
 				border = 'none',
 			},
 		},
+		keymap = {
+			fzf = {
+				["ctrl-q"] = "select-all+accept",
+			},
+		},
 	},
 	setup = function(self)
 		vim.cmd.packadd(self.name)

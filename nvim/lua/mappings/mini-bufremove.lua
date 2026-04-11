@@ -1,4 +1,4 @@
-local bdel = require('mini.bufdelete')
+local bdel = require('mini.bufremove')
 
 local mappings = {
 	n = {
