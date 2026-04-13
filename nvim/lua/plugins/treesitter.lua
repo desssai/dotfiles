@@ -13,7 +13,6 @@ local plugin = {
 		vim.cmd.packadd(self.name)
 
 		require("nvim-treesitter").setup({})
-
 		require("nvim-treesitter").install(parsers)
 
 		local group = vim.api.nvim_create_augroup("TreeSitter", { clear = true })

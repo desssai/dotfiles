@@ -1,4 +1,7 @@
-Statusline = {
+WinBar = {
+	path = function()
+		return vim.api.nvim_buf_get_name(0)
+	end,
 	git = function()
 		local git_info = vim.b.gitsigns_status_dict
 		if not git_info or git_info.head == "" then
@@ -22,21 +25,25 @@ Statusline = {
 	end
 }
 
+-- local winbar = function()
+-- 	return table.concat {
+-- 		"[%n] [ %f ] %{%v:lua.WinBar.path()%}",
+-- 		"%=",
+-- 		"%{%v:lua.WinBar.git()%} %m",
+-- 	}
+-- end
+
 local active = function()
 	return table.concat {
 		"[%n] [ %f ]",
 		"%=",
 		"[ %p%% ] %y [ %l:%c ]",
-		"%=",
-		"%{%v:lua.Statusline.git()%} %m",
 	}
 end
 
 local inactive = function()
 	return table.concat {
 		"[%n] [ %f ]",
-		"%=",
-		"%{%v:lua.Statusline.git()%} %m",
 	}
 end
 
@@ -47,7 +54,8 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
 	group = group,
 	desc = "Activate statusline on focus",
 	callback = function()
-		vim.opt_local.winbar = active()
+		vim.opt_local.statusline = active()
+		-- vim.opt.winbar = winbar()
 	end,
 })
 
@@ -55,7 +63,7 @@ vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
 	group = group,
 	desc = "Deactivate statusline when unfocused",
 	callback = function()
-		vim.opt_local.winbar = inactive()
+		vim.opt_local.statusline = inactive()
 	end,
 })
 

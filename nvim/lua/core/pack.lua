@@ -11,6 +11,7 @@ local plugins = {
 	require("plugins.mason"),
 	require("plugins.lspconfig"),
 	require("plugins.treesitter"),
+	require("plugins.bufferline"),
 }
 
 vim.api.nvim_create_user_command("Pack", function()

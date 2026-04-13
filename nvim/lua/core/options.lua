@@ -1,8 +1,10 @@
 local opt = vim.opt
 local g = vim.g
 
+g.mapleader = " "
+
 -- Global statusline
-opt.laststatus = 0
+opt.laststatus = 3
 
 -- Options for nvim behaviour
 opt.clipboard = "unnamedplus"
@@ -20,7 +22,7 @@ opt.shiftround = true
 -- Autocompletions
 opt.autocomplete = true
 opt.pumborder = "none"
-opt.pummaxwidth = 40
+opt.pummaxwidth = 60
 opt.completeopt = "menuone,noselect,popup"
 
 -- Search
@@ -50,14 +52,14 @@ opt.splitright = true
 -- UI options
 opt.termguicolors = true
 opt.cursorline = true
-opt.colorcolumn = "80"
-opt.listchars = "tab:│ ,multispace:·,lead:·,trail:·,nbsp:+"
+opt.colorcolumn = "81"
+opt.listchars = { tab = "│ ", multispace = "·", trail = "·", lead = "·", nbsp = "+" }
 opt.list = true
-opt.guicursor = "i:block"
 opt.scrolloff = 8
+opt.cmdheight = 0
 
 -- Timeout for a mapping execution
-opt.timeoutlen = 400
+opt.timeoutlen = 500
 
 -- Save undo history to a file
 opt.undofile = true
@@ -69,7 +71,7 @@ opt.updatetime = 250
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append("<>[]hl")
 
-g.mapleader = " "
+require('vim._core.ui2').enable()
 
 -- Disable some default providers
 for _, provider in ipairs({ "node", "perl", "python3", "ruby" }) do
@@ -82,20 +84,20 @@ vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. ":" .. vim.env.PATH
 -- Enable filetype detection, plugins, and indentation
 vim.cmd.filetype("plugin indent on")
 
--- cmd([[match TrailingWhitespace /\s\+$/]])
-
--- nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
-
--- nvim_create_autocmd("InsertEnter", {
+-- vim.cmd([[match TrailingWhitespace /\s\+$/]])
+--
+-- vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
+--
+-- vim.api.nvim_create_autocmd("InsertEnter", {
 -- 	callback = function()
 -- 		opt.listchars.trail = nil
--- 		nvim_set_hl(0, "TrailingWhitespace", { link = "Whitespace" })
+-- 		vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Whitespace" })
 -- 	end
 -- })
-
--- nvim_create_autocmd("InsertLeave", {
+--
+-- vim.api.nvim_create_autocmd("InsertLeave", {
 -- 	callback = function()
--- 		opt.listchars.trail = space
--- 		nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
+-- 		opt.listchars.trail = "·"
+-- 		vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
 -- 	end
 -- })
