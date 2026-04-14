@@ -1,8 +1,17 @@
-tab {
-	min-height: 14px;
+tabbox {
+	padding: 0px;
+	margin: 0px;
+	min-height: 8px;
 }
 
-tab {
-	min-height: 14px;
-	min-width: 14px;
+tabbar {
+	padding: 0px;
+	margin: -16px;
+	transform: translateY(-12px);
+	min-height: 8px;
+}
+
+tabboxchild {
+	margin-top: -8px;
+	margin-bottom: -8px;
 }

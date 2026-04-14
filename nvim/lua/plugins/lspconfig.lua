@@ -4,24 +4,13 @@ local plugin = {
 	setup = function(self)
 		vim.cmd.packadd(self.name)
 
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		-- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-		-- capabilities.textDocument.completion.completionItem.snippetSupport = true
-		local function on_attach(client, bufnr)
-			vim.lsp.completion.enable(true, client.id, bufnr, {
-				autotrigger = true,
-				convert = function(item)
-					return { abbr = item.label:gsub("%b()", "") }
-				end,
-			})
-			vim.keymap.set("i", "<C-b>", vim.lsp.completion.get, { desc = "trigger autocompletion" })
-			-- use null-ls formatter and not the default lsp behaviour
-			-- disable semantic tokens so as to smooth the experience
-			-- and set up custom mappings for each buffer on attach
 
-			-- client.server_capabilities.documentFormattingProvider = false
-			-- client.server_capabilities.documentRangeFormattingProvider = false
-			-- client.server_capabilities.semanticTokensProvider = nil
+		local capabilities = vim.tbl_deep_extend("force",
+			vim.lsp.protocol.make_client_capabilities(),
+			require("blink.cmp").get_lsp_capabilities()
+		)
+
+		local function on_attach(_, bufnr)
 			require("core.mappings").set("mappings.lspconfig", bufnr)
 		end
 
@@ -40,6 +29,7 @@ local plugin = {
 			"ts_ls",                        -- TypeScript/JavaScript
 			"pylsp",                        -- Python
 			"sqlls",                        -- SQL Language Server
+			"cssls",                          -- CSS Language Server
 		}
 
 		for _, name in ipairs(servers) do
