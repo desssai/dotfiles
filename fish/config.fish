@@ -47,8 +47,8 @@ if status is-interactive # Commands to run in interactive sessions can go here
     bind -M insert \ck up-or-search
     bind -M insert \cj down-or-search
     bind -M insert \cl complete
-    bind -M insert -m default j,k cancel repaint-mode
-    bind -M visual -m default j,k cancel repaint-mode
+    bind -M insert -m default j,k repaint-mode
+    bind -M visual -m default j,k repaint-mode
 
     # make vi mode yanks copy to clipboard
     bind yy kill-whole-line yank_to_clipboard yank
