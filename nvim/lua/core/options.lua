@@ -12,12 +12,13 @@ opt.backspace = "indent,eol,start"
 opt.iskeyword:append("-")
 
 -- Indenting
-opt.expandtab = false
+opt.autoindent = true
 opt.smartindent = true
 opt.tabstop = 2
-opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.shiftround = true
+opt.expandtab = false
+opt.softtabstop = 0
 
 -- Autocompletions
 opt.pumborder = "none"
