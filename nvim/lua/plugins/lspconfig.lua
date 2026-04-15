@@ -29,7 +29,7 @@ local plugin = {
 			"ts_ls",                        -- TypeScript/JavaScript
 			"pylsp",                        -- Python
 			"sqlls",                        -- SQL Language Server
-			"cssls",                          -- CSS Language Server
+			"cssls",                        -- CSS Language Server
 		}
 
 		for _, name in ipairs(servers) do
@@ -40,44 +40,17 @@ local plugin = {
 		vim.lsp.config["lua_ls"] = {
 			on_attach = on_attach,
 			capabilities = capabilities,
-			on_init = function(client)
-				if client.workspace_folders then
-					local path = client.workspace_folders[1].name
-					if
-							path ~= vim.fn.stdpath("config")
-							and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
-					then
-						return
-					end
-				end
-			end,
 			settings = {
 				Lua = {
+					runtime = { version = "LuaJIT" },
 					diagnostics = {
 						globals = { "vim" },
 					},
-					runtime = {
-						version = "Lua 5.4",
-						path = {
-							"/usr/share/lua/5.4/?.lua",
-							"/usr/local/share/lua/5.4/?.lua",
-							"/usr/local/share/lua/5.4/?/init.lua",
-							"/usr/share/lua/5.4/?/init.lua",
-							"/usr/local/lib/lua/5.4/?.lua",
-							"/usr/local/lib/lua/5.4/?/init.lua",
-							"/usr/lib/lua/5.4/?.lua",
-							"/usr/lib/lua/5.4/?/init.lua",
-							"./?.lua",
-							"./?/init.lua",
-							"/home/ncarob/.luarocks/share/lua/5.4/?.lua",
-							"/home/ncarob/.luarocks/share/lua/5.4/?/init.lua",
-						},
-					},
 					workspace = {
-						library = {
-							vim.fn.expand("~/.luarocks/share/lua/5.4"),
-							"/usr/share/lua/5.4",
-						},
+						checkThirdParty = false,
+					},
+					hint = {
+						enable = true,
 					},
 				},
 			},

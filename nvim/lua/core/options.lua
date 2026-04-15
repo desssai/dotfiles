@@ -52,10 +52,16 @@ opt.splitright = true
 opt.termguicolors = true
 opt.cursorline = true
 opt.colorcolumn = "81"
-opt.listchars = { tab = "│ ", multispace = "·", trail = "·", lead = "·", nbsp = "+" }
 opt.list = true
 opt.scrolloff = 8
 opt.cmdheight = 0
+opt.listchars = {
+	tab = "│ ",
+	multispace = "·",
+	trail = "·",
+	lead = "·",
+	nbsp = "+"
+}
 
 -- Timeout for a mapping execution
 opt.timeoutlen = 500

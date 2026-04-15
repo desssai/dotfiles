@@ -28,9 +28,12 @@ local mappings = {
 		["<C-j>"] = { "<cmd> cnext <CR>", "Next diagnostics buffer" },
 		["<C-k>"] = { "<cmd> cprev <CR>", "Previous diagnostics buffer" },
 
+		-- Toggle codelens
 		['gL'] = { function()
 			vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
 		end, "Toggle codelens" },
+
+		-- Toggle virtual diagnostics text
 		["gK"] = { function()
 			local new_config = not vim.diagnostic.config().virtual_text
 			vim.diagnostic.config({ virtual_text = new_config })
@@ -46,14 +49,19 @@ local mappings = {
 		["<leader>nn"] = { "<cmd> set nu! <CR>", "Toggle line number" },
 		["<leader>nr"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
 
+		-- Tab Management
+		["<leader>n"] = { "<cmd> tabnew <cr>", "New tab" },
+		["<leader><tab>"] = { "<cmd> tabn <cr>", "Next tab" },
+		["<leader><S-tab>"] = { "<cmd> tabp <cr>", "Previous tab" },
+
 		-- Buffer Management
-		["<M-n>"] = { "<cmd> enew <CR>", "New buffer" },
+		["<M-t>"] = { "<cmd> enew <CR>", "New buffer" },
 		["<M-s>"] = { "<cmd> w <CR>", "Save buffer" },
 		["<tab>"] = { "<cmd> bn <CR>", "Next buffer" },
 		["<S-tab>"] = { "<cmd> bp <CR>", "Previous buffer" },
 
 		-- Window Management
-		["<leader>q"] = { "<cmd> close <CR>", "Close current window" },
+		["<leader>w"] = { "<cmd> close <CR>", "Close current window" },
 		["<leader>\\"] = { "<C-w>v", "Split windows vertically" },
 		["<leader>-"] = { "<C-w>s", "Split windows horizontally" },
 		["<leader>b"] = { "<C-w>=", "Balance open windows" },
@@ -68,7 +76,7 @@ local mappings = {
 	},
 
 	t = {
-		["<M-q>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
+		["<M-w>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
 		["jk"] = { "<ESC>", "Leave terminal" },
 	},
 
