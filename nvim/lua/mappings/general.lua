@@ -28,12 +28,11 @@ local mappings = {
 		["<C-j>"] = { "<cmd> cnext <CR>", "Next diagnostics buffer" },
 		["<C-k>"] = { "<cmd> cprev <CR>", "Previous diagnostics buffer" },
 
-		-- Toggle codelens
-		['gL'] = { function()
-			vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
-		end, "Toggle codelens" },
-
-		-- Toggle virtual diagnostics text
+		-- Diagnostics: keep these plain and fast
+		['[d'] = { function() vim.diagnostic.jump({count=-1, float=true}) end, "Prev diagnostic" },
+		[']d'] = { function() vim.diagnostic.jump({count=1, float=true}) end, "Next diagnostic" },
+		['<leader>K'] = { vim.diagnostic.open_float, "Line diagnostics" },
+		['<leader>dq'] = { vim.diagnostic.setloclist, "Diagnostics loclist" },
 		["gK"] = { function()
 			local new_config = not vim.diagnostic.config().virtual_text
 			vim.diagnostic.config({ virtual_text = new_config })

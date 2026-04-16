@@ -56,6 +56,7 @@ opt.colorcolumn = "81"
 opt.list = true
 opt.scrolloff = 8
 opt.cmdheight = 0
+opt.showmode = false
 opt.listchars = {
 	tab = "│ ",
 	multispace = "·",

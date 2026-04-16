@@ -2,6 +2,7 @@ local plugins = {
 	require("plugins.which-key"),
 	require("plugins.gitsigns"),
 	require("plugins.blink"),
+	require("plugins.mini-ai"),
 	require("plugins.mini-icons"),
 	require("plugins.mini-pairs"),
 	require("plugins.mini-surround"),

@@ -3,15 +3,16 @@ local mappings = {
 		["gd"] = { vim.lsp.buf.definition, "Goto definition" } ,
 		["gD"] = { vim.lsp.buf.declaration, "Goto declaration" },
 		['K'] = { vim.lsp.buf.hover, "Hover" },
-		-- Diagnostics: keep these plain and fast
-		['[d'] = { function() vim.diagnostic.jump({count=-1, float=true}) end, "Prev diagnostic" },
-		[']d'] = { function() vim.diagnostic.jump({count=1, float=true}) end, "Next diagnostic" },
-		['<leader>e'] = { vim.diagnostic.open_float, "Line diagnostics" },
-		['<leader>dq'] = { vim.diagnostic.setloclist, "Diagnostics loclist" },
+
 		-- Formatting
 		['<leader>F'] = { function()
 			vim.lsp.buf.format({ async = true })
 		end, "Format buffer" },
+
+		-- Toggle codelens
+		['gL'] = { function()
+			vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
+		end, "Toggle codelens" },
 	}
 }
 
