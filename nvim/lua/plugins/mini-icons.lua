@@ -2,7 +2,7 @@ local plugin = {
 	name = "mini.icons",
 	url = "https://github.com/nvim-mini/mini.icons",
 	setup = function(self)
-		vim.cmd.packadd(self.name)
+		vim.pack.add({ { name = self.name, src = self.url } }, nil)
 		require(self.name).setup()
 	end,
 }

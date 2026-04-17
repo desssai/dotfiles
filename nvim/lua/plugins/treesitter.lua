@@ -10,7 +10,7 @@ local plugin = {
 			"sql", "hyprlang", "tsx", "json", "csv", "yaml",
 		}
 
-		vim.cmd.packadd(self.name)
+		vim.pack.add({ { name = self.name, src = self.url } }, nil)
 
 		require("nvim-treesitter").setup({})
 		require("nvim-treesitter").install(parsers)
@@ -24,7 +24,7 @@ local plugin = {
 				local spec = data.spec or {}
 				if spec.name == self.name and data.kind == "update" then
 					vim.schedule(function()
-						vim.cmd.packadd(self.name)
+						vim.pack.add({ { name = self.name, src = self.url } }, nil)
 						vim.cmd("TSUpdate")
 					end)
 				end

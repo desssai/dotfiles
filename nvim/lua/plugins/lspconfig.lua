@@ -2,16 +2,15 @@ local plugin = {
 	name = "lspconfig",
 	url = "https://github.com/neovim/nvim-lspconfig",
 	setup = function(self)
-		vim.cmd.packadd(self.name)
+		vim.pack.add({ { name = self.name, src = self.url } }, nil)
 
-
-		local capabilities = vim.tbl_deep_extend("force",
-			vim.lsp.protocol.make_client_capabilities(),
-			require("blink.cmp").get_lsp_capabilities()
-		)
 
 		local function on_attach(_, bufnr)
-			require("core.mappings").set("mappings.lspconfig", bufnr)
+			local capabilities = vim.tbl_deep_extend("force",
+				vim.lsp.protocol.make_client_capabilities(),
+				require("blink.cmp").get_lsp_capabilities()
+			)
+			require("core.mappings").set("mappings.lsp", bufnr)
 		end
 
 		-- set default capabilities and on_attach for all language servers

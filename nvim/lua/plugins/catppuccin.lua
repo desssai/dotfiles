@@ -3,7 +3,7 @@ local plugin = {
 	url = "https://github.com/catppuccin/nvim",
 	opts = {
 		flavour = "macchiato", -- latte, frappe, macchiato, mocha
-		background = { -- :h background
+		background = {       -- :h background
 			light = "latte",
 			dark = "mocha",
 		},
@@ -33,11 +33,10 @@ local plugin = {
 			treesitter = true,
 			-- neotree = true,
 			-- notify = false,
-			-- mini = false,
 		},
 	},
 	setup = function(self)
-		vim.cmd.packadd(self.name)
+		vim.pack.add({ { name = self.name, src = self.url } }, nil)
 		require(self.name).setup(self.opts)
 		vim.cmd.colorscheme("catppuccin")
 	end,

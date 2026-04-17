@@ -3,7 +3,7 @@ local oil = require('oil')
 local mappings = {
 	n = {
 		["-"] = { function ()
-			oil.toggle_float()
+			oil.open_float()
 		end, "Open parent directory" }
 	}
 }

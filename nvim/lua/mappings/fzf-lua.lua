@@ -18,6 +18,7 @@ local mappings = {
 		-- FzfLua lsp hotkeys
 		["<leader>ft"] = { "<cmd>FzfLua diagnostics_document<CR>", "Document diagnostics" },
 		["<leader>fT"] = { "<cmd>FzfLua diagnostics_workspace<CR>", "Workspace diagnostics" },
+		["<leader>fs"] = { "<cmd>FzfLua lsp_document_symbols<CR>", "Document diagnostics" },
 		["gra"] = { "<cmd>FzfLua lsp_code_actions<CR>", "Lsp code actions" },
 		["grr"] = { "<cmd>FzfLua lsp_references<CR>", "Lsp references" },
 		["grt"] = { "<cmd>FzfLua lsp_typedefs<CR>", "Lsp type definitions" },

@@ -23,7 +23,7 @@ opt.softtabstop = 0
 -- Autocompletions
 opt.pumborder = "none"
 opt.pummaxwidth = 60
-opt.completeopt = "menu,menuone,noselect"
+opt.completeopt = "menu,menuone,noselect,popup"
 
 -- Search
 opt.fillchars = { eob = " " }
@@ -43,21 +43,22 @@ opt.ruler = false
 opt.shortmess:append("sI")
 
 -- Additional info column for plugins
-opt.signcolumn = "yes:1"
+opt.signcolumn    = "yes:1"
 
 -- Window split behaviour
-opt.splitbelow = true
-opt.splitright = true
+opt.splitbelow    = true
+opt.splitright    = true
 
 -- UI options
 opt.termguicolors = true
-opt.cursorline = true
-opt.colorcolumn = "81"
-opt.list = true
-opt.scrolloff = 8
-opt.cmdheight = 0
-opt.showmode = false
-opt.listchars = {
+opt.cursorline    = true
+opt.cursorlineopt = 'screenline,number'
+opt.colorcolumn   = "81"
+opt.list          = true
+opt.scrolloff     = 8
+opt.cmdheight     = 0
+opt.showmode      = false
+opt.listchars     = {
 	tab = "│ ",
 	multispace = "·",
 	trail = "·",
@@ -66,17 +67,20 @@ opt.listchars = {
 }
 
 -- Timeout for a mapping execution
-opt.timeoutlen = 500
+opt.timeoutlen    = 500
 
 -- Save undo history to a file
-opt.undofile = true
+opt.undofile      = true
 
 -- Interval for writing swap file to disk, also used by gitsigns
-opt.updatetime = 250
+opt.updatetime    = 250
 
 -- Go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append("<>[]hl")
+
+-- Enable filetype detection, plugins, and indentation
+vim.cmd.filetype("plugin indent on")
 
 require('vim._core.ui2').enable()
 
@@ -87,9 +91,6 @@ end
 
 -- Add binaries instaled by Mason for LSP functionality
 vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. ":" .. vim.env.PATH
-
--- Enable filetype detection, plugins, and indentation
-vim.cmd.filetype("plugin indent on")
 
 -- vim.cmd([[match TrailingWhitespace /\s\+$/]])
 --

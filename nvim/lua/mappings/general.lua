@@ -29,8 +29,10 @@ local mappings = {
 		["<C-k>"] = { "<cmd> cprev <CR>", "Previous diagnostics buffer" },
 
 		-- Diagnostics: keep these plain and fast
-		['[d'] = { function() vim.diagnostic.jump({count=-1, float=true}) end, "Prev diagnostic" },
-		[']d'] = { function() vim.diagnostic.jump({count=1, float=true}) end, "Next diagnostic" },
+		['[e'] = { function() vim.diagnostic.jump { count = -1, severity = vim.diagnostic.severity.ERROR } end, "Prev error" },
+		[']e'] = { function() vim.diagnostic.jump { count = 1, severity = vim.diagnostic.severity.ERROR } end, "Prev error" },
+		['[d'] = { function() vim.diagnostic.jump({ count = -1, float = true }) end, "Previous diagnostic" },
+		[']d'] = { function() vim.diagnostic.jump({ count = 1, float = true }) end, "Next diagnostic" },
 		['<leader>K'] = { vim.diagnostic.open_float, "Line diagnostics" },
 		['<leader>dq'] = { vim.diagnostic.setloclist, "Diagnostics loclist" },
 		["gK"] = { function()
@@ -64,6 +66,11 @@ local mappings = {
 		["<leader>\\"] = { "<C-w>v", "Split windows vertically" },
 		["<leader>-"] = { "<C-w>s", "Split windows horizontally" },
 		["<leader>b"] = { "<C-w>=", "Balance open windows" },
+
+		-- Vim Pack Hotkeys
+		["<leader>ps"] = {"<cmd> Pack <cr>", "Show nvim packages"},
+		["<leader>pu"] = {"<cmd> PackUpdate <cr>", "Show nvim packages"},
+		["<leader>pS"] = {"<cmd> PackSync <cr>", "Show nvim packages"},
 	},
 
 	v = {

@@ -3,7 +3,7 @@ local plugin = {
 	url = "https://github.com/folke/which-key.nvim",
 	lazy = true,
 	setup = function(self)
-		vim.cmd.packadd(self.name)
+		vim.pack.add({ { name = self.name, src = self.url } }, nil)
 		require("core.mappings").set("mappings.which-key")
 	end,
 }

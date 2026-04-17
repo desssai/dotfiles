@@ -1,9 +1,9 @@
 local plugin = {
 	name = "mini.surround",
 	url = "https://github.com/nvim-mini/mini.surround",
-	event = { "InsertEnter" },
+	event = { "BufReadPost", "BufNewFile" },
 	setup = function(self)
-		vim.cmd.packadd(self.name)
+		vim.pack.add({ { name = self.name, src = self.url } }, nil)
 		require(self.name).setup({})
 	end
 }

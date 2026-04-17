@@ -1,4 +1,5 @@
 local plugins = {
+	require("plugins.catppuccin"),
 	require("plugins.which-key"),
 	require("plugins.gitsigns"),
 	require("plugins.blink"),
@@ -11,33 +12,10 @@ local plugins = {
 	require("plugins.oil"),
 	require("plugins.fzf-lua"),
 	require("plugins.mason"),
-	require("plugins.lspconfig"),
 	require("plugins.treesitter"),
 	require("plugins.bufferline"),
 }
 
-vim.api.nvim_create_user_command("Pack", function()
-	vim.pack.update(nil, { offline = true })
-end, { nargs = "*", bang = true, force = true })
-
-vim.api.nvim_create_user_command("PackLoad", function()
-	local list = {}
-	for _, plugin in ipairs(plugins) do
-		table.insert(list, {
-			src = plugin.url,
-			name = plugin.name,
-		})
-	end
-	vim.pack.add(list, { force = true, load = function() end })
-end, { desc = "Install Pack plugins" })
-
-vim.api.nvim_create_user_command("PackSync", function()
-	vim.pack.update(nil, { target = "lockfile" })
-end, { desc = "Sync plugin versions with lockfile" })
-
-vim.api.nvim_create_user_command("PackUpdate", function()
-	vim.pack.update()
-end, { desc = "Update plugins to the latest version" })
 
 local onCommandHook = function(plugin)
 	local lazy = false
@@ -92,6 +70,8 @@ local onFiletypeHook = function(plugin)
 end
 
 local setup = function()
+	local group = vim.api.nvim_create_augroup("LazyLoad", { clear = true })
+
 	-- Load the plugins on demand
 	for _, plugin in ipairs(plugins) do
 		if plugin.init then
@@ -101,16 +81,18 @@ local setup = function()
 			if plugin.lazy == nil or plugin.lazy == false then
 				plugin:setup()
 			else
-				vim.schedule(function()
-					plugin:setup()
-				end)
+				vim.api.nvim_create_autocmd('VimEnter', {
+					group = group,
+					callback = function(args)
+						plugin:setup()
+					end,
+				})
 			end
 		end
 	end
 
 	vim.schedule(function()
 		vim.cmd.packadd('nvim.undotree')
-		vim.cmd.packadd('nvim.difftool')
 	end)
 end
 

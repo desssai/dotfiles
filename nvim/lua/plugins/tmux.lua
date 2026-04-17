@@ -12,7 +12,7 @@ local plugin = {
 		require("core.mappings").set("mappings.tmux")
 	end,
 	setup = function(self)
-		vim.cmd.packadd(self.name)
+		vim.pack.add({ { name = self.name, src = self.url } }, nil)
 	end,
 }
 
