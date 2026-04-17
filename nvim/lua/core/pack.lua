@@ -8,7 +8,6 @@ local plugins = {
 	require("plugins.mini-pairs"),
 	require("plugins.mini-surround"),
 	require("plugins.mini-bufremove"),
-	require("plugins.mini-snippets"),
 	require("plugins.conform"),
 	require("plugins.tmux"),
 	require("plugins.oil"),

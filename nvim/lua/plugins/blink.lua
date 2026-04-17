@@ -73,9 +73,9 @@ local plugin = {
 				completion = {
 					menu = { auto_show = true },
 				},
-			}
+			},
 		})
-	end
+	end,
 }
 
 return plugin

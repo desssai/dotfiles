@@ -70,7 +70,7 @@ local function on_attach(_, bufnr)
 end
 
 -- Update mappings when registering dynamic capabilities.
-vim.lsp.handlers['client/registerCapability'] = (function(overridden)
+vim.lsp.handlers["client/registerCapability"] = (function(overridden)
 	return function(err, res, ctx)
 		local result = overridden(err, res, ctx)
 		local client = vim.lsp.get_client_by_id(ctx.client_id)
@@ -82,10 +82,10 @@ vim.lsp.handlers['client/registerCapability'] = (function(overridden)
 		end
 		return result
 	end
-end)(vim.lsp.handlers['client/registerCapability'])
+end)(vim.lsp.handlers["client/registerCapability"])
 
-vim.api.nvim_create_autocmd('LspAttach', {
-	desc = 'Configure LSP keymaps',
+vim.api.nvim_create_autocmd("LspAttach", {
+	desc = "Configure LSP keymaps",
 	callback = function(ev)
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
 		if not client then
@@ -96,51 +96,52 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	end,
 })
 
-vim.api.nvim_create_autocmd('LspDetach', {
+vim.api.nvim_create_autocmd("LspDetach", {
 	callback = function(ev)
 		-- Get the detaching client
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
 		-- Remove the autocommand to format the buffer on save, if it exists
-		if client:supports_method('textDocument/formatting') then
+		if client:supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({
-				event = 'BufWritePre',
+				event = "BufWritePre",
 				buffer = ev.buf,
 			})
 		end
 	end,
 })
 
-vim.api.nvim_create_autocmd('LspProgress', {
+vim.api.nvim_create_autocmd("LspProgress", {
 	callback = function(ev)
 		local value = ev.data.params.value
-		vim.api.nvim_echo({ { value.message or 'done' } }, false, {
-			id = 'lsp.' .. ev.data.params.token,
-			kind = 'progress',
-			source = 'vim.lsp',
+		vim.api.nvim_echo({ { value.message or "done" } }, false, {
+			id = "lsp." .. ev.data.params.token,
+			kind = "progress",
+			source = "vim.lsp",
 			title = value.title,
-			status = value.kind ~= 'end' and 'running' or 'success',
+			status = value.kind ~= "end" and "running" or "success",
 			percent = value.percentage,
 		})
 	end,
 })
 
 -- Set up LSP servers.
-vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
+vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
 	once = true,
 	callback = function()
 		-- Extend neovim's client capabilities with the completion ones.
-		vim.lsp.config('*', {
-			capabilities = vim.tbl_deep_extend("force",
+		vim.lsp.config("*", {
+			capabilities = vim.tbl_deep_extend(
+				"force",
 				vim.lsp.protocol.make_client_capabilities(),
 				require("blink.cmp").get_lsp_capabilities()
-			)
+			),
 		})
 
-		local servers = vim.iter(vim.api.nvim_get_runtime_file('lsp/*.lua', true))
-				:map(function(file)
-					return vim.fn.fnamemodify(file, ':t:r')
-				end)
-				:totable()
+		local servers = vim.iter(vim.api.nvim_get_runtime_file("lsp/*.lua", true))
+			:map(function(file)
+				return vim.fn.fnamemodify(file, ":t:r")
+			end)
+			:totable()
 		vim.lsp.enable(servers)
 	end,
 })
