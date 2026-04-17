@@ -12,6 +12,14 @@
       "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1",
       "src": "https://github.com/catppuccin/nvim"
     },
+    "conform": {
+      "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "friendly-snippets": {
+      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
     "fzf-lua": {
       "rev": "83f7195972538beee3a40932b38ccd86c8cc0f06",
       "src": "https://github.com/ibhagwan/fzf-lua"
@@ -39,6 +47,10 @@
     "mini.pairs": {
       "rev": "42387c7fe68fc0b6e95eaf37f1bb76e7bffaa0d9",
       "src": "https://github.com/nvim-mini/mini.pairs"
+    },
+    "mini.snippets": {
+      "rev": "8e3acd41bd7ee8f89967c83bacc93871b98a14aa",
+      "src": "https://github.com/nvim-mini/mini.snippets"
     },
     "mini.surround": {
       "rev": "2715e04bea3ec9244f15b421dc5b18c0fe326210",

@@ -8,6 +8,8 @@ local plugins = {
 	require("plugins.mini-pairs"),
 	require("plugins.mini-surround"),
 	require("plugins.mini-bufremove"),
+	require("plugins.mini-snippets"),
+	require("plugins.conform"),
 	require("plugins.tmux"),
 	require("plugins.oil"),
 	require("plugins.fzf-lua"),
@@ -15,7 +17,6 @@ local plugins = {
 	require("plugins.treesitter"),
 	require("plugins.bufferline"),
 }
-
 
 local onCommandHook = function(plugin)
 	local lazy = false
@@ -81,7 +82,7 @@ local setup = function()
 			if plugin.lazy == nil or plugin.lazy == false then
 				plugin:setup()
 			else
-				vim.api.nvim_create_autocmd('VimEnter', {
+				vim.api.nvim_create_autocmd("VimEnter", {
 					group = group,
 					callback = function(args)
 						plugin:setup()
@@ -92,7 +93,7 @@ local setup = function()
 	end
 
 	vim.schedule(function()
-		vim.cmd.packadd('nvim.undotree')
+		vim.cmd.packadd("nvim.undotree")
 	end)
 end
 
