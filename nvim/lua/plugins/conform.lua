@@ -1,8 +1,15 @@
 local plugin = {
 	src = 'https://github.com/stevearc/conform.nvim',
 	event = { 'BufReadPost', 'BufNewFile' },
+	init = function()
+		require('core.mappings').set('mappings.conform')
+	end,
 	setup = function()
 		local enabled = true
+
+		vim.api.nvim_create_user_command('ConformToggle', function(_)
+			enabled = not enabled
+		end, {})
 
 		require('conform').setup({
 			format_on_save = function(_)
