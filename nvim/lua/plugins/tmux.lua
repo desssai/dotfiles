@@ -1,18 +1,14 @@
 local plugin = {
-	name = "tmux",
-	url = "https://github.com/christoomey/vim-tmux-navigator",
+	src = 'https://github.com/christoomey/vim-tmux-navigator',
 	cmd = {
-		"TmuxNavigateLeft",
-		"TmuxNavigateDown",
-		"TmuxNavigateUp",
-		"TmuxNavigateRight",
+		'TmuxNavigateLeft',
+		'TmuxNavigateDown',
+		'TmuxNavigateUp',
+		'TmuxNavigateRight',
 	},
-	init = function(self)
+	init = function()
 		vim.g.tmux_navigator_no_mappings = 1
-		require("core.mappings").set("mappings.tmux")
-	end,
-	setup = function(self)
-		vim.pack.add({ { name = self.name, src = self.url } }, nil)
+		require('core.mappings').set('mappings.tmux')
 	end,
 }
 

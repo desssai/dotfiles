@@ -1,24 +1,33 @@
 local mappings = {
 	n = {
-		["gd"] = { vim.lsp.buf.definition, "Goto definition" },
-		["gD"] = { vim.lsp.buf.declaration, "Goto declaration" },
-		["K"] = { vim.lsp.buf.hover, "Hover" },
+		['gd'] = { vim.lsp.buf.definition, 'Goto definition' },
+		['gD'] = { vim.lsp.buf.declaration, 'Goto declaration' },
+		['K'] = { vim.lsp.buf.hover, 'Hover' },
 
 		-- Formatting
-		["<leader>F"] = { function()
-			vim.lsp.buf.format({ async = true })
-		end, "Format buffer" },
+		['<leader>F'] = {
+			function()
+				vim.lsp.buf.format({ async = true })
+			end,
+			'Format buffer',
+		},
 
 		-- Toggle codelens
-		["gL"] = { function()
-			vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
-		end, "Toggle codelens" },
+		['gL'] = {
+			function()
+				vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
+			end,
+			'Toggle codelens',
+		},
 
 		-- Toggle colors
-		["grc"] = { function()
-			vim.lsp.document_color.color_presentation()
-		end, "Toggle color presentation" }
-	}
+		['grc'] = {
+			function()
+				vim.lsp.document_color.color_presentation()
+			end,
+			'Toggle color presentation',
+		},
+	},
 }
 
 return mappings

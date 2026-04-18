@@ -1,11 +1,7 @@
-local oil = require('oil')
-
 local mappings = {
 	n = {
-		["-"] = { function ()
-			oil.open_float()
-		end, "Open parent directory" }
-	}
+		['-'] = { '<cmd>Oil --float<cr>', 'Open parent directory' },
+	},
 }
 
 return mappings

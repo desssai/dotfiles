@@ -18,32 +18,36 @@ return {
 	},
 	on_init = function(client)
 		if not client.workspace_folders then
+			print('here i am')
 			return
 		end
 
 		local path = client.workspace_folders[1].name
-		if path ~= vim.fn.stdpath('config')
-				and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
+		if
+			path ~= vim.fn.stdpath('config')
+			and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
 		then
+			print('here i am 2')
 			return
 		end
 
-		client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua or {}, {
-			runtime = {
-				version = 'LuaJIT',
-				path = {
-					'lua/?.lua',
-					'lua/?/init.lua',
+		client.config.settings.Lua =
+			vim.tbl_deep_extend('force', client.config.settings.Lua or {}, {
+				runtime = {
+					version = 'LuaJIT',
+					path = {
+						'lua/?.lua',
+						'lua/?/init.lua',
+					},
 				},
-			},
-			workspace = {
-				checkThirdParty = false,
-				library = {
-					vim.env.VIMRUNTIME,
-					'${3rd}/luv/library',
+				workspace = {
+					checkThirdParty = false,
+					library = {
+						vim.env.VIMRUNTIME,
+						'${3rd}/luv/library',
+					},
 				},
-			},
-		})
+			})
 
 		client:notify('workspace/didChangeConfiguration', {
 			settings = client.config.settings,

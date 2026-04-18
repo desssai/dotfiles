@@ -4,7 +4,7 @@ local M = {}
 ---@return string
 function M.render()
 	-- Get the path and expand variables.
-	local path = vim.fs.normalize(vim.fn.expand '%:p' --[[@as string]])
+	local path = vim.fs.normalize(vim.fn.expand('%:p') --[[@as string]])
 
 	-- Replace slashes by arrows.
 	local separator = ' %#WinbarSeparator# '
@@ -38,7 +38,7 @@ function M.render()
 	-- Remove leading slash.
 	path = path:gsub('^/', '')
 
-	return table.concat {
+	return table.concat({
 		' ',
 		prefix,
 		table.concat(
@@ -47,7 +47,7 @@ function M.render()
 			end, vim.split(path, '/')),
 			separator
 		),
-	}
+	})
 end
 
 vim.api.nvim_create_autocmd('BufWinEnter', {
@@ -55,10 +55,10 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
 	desc = 'Attach winbar',
 	callback = function(args)
 		if
-				not vim.api.nvim_win_get_config(0).zindex -- Not a floating window
-				and vim.bo[args.buf].buftype == ''        -- Normal buffer
-				and vim.api.nvim_buf_get_name(args.buf) ~= '' -- Has a file name
-				and not vim.wo[0].diff                    -- Not in diff mode
+			not vim.api.nvim_win_get_config(0).zindex -- Not a floating window
+			and vim.bo[args.buf].buftype == '' -- Normal buffer
+			and vim.api.nvim_buf_get_name(args.buf) ~= '' -- Has a file name
+			and not vim.wo[0].diff -- Not in diff mode
 		then
 			vim.wo.winbar = "%{%v:lua.require'winbar'.render()%}"
 		end

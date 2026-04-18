@@ -1,15 +1,13 @@
-local bdel = require('mini.bufremove')
-
 local mappings = {
 	i = {
-		["<M-w>"] = { function() bdel.delete() end, "Close buffer" },
+		['<M-w>'] = { '<cmd> BufDelete <cr>', 'Close buffer', },
 	},
 	n = {
-		["<M-w>"] = { function() bdel.delete() end, "Close buffer" },
+		['<M-w>'] = { '<cmd> BufDelete <cr>', 'Close buffer', },
 	},
 	v = {
-		["<M-w>"] = { function() bdel.delete() end, "Close buffer" },
-	}
+		['<M-w>'] = { '<cmd> BufDelete <cr>', 'Close buffer', },
+	},
 }
 
 return mappings

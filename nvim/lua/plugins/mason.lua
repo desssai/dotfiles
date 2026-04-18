@@ -1,39 +1,14 @@
 local plugin = {
-	name = "mason",
-	url = "https://github.com/mason-org/mason.nvim",
+	src = "https://github.com/mason-org/mason.nvim",
 	cmd = {
 		"Mason",
 		"MasonInstall",
+		"MasonInstallAll",
 		"MasonUninstall",
 		"MasonUninstallAll",
 		"MasonLog",
 	},
-	opts = {
-		ui = {
-			icons = {
-				package_pending = " ",
-				package_installed = " ",
-				package_uninstalled = " ",
-			},
-
-			keymaps = {
-				toggle_server_expand = "<CR>",
-				install_server = "i",
-				update_server = "u",
-				check_server_version = "v",
-				update_all_servers = "U",
-				check_outdated_servers = "C",
-				uninstall_server = "X",
-				cancel_installation = "<C-c>",
-			},
-		},
-
-		max_concurrent_installers = 10,
-	},
-	setup = function(self)
-		vim.pack.add({ { name = self.name, src = self.url } }, nil)
-		require(self.name).setup(self.opts)
-
+	setup = function()
 		local ensure_installed = {
 			-- LSP SERVERS
 			"bash-language-server",         -- Bash LSP
@@ -72,6 +47,27 @@ local plugin = {
 		vim.api.nvim_create_user_command("MasonInstallAll", function()
 			vim.cmd("MasonInstall " .. table.concat(ensure_installed, " "))
 		end, {})
+		require('mason').setup({
+			ui = {
+				icons = {
+					package_pending = " ",
+					package_installed = " ",
+					package_uninstalled = " ",
+				},
+
+				keymaps = {
+					toggle_server_expand = "<CR>",
+					install_server = "i",
+					update_server = "u",
+					check_server_version = "v",
+					update_all_servers = "U",
+					check_outdated_servers = "C",
+					uninstall_server = "D",
+					cancel_installation = "<C-c>",
+				},
+			},
+			max_concurrent_installers = 10,
+		})
 	end,
 }
 

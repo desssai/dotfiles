@@ -1,73 +1,73 @@
-local gs = require("gitsigns")
+local gs = require('gitsigns')
 
 local mappings = {
 	n = {
-		["]c"] = {
+		[']c'] = {
 			function()
 				if vim.wo.diff then
-					vim.cmd.normal({ "]c", bang = true })
+					vim.cmd.normal({ ']c', bang = true })
 				else
-					gs.nav_hunk("next")
+					gs.nav_hunk('next')
 				end
 			end,
-			"Jump to next hunk",
+			'Jump to next hunk',
 			opts = { expr = true },
 		},
-		["[c"] = {
+		['[c'] = {
 			function()
 				if vim.wo.diff then
-					vim.cmd.normal({ "[c", bang = true })
+					vim.cmd.normal({ '[c', bang = true })
 				else
-					gs.nav_hunk("prev")
+					gs.nav_hunk('prev')
 				end
 			end,
-			"Jump to prev hunk",
+			'Jump to prev hunk',
 			opts = { expr = true },
 		},
 		-- ["<leader>hd"] = { gs.toggle_deleted, "Git toggle deleted" },
-		["<leader>hs"] = { gs.stage_hunk, "Git stage current hunk" },
-		["<leader>hS"] = { gs.stage_buffer, "Git stage current buffer" },
-		["<leader>hr"] = { gs.reset_hunk, "Git reset current hunk" },
-		["<leader>hR"] = { gs.reset_buffer, "Git reset current buffer" },
-		["<leader>hu"] = { gs.undo_stage_hunk, "Git undo current hunk" },
-		["<leader>hp"] = { gs.preview_hunk, "Git preview hunk" },
-		["<leader>hi"] = { gs.preview_hunk_inline, "Git preview hunk inline" },
-		["<leader>hd"] = { gs.diffthis, "Git toggle diff this" },
-		["<leader>hq"] = { gs.setqflist, "Set QF list" },
-		["<leader>hl"] = {
+		['<leader>hs'] = { gs.stage_hunk, 'Git stage current hunk' },
+		['<leader>hS'] = { gs.stage_buffer, 'Git stage current buffer' },
+		['<leader>hr'] = { gs.reset_hunk, 'Git reset current hunk' },
+		['<leader>hR'] = { gs.reset_buffer, 'Git reset current buffer' },
+		['<leader>hu'] = { gs.undo_stage_hunk, 'Git undo current hunk' },
+		['<leader>hp'] = { gs.preview_hunk, 'Git preview hunk' },
+		['<leader>hi'] = { gs.preview_hunk_inline, 'Git preview hunk inline' },
+		['<leader>hd'] = { gs.diffthis, 'Git toggle diff this' },
+		['<leader>hq'] = { gs.setqflist, 'Set QF list' },
+		['<leader>hl'] = {
 			function()
 				gs.blame_line({ full = true })
 			end,
-			"Git toggle blame line",
+			'Git toggle blame line',
 		},
-		["<leader>hD"] = {
+		['<leader>hD'] = {
 			function()
-				gs.diffthis("~")
+				gs.diffthis('~')
 			end,
-			"Git toggle diff",
+			'Git toggle diff',
 			opts = { expr = true },
 		},
-		["<leader>hQ"] = {
+		['<leader>hQ'] = {
 			function()
-				gs.setqflist("all")
+				gs.setqflist('all')
 			end,
-			"Set -a QF list",
+			'Set -a QF list',
 			opts = { expr = true },
 		},
 	},
 	v = {
-		["<leader>hs"] = {
+		['<leader>hs'] = {
 			function()
-				gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+				gs.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
 			end,
-			"Git stage current hunk",
+			'Git stage current hunk',
 			opts = { expr = true },
 		},
-		["<leader>hr"] = {
+		['<leader>hr'] = {
 			function()
-				gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+				gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
 			end,
-			"Git reset current hunk",
+			'Git reset current hunk',
 			opts = { expr = true },
 		},
 	},
