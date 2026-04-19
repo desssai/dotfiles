@@ -1,4 +1,3 @@
----@brief
 --- https://github.com/tailwindlabs/tailwindcss-intellisense
 ---
 --- Tailwind CSS Language Server can be installed via npm:
@@ -10,7 +9,6 @@
 
 local util = require('core.utils')
 
----@type vim.lsp.Config
 return {
 	cmd = function(dispatchers, config)
 		local cmd = 'tailwindcss-language-server'
@@ -24,59 +22,63 @@ return {
 	end,
 	-- filetypes copied and adjusted from tailwindcss-intellisense
 	filetypes = {
+		--
 		-- html
-		'aspnetcorerazor',
-		'astro',
-		'astro-markdown',
-		'blade',
-		'clojure',
-		'django-html',
-		'htmldjango',
-		'edge',
-		'eelixir', -- vim ft
-		'elixir',
-		'ejs',
-		'erb',
-		'eruby', -- vim ft
+		-- 'aspnetcorerazor',
+		-- 'astro',
+		-- 'astro-markdown',
+		-- 'blade',
+		-- 'clojure',
+		-- 'django-html',
+		-- 'htmldjango',
+		-- 'edge',
+		-- 'eelixir', -- vim ft
+		-- 'elixir',
+		-- 'ejs',
+		-- 'erb',
+		-- 'eruby', -- vim ft
 		'gohtml',
 		'gohtmltmpl',
-		'haml',
-		'handlebars',
-		'hbs',
+		-- 'haml',
+		-- 'handlebars',
+		-- 'hbs',
 		'html',
-		'htmlangular',
-		'html-eex',
-		'heex',
-		'jade',
-		'leaf',
-		'liquid',
+		-- 'htmlangular',
+		-- 'html-eex',
+		-- 'heex',
+		-- 'jade',
+		-- 'leaf',
+		-- 'liquid',
 		'markdown',
 		'mdx',
-		'mustache',
-		'njk',
-		'nunjucks',
-		'php',
-		'razor',
-		'slim',
-		'twig',
+		-- 'mustache',
+		-- 'njk',
+		-- 'nunjucks',
+		-- 'php',
+		-- 'razor',
+		-- 'slim',
+		-- 'twig',
+		--
 		-- css
 		'css',
 		'less',
 		'postcss',
 		'sass',
 		'scss',
-		'stylus',
-		'sugarss',
+		-- 'stylus',
+		-- 'sugarss',
+		--
 		-- js
 		'javascript',
 		'javascriptreact',
-		'reason',
-		'rescript',
+		-- 'reason',
+		-- 'rescript',
 		'typescript',
 		'typescriptreact',
+		--
 		-- mixed
-		'vue',
-		'svelte',
+		-- 'vue',
+		-- 'svelte',
 		'templ',
 	},
 	capabilities = {
@@ -86,7 +88,6 @@ return {
 			},
 		},
 	},
-	---@type lspconfig.settings.tailwindcss
 	settings = {
 		tailwindCSS = {
 			validate = true,
@@ -107,20 +108,20 @@ return {
 				'ngClass',
 			},
 			includeLanguages = {
-				eelixir = 'html-eex',
-				elixir = 'phoenix-heex',
-				eruby = 'erb',
-				heex = 'phoenix-heex',
+				-- eelixir = 'html-eex',
+				-- elixir = 'phoenix-heex',
+				-- eruby = 'erb',
+				-- heex = 'phoenix-heex',
 				htmlangular = 'html',
 				templ = 'html',
 			},
 		},
 	},
-	-- before_init = function(_, config)
-	--   config.settings = vim.tbl_deep_extend('keep', config.settings, {
-	--     editor = { tabSize = vim.lsp.util.get_effective_tabstop() },
-	--   })
-	-- end,
+	before_init = function(_, config)
+		config.settings = vim.tbl_deep_extend('keep', config.settings, {
+			editor = { tabSize = vim.lsp.util.get_effective_tabstop() },
+		})
+	end,
 	workspace_required = true,
 	root_dir = function(bufnr, on_dir)
 		local root_files = {

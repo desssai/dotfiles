@@ -1,5 +1,3 @@
----@brief
----
 --- https://github.com/hrsh7th/vscode-langservers-extracted
 ---
 --- `css-languageserver` can be installed via `npm`:
@@ -20,7 +18,6 @@
 --- })
 --- ```
 
----@type vim.lsp.Config
 return {
 	cmd = function(dispatchers, config)
 		local cmd = 'vscode-css-language-server'
@@ -35,7 +32,6 @@ return {
 	filetypes = { 'css', 'scss', 'less' },
 	init_options = { provideFormatter = true }, -- needed to enable formatting capabilities
 	root_markers = { 'package.json', '.git' },
-	---@type lspconfig.settings.cssls
 	settings = {
 		css = { validate = true },
 		scss = { validate = true },

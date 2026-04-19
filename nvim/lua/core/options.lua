@@ -17,8 +17,9 @@ opt.shiftround = true
 opt.expandtab = false
 opt.softtabstop = 0
 
--- Autocompletions
-opt.pumborder = 'none'
+-- Autocompletions & Popup / Float windows
+opt.pumborder = 'solid'
+opt.winborder = 'solid'
 opt.pummaxwidth = 80
 opt.completeopt = 'menu,menuone,noselect,popup'
 
@@ -45,6 +46,7 @@ opt.signcolumn = 'yes:1'
 -- Window split behaviour
 opt.splitbelow = true
 opt.splitright = true
+opt.inccommand = 'split'
 
 -- UI options
 opt.termguicolors = true

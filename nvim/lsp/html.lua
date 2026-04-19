@@ -1,5 +1,3 @@
----@brief
----
 --- https://github.com/hrsh7th/vscode-langservers-extracted
 ---
 --- `vscode-html-language-server` can be installed via `npm`:
@@ -22,7 +20,6 @@
 --- })
 --- ```
 
----@type vim.lsp.Config
 return {
 	cmd = function(dispatchers, config)
 		local cmd = 'vscode-html-language-server'
@@ -34,13 +31,15 @@ return {
 		end
 		return vim.lsp.rpc.start({ cmd, '--stdio' }, dispatchers)
 	end,
-	filetypes = { 'html' },
+	filetypes = { 'html', 'templ' },
 	root_markers = { 'package.json', '.git' },
-	---@type lspconfig.settings.html
-	settings = {},
 	init_options = {
-		provideFormatter = true,
-		embeddedLanguages = { css = true, javascript = true },
 		configurationSection = { 'html', 'css', 'javascript' },
+		embeddedLanguages = {
+			css = true,
+			javascript = true,
+		},
+		provideFormatter = true,
 	},
+	settings = {},
 }

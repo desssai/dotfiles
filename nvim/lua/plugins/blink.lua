@@ -56,8 +56,11 @@ local plugin = {
 			completion = {
 				trigger = {
 					show_on_keyword = true,
+					show_on_trigger_character = true,
+					show_on_insert_on_trigger_character = true,
 					show_on_backspace_in_keyword = false,
 				},
+				list = { preselect = true, auto_insert = false },
 				menu = {
 					border = 'none',
 					draw = {

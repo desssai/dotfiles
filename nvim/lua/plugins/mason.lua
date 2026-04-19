@@ -47,6 +47,7 @@ local plugin = {
 		vim.api.nvim_create_user_command('MasonInstallAll', function()
 			vim.cmd('MasonInstall ' .. table.concat(ensure_installed, ' '))
 		end, {})
+
 		require('mason').setup({
 			ui = {
 				icons = {

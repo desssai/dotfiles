@@ -32,4 +32,6 @@ require('core.mappings').set('mappings.general')
 require('core.pack')
 require('core.lsp')
 
+vim.filetype.add({ extension = { templ = 'templ' } })
+
 require('vim._core.ui2').enable()
