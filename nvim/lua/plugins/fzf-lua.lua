@@ -19,6 +19,7 @@ local plugin = {
 				},
 			},
 		})
+		require('fzf-lua').register_ui_select()
 	end,
 }
 

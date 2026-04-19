@@ -1,5 +1,21 @@
 local plugin = {
 	src = 'https://github.com/nvim-treesitter/nvim-treesitter',
+	init = function()
+		local group = vim.api.nvim_create_augroup('TreeSitterBuild', { clear = true })
+
+		vim.api.nvim_create_autocmd('PackChanged', {
+			group = group,
+			callback = function(ev)
+				local data = ev.data or {}
+				local spec = data.spec or {}
+				if spec.name == 'nvim-treesitter' and data.kind == 'update' then
+					vim.schedule(function()
+						vim.cmd('TSUpdate')
+					end)
+				end
+			end,
+		})
+	end,
 	setup = function()
 		local parsers = {
 			'c', -- builtin
@@ -33,19 +49,6 @@ local plugin = {
 		require('nvim-treesitter').install(parsers)
 
 		local group = vim.api.nvim_create_augroup('TreeSitter', { clear = true })
-
-		vim.api.nvim_create_autocmd('PackChanged', {
-			group = group,
-			callback = function(ev)
-				local data = ev.data or {}
-				local spec = data.spec or {}
-				if spec.name == 'nvim-treesitter' and data.kind == 'update' then
-					vim.schedule(function()
-						vim.cmd('TSUpdate')
-					end)
-				end
-			end,
-		})
 
 		vim.api.nvim_create_autocmd('FileType', {
 			group = group,
