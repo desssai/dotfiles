@@ -14,6 +14,12 @@ local plugin = {
 				},
 			},
 			keymap = {
+				builtin = {
+					['<c-f>'] = 'preview-page-down',
+					['<c-b>'] = 'preview-page-up',
+					['<c-d>'] = 'preview-down',
+					['<c-u>'] = 'preview-up',
+				},
 				fzf = {
 					['ctrl-q'] = 'select-all+accept',
 				},

@@ -33,6 +33,8 @@ local plugin = {
 				['<C-c>'] = { 'actions.close', mode = 'n' },
 				['<C-q>'] = { 'actions.send_to_qflist', opts = { action = 'r', target = 'qflist' } },
 				['<C-p>'] = 'actions.preview',
+				['<C-b>'] = 'actions.preview_scroll_up',
+				['<C-f>'] = 'actions.preview_scroll_down',
 				['<C-r>'] = 'actions.refresh',
 				['-'] = { 'actions.parent', mode = 'n' },
 				['_'] = { 'actions.open_cwd', mode = 'n' },

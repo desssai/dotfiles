@@ -4,3 +4,82 @@
 -- `MiniSnippetsFinal` - special `$0` tabstop.
 -- `MiniSnippetsUnvisited` - not yet visited tabstop(s).
 -- `MiniSnippetsVisited` - visited tabstop(s).
+--
+-- OilEmpty                                                             *hl-OilEmpty*
+--     Empty column values
+--
+-- OilHidden                                                           *hl-OilHidden*
+--     Hidden entry in an oil buffer
+--
+-- OilDir                                                                 *hl-OilDir*
+--     Directory names in an oil buffer
+--
+-- OilDirHidden                                                     *hl-OilDirHidden*
+--     Hidden directory names in an oil buffer
+--
+-- OilDirIcon                                                         *hl-OilDirIcon*
+--     Icon for directories
+--
+-- OilSocket                                                           *hl-OilSocket*
+--     Socket files in an oil buffer
+--
+-- OilSocketHidden                                               *hl-OilSocketHidden*
+--     Hidden socket files in an oil buffer
+--
+-- OilLink                                                               *hl-OilLink*
+--     Soft links in an oil buffer
+--
+-- OilOrphanLink                                                   *hl-OilOrphanLink*
+--     Orphaned soft links in an oil buffer
+--
+-- OilLinkHidden                                                   *hl-OilLinkHidden*
+--     Hidden soft links in an oil buffer
+--
+-- OilOrphanLinkHidden                                       *hl-OilOrphanLinkHidden*
+--     Hidden orphaned soft links in an oil buffer
+--
+-- OilLinkTarget                                                   *hl-OilLinkTarget*
+--     The target of a soft link
+--
+-- OilOrphanLinkTarget                                       *hl-OilOrphanLinkTarget*
+--     The target of an orphaned soft link
+--
+-- OilLinkTargetHidden                                       *hl-OilLinkTargetHidden*
+--     The target of a hidden soft link
+--
+-- OilOrphanLinkTargetHidden                           *hl-OilOrphanLinkTargetHidden*
+--     The target of an hidden orphaned soft link
+--
+-- OilFile                                                               *hl-OilFile*
+--     Normal files in an oil buffer
+--
+-- OilFileHidden                                                   *hl-OilFileHidden*
+--     Hidden normal files in an oil buffer
+--
+-- OilCreate                                                           *hl-OilCreate*
+--     Create action in the oil preview window
+--
+-- OilDelete                                                           *hl-OilDelete*
+--     Delete action in the oil preview window
+--
+-- OilMove                                                               *hl-OilMove*
+--     Move action in the oil preview window
+--
+-- OilCopy                                                               *hl-OilCopy*
+--     Copy action in the oil preview window
+--
+-- OilChange                                                           *hl-OilChange*
+--     Change action in the oil preview window
+--
+-- OilRestore                                                         *hl-OilRestore*
+--     Restore (from the trash) action in the oil preview window
+--
+-- OilPurge                                                             *hl-OilPurge*
+--     Purge (Permanently delete a file from trash) action in the oil preview
+--     window
+--
+-- OilTrash                                                             *hl-OilTrash*
+--     Trash (delete a file to trash) action in the oil preview window
+--
+-- OilTrashSourcePath                                         *hl-OilTrashSourcePath*
+--     Virtual text that shows the original path of file in the trash

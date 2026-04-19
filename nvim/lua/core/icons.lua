@@ -57,6 +57,11 @@ M.misc = {
 	terminal = '',
 	toolbox = '󰦬',
 	vertical_bar = '│',
+	vertical_bar_bold = '┃',
+	deleted = '󰍵',
+	package_pending = ' ',
+	package_installed = ' ',
+	package_uninstalled = ' ',
 }
 
 return M
