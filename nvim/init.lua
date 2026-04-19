@@ -23,6 +23,8 @@ end
 -- Add binaries instaled by Mason for LSP functionality
 vim.env.PATH = vim.fn.stdpath('data') .. '/mason/bin' .. ':' .. vim.env.PATH
 
+vim.filetype.add({ extension = { templ = 'templ' } })
+
 require('core.options')
 require('core.usercmd')
 require('core.autocmd')
@@ -31,7 +33,5 @@ require('core.statusline')
 require('core.mappings').set('mappings.general')
 require('core.pack')
 require('core.lsp')
-
-vim.filetype.add({ extension = { templ = 'templ' } })
 
 require('vim._core.ui2').enable()

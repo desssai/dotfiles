@@ -73,8 +73,8 @@ local mappings = {
 		['<M-k>'] = { '<C-w>k', 'Window up' },
 
 		-- Toggle Line Numbers
-		['<leader>nn'] = { '<cmd> set nu! <CR>', 'Toggle line number' },
-		['<leader>nr'] = { '<cmd> set rnu! <CR>', 'Toggle relative number' },
+		['<leader>zn'] = { '<cmd> set nu! <CR>', 'Toggle line number' },
+		['<leader>zr'] = { '<cmd> set rnu! <CR>', 'Toggle relative number' },
 
 		-- Tab Management
 		['<leader>n'] = { '<cmd> tabnew <cr>', 'New tab' },

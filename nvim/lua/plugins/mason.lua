@@ -25,6 +25,7 @@ local plugin = {
 			'sqlls', -- SQL LSP
 			'tailwindcss-language-server', -- Tailwindcss LSP
 			'html-lsp', -- HTML LSP
+			'sqls', -- SQL LSP
 
 			-- LINTING
 			'luacheck',
