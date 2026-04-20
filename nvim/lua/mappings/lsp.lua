@@ -21,11 +21,11 @@ local mappings = {
 		},
 
 		-- Toggle colors
-		['grc'] = {
+		['gC'] = {
 			function()
-				vim.lsp.document_color.color_presentation()
+				vim.lsp.document_color.enable(not vim.lsp.document_color.is_enabled())
 			end,
-			'Toggle color presentation',
+			'Toggle virtual document colors',
 		},
 	},
 }

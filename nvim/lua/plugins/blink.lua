@@ -69,8 +69,8 @@ local plugin = {
 				['<Down>'] = { 'select_next', 'fallback' },
 				['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
 				['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
-				['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
-				['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+				['<C-b>'] = { 'scroll_signature_up', 'scroll_documentation_up', 'fallback' },
+				['<C-f>'] = { 'scroll_signature_down', 'scroll_documentation_down', 'fallback' },
 				['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
 			},
 			appearance = {
@@ -87,12 +87,26 @@ local plugin = {
 				list = { selection = { preselect = true, auto_insert = false } },
 				menu = {
 					border = 'none',
+					scrollbar = false,
+					scrolloff = 2,
 					draw = {
 						gap = 2,
 						columns = {
-							{ 'kind_icon', 'label', 'label_description', gap = 1 },
-							{ 'kind' },
+							{ 'label', 'label_description', gap = 1 },
+							{ 'kind_icon', 'kind', gap = 1 },
 							{ 'source_name' },
+						},
+						components = {
+							kind_icon = {
+								text = function(ctx)
+									return require('core.icons').lsp_kind[ctx.kind]
+								end,
+							},
+							source_name = {
+								text = function(ctx)
+									return '[' .. ctx.source_name:sub(1, 1) .. ']'
+								end,
+							},
 						},
 					},
 				},
