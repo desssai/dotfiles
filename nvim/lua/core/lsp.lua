@@ -76,6 +76,11 @@ local function on_attach(_, bufnr)
 	require('core.mappings').set('mappings.lsp', bufnr)
 end
 
+vim.lsp.handlers['textDocument/documentColor'] = vim.lsp.with(
+	vim.lsp.handlers['textDocument/documentColor'],
+	{ virtual_text = true } -- enable the inline colour block
+)
+
 -- Update mappings when registering dynamic capabilities.
 vim.lsp.handlers['client/registerCapability'] = (function(overridden)
 	return function(err, res, ctx)

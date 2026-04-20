@@ -15,31 +15,32 @@ local plugins = {
 	require('plugins.mason'),
 	require('plugins.treesitter'),
 	require('plugins.bufferline'),
+	require('plugins.dadbod-ui'),
 }
 
 local loaded = {}
 
 local function add_plugin_and_deps(plugin, specs, setups)
-	if type(plugin) ~= "table" or plugin.src == nil or loaded[plugin.src] then
+	if type(plugin) ~= 'table' or plugin.src == nil or loaded[plugin.src] then
 		return
 	end
 
 	for _, dep in ipairs(plugin.deps or {}) do
-		if type(dep) == "string" then
+		if type(dep) == 'string' then
 			if not loaded[dep] then
 				loaded[dep] = true
 				table.insert(specs, { src = dep })
 			end
-		elseif type(dep) == "table" then
+		elseif type(dep) == 'table' then
 			add_plugin_and_deps(dep, specs, setups)
 		end
 	end
 
-	if type(plugin.src) == "string" then
+	if type(plugin.src) == 'string' then
 		table.insert(specs, { src = plugin.src })
 	end
 
-	if type(plugin.setup) == "function" then
+	if type(plugin.setup) == 'function' then
 		table.insert(setups, plugin.setup)
 	end
 
@@ -60,7 +61,7 @@ local function load(plugin)
 end
 
 local function onCommandHook(plugin)
-	if type(plugin.cmd) == "table" and not vim.tbl_isempty(plugin.cmd) then
+	if type(plugin.cmd) == 'table' and not vim.tbl_isempty(plugin.cmd) then
 		for _, cmd in ipairs(plugin.cmd) do
 			vim.api.nvim_create_user_command(cmd, function(opts)
 				for _, c in ipairs(plugin.cmd) do
@@ -78,7 +79,7 @@ local function onCommandHook(plugin)
 end
 
 local function onEventHook(plugin, group)
-	if type(plugin.event) == "table" and not vim.tbl_isempty(plugin.event) then
+	if type(plugin.event) == 'table' and not vim.tbl_isempty(plugin.event) then
 		vim.api.nvim_create_autocmd(plugin.event, {
 			group = group,
 			callback = function(args)
@@ -92,7 +93,7 @@ local function onEventHook(plugin, group)
 end
 
 local function onFiletypeHook(plugin, group)
-	if type(plugin.ft) == "table" and not vim.tbl_isempty(plugin.ft) then
+	if type(plugin.ft) == 'table' and not vim.tbl_isempty(plugin.ft) then
 		vim.api.nvim_create_autocmd('FileType', {
 			group = group,
 			pattern = plugin.ft,
@@ -110,7 +111,7 @@ local function setup()
 	for idx, plugin in ipairs(plugins) do
 		local group = vim.api.nvim_create_augroup('LazyLoad' .. idx, { clear = true })
 
-		if type(plugin.init) == "function" then
+		if type(plugin.init) == 'function' then
 			plugin.init()
 		end
 
@@ -118,7 +119,7 @@ local function setup()
 			or onFiletypeHook(plugin, group)
 			or onEventHook(plugin, group)
 		if not isDeferred then
-			if type(plugin.lazy) == "boolean" and plugin.lazy == true then
+			if type(plugin.lazy) == 'boolean' and plugin.lazy == true then
 				vim.api.nvim_create_autocmd('UIEnter', {
 					callback = function(args)
 						load(plugin)
