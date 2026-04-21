@@ -45,10 +45,22 @@ M.lsp_kind = {
 	Variable = '󰀫',
 }
 
+M.gitsigns = {
+	add = { text = '┃' },
+	change = { text = '┃' },
+	delete = { text = '󰍵' },
+	topdelete = { text = '‾' },
+	changedelete = { text = '~' },
+	untracked = { text = '┇' },
+}
+
 --- Shared icons that don't really fit into a category.
 M.misc = {
 	bug = '',
 	dashed_bar = '┊',
+	dashed_bar_bold = '┇',
+	vertical_bar = '│',
+	vertical_bar_bold = '┃',
 	ellipsis = '…',
 	git = '',
 	palette = '󰏘',
@@ -56,8 +68,6 @@ M.misc = {
 	search = '',
 	terminal = '',
 	toolbox = '󰦬',
-	vertical_bar = '│',
-	vertical_bar_bold = '┃',
 	deleted = '󰍵',
 	border_solid = '█',
 	border_round = '',

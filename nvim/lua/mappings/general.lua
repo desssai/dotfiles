@@ -89,8 +89,8 @@ local mappings = {
 
 		-- Window Management
 		['<leader>w'] = { '<cmd> close <CR>', 'Close current window' },
-		['<leader>\\'] = { '<C-w>v', 'Split windows vertically' },
-		['<leader>-'] = { '<C-w>s', 'Split windows horizontally' },
+		['<leader>v'] = { '<C-w>v', 'Split windows vertically' },
+		['<leader>s'] = { '<C-w>s', 'Split windows horizontally' },
 		['<leader>b'] = { '<C-w>=', 'Balance open windows' },
 
 		-- Vim Pack Hotkeys

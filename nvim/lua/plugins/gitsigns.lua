@@ -3,22 +3,8 @@ local plugin = {
 	lazy = true,
 	setup = function()
 		require('gitsigns').setup({
-			signs = {
-				add = { text = '┃' },
-				change = { text = '┃' },
-				delete = { text = '󰍵' },
-				topdelete = { text = '‾' },
-				changedelete = { text = '~' },
-				untracked = { text = '?' },
-			},
-			signs_staged = {
-				add = { text = '┃' },
-				change = { text = '┃' },
-				delete = { text = '󰍵' },
-				topdelete = { text = '‾' },
-				changedelete = { text = '~' },
-				untracked = { text = '?' },
-			},
+			signs = require('core.icons').gitsigns,
+			signs_staged = require('core.icons').gitsigns,
 			signs_staged_enable = true,
 			signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
 			numhl = false, -- Toggle with `:Gitsigns toggle_numhl`

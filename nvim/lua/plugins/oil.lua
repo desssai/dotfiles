@@ -27,7 +27,7 @@ local plugin = {
 				['<CR>'] = 'actions.select',
 				['<C-CR>'] = { 'actions.select', opts = { close = false } },
 				['<C-v>'] = { 'actions.select', opts = { vertical = true } },
-				['<C-\\>'] = { 'actions.select', opts = { horizontal = true } },
+				['<C-s>'] = { 'actions.select', opts = { horizontal = true } },
 				['<C-t>'] = { 'actions.select', opts = { tab = true } },
 				['<esc>'] = { 'actions.close', mode = 'n' },
 				['<C-c>'] = { 'actions.close', mode = 'n' },

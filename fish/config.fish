@@ -54,10 +54,10 @@ if status is-interactive # Commands to run in interactive sessions can go here
 	end
 
 	function fish_user_key_bindings
-		bind -M insert \cu up-or-search
-		bind -M insert \cd down-or-search
-		bind -M normal \cu up-or-search
-		bind -M normal \cd down-or-search
+		bind -M insert \cp up-or-search
+		bind -M insert \cn down-or-search
+		bind -M default \cp up-or-search
+		bind -M default \cn down-or-search
 		bind -M insert \cl complete
 		bind -M insert \cc __cancel_and_save_to_killring
 		bind -M visual \cc __cancel_and_save_to_killring
