@@ -118,7 +118,26 @@ local plugin = {
 				},
 			},
 			snippets = { preset = 'mini_snippets' },
-			sources = { default = { 'lsp', 'path', 'snippets', 'buffer' } },
+			sources = {
+				default = { 'lsp', 'path', 'snippets', 'buffer' },
+				providers = {
+					lsp = {
+						fallbacks = {},
+						max_items = 5,
+					},
+					path = {
+						fallbacks = {},
+						max_items = 5,
+					},
+					snippets = {
+						score_offset = 5,
+						max_items = 5,
+					},
+					buffer = {
+						max_items = 5,
+					},
+				},
+			},
 			signature = { enabled = true, window = { border = 'solid' } },
 			fuzzy = { implementation = 'prefer_rust_with_warning' },
 			cmdline = {
