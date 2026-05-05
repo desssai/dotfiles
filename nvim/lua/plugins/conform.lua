@@ -5,6 +5,8 @@ local plugin = {
 		require('core.mappings').set('mappings.conform')
 	end,
 	setup = function()
+		-- Use conform for gq.
+		vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 		local enabled = true
 
 		vim.api.nvim_create_user_command('ConformToggle', function(_)

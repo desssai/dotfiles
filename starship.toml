@@ -1,5 +1,5 @@
 # Don't print a new line at the start of the prompt
-add_newline = false
+add_newline = true
 # Pipes ╰─ ╭─
 # Powerline symbols                                     
 # Wedges 🭧🭒 🭣🭧🭓
@@ -11,13 +11,11 @@ add_newline = false
 # $directory $fill $git_branch $cmd_duration
 #  $character"""
 format = """
-$cmd_duration $directory $git_branch$git_commit$git_state$git_status
+$cmd_duration $directory $git_branch$git_commit$git_state $git_status$fill$username$hostname $time
   $character"""
 
-right_format = "$username$hostname $time"
-
 [fill]
-symbol = '-'
+symbol = ' '
 style = 'fg:245'
 
 # Replace the "❯" symbol in the prompt with "➜"
@@ -38,7 +36,7 @@ style = "bg: 252"
 symbol = "󰘬"
 truncation_length = 12
 truncation_symbol = ""
-format = "󰜥 [█](bold fg:252)[$symbol $branch(:$remote_branch)](fg:235 bg:252)[█ ](bold fg:252)"
+format = "[█](bold fg:252)[$symbol $branch(:$remote_branch)](fg:235 bg:252)[█](bold fg:252)"
 
 [git_commit]
 commit_hash_length = 4
