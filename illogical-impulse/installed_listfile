@@ -18,13 +18,21 @@
 /home/ncarob/.config/hypr/hypridle.conf
 /home/ncarob/.config/hypr/hypridle.conf.new
 /home/ncarob/.config/hypr/hyprland/colors.conf
+/home/ncarob/.config/hypr/hyprland/colors.lua
 /home/ncarob/.config/hypr/hyprland.conf
 /home/ncarob/.config/hypr/hyprland.conf.new
 /home/ncarob/.config/hypr/hyprland/env.conf
+/home/ncarob/.config/hypr/hyprland/env.lua
 /home/ncarob/.config/hypr/hyprland/execs.conf
+/home/ncarob/.config/hypr/hyprland/execs.lua
 /home/ncarob/.config/hypr/hyprland/general.conf
+/home/ncarob/.config/hypr/hyprland/general.lua
 /home/ncarob/.config/hypr/hyprland/keybinds.conf
+/home/ncarob/.config/hypr/hyprland/keybinds.lua
+/home/ncarob/.config/hypr/hyprland/lib/init.lua
+/home/ncarob/.config/hypr/hyprland.lua
 /home/ncarob/.config/hypr/hyprland/rules.conf
+/home/ncarob/.config/hypr/hyprland/rules.lua
 /home/ncarob/.config/hypr/hyprland/scripts/ai/license_show-loaded-ollama-models.txt
 /home/ncarob/.config/hypr/hyprland/scripts/ai/primary-buffer-query.sh
 /home/ncarob/.config/hypr/hyprland/scripts/ai/show-loaded-ollama-models.sh
@@ -34,7 +42,11 @@
 /home/ncarob/.config/hypr/hyprland/scripts/start_geoclue_agent.sh
 /home/ncarob/.config/hypr/hyprland/scripts/workspace_action.sh
 /home/ncarob/.config/hypr/hyprland/scripts/zoom.sh
+/home/ncarob/.config/hypr/hyprland/services/create_custom_config.lua
+/home/ncarob/.config/hypr/hyprland/services/init.lua
 /home/ncarob/.config/hypr/hyprland/shellOverrides/main.conf
+/home/ncarob/.config/hypr/hyprland/shellOverrides/main.lua
+/home/ncarob/.config/hypr/hyprland/variables.lua
 /home/ncarob/.config/hypr/hyprlock.conf
 /home/ncarob/.config/hypr/hyprlock.conf.new
 /home/ncarob/.config/hypr/monitors.conf
@@ -64,6 +76,7 @@
 /home/ncarob/.config/matugen/templates/gtk-3.0/gtk.css
 /home/ncarob/.config/matugen/templates/gtk-4.0/gtk.css
 /home/ncarob/.config/matugen/templates/hyprland/colors.conf
+/home/ncarob/.config/matugen/templates/hyprland/colors.lua
 /home/ncarob/.config/matugen/templates/hyprland/hyprlock-colors.conf
 /home/ncarob/.config/matugen/templates/kde/color.txt
 /home/ncarob/.config/matugen/templates/kde/kde-material-you-colors-wrapper.sh
@@ -351,6 +364,10 @@
 /home/ncarob/.config/quickshell/ii/modules/common/models/AdaptedMaterialScheme.qml
 /home/ncarob/.config/quickshell/ii/modules/common/models/AnimatedTabIndexPair.qml
 /home/ncarob/.config/quickshell/ii/modules/common/models/FolderListModelWithHistory.qml
+/home/ncarob/.config/quickshell/ii/modules/common/models/gCloud/GCloudApi.qml
+/home/ncarob/.config/quickshell/ii/modules/common/models/gCloud/GCloudTranslate.qml
+/home/ncarob/.config/quickshell/ii/modules/common/models/gCloud/GCloudVision.qml
+/home/ncarob/.config/quickshell/ii/modules/common/models/gCloud/GCloudVisionResult.qml
 /home/ncarob/.config/quickshell/ii/modules/common/models/hyprland/HyprlandConfigOption.qml
 /home/ncarob/.config/quickshell/ii/modules/common/models/IndexModel.qml
 /home/ncarob/.config/quickshell/ii/modules/common/models/LauncherSearchResult.qml
@@ -378,6 +395,7 @@
 /home/ncarob/.config/quickshell/ii/modules/common/panels/lock/pam/fprintd.conf
 /home/ncarob/.config/quickshell/ii/modules/common/Persistent.qml
 /home/ncarob/.config/quickshell/ii/modules/common/utils/ImageDownloaderProcess.qml
+/home/ncarob/.config/quickshell/ii/modules/common/utils/MultiTurnProcess.qml
 /home/ncarob/.config/quickshell/ii/modules/common/utils/ScreenshotAction.qml
 /home/ncarob/.config/quickshell/ii/modules/common/utils/TempScreenshotProcess.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/AddressBar.qml
@@ -404,6 +422,7 @@
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/DialogListItem.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/DirectoryIcon.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/DragManager.qml
+/home/ncarob/.config/quickshell/ii/modules/common/widgets/ErrorShakeAnimation.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/FadeLoader.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/Favicon.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/FloatingActionButton.qml
@@ -416,6 +435,7 @@
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/IconToolbarButton.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/KeyboardKey.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/LightDarkPreferenceButton.qml
+/home/ncarob/.config/quickshell/ii/modules/common/widgets/MaskMultiEffect.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/MaterialCookie.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/MaterialLoadingIndicator.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/MaterialShape.qml
@@ -471,6 +491,7 @@
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/shapes/shapes/rounded-polygon.js
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/shapes/shapes/utils.js
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/SineCookie.qml
+/home/ncarob/.config/quickshell/ii/modules/common/widgets/SqueezedAnnotationStyledText.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/StyledBlurEffect.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/StyledComboBox.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/StyledDropShadow.qml
@@ -492,6 +513,7 @@
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/StyledToolTip.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/ThumbnailImage.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/ToolbarButton.qml
+/home/ncarob/.config/quickshell/ii/modules/common/widgets/ToolbarPairedFab.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/Toolbar.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/ToolbarTabBar.qml
 /home/ncarob/.config/quickshell/ii/modules/common/widgets/ToolbarTabButton.qml
@@ -561,6 +583,7 @@
 /home/ncarob/.config/quickshell/ii/modules/ii/bar/weather/WeatherCard.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/bar/weather/WeatherPopup.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/bar/Workspaces.qml
+/home/ncarob/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetKeybindsCategory.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetKeybinds.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/cheatsheet/CheatsheetPeriodicTable.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/cheatsheet/Cheatsheet.qml
@@ -620,6 +643,9 @@
 /home/ncarob/.config/quickshell/ii/modules/ii/regionSelector/RegionSelector.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/regionSelector/TargetRegion.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/screenCorners/ScreenCorners.qml
+/home/ncarob/.config/quickshell/ii/modules/ii/screenTranslator/ScreenTextOverlay.qml
+/home/ncarob/.config/quickshell/ii/modules/ii/screenTranslator/ScreenTranslatorPanel.qml
+/home/ncarob/.config/quickshell/ii/modules/ii/screenTranslator/ScreenTranslator.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/sessionScreen/SessionActionButton.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/sessionScreen/SessionScreen.qml
 /home/ncarob/.config/quickshell/ii/modules/ii/sidebarLeft/aiChat/AiMessageControlButton.qml
@@ -887,6 +913,8 @@
 /home/ncarob/.config/quickshell/ii/scripts/images/find-regions-venv.sh
 /home/ncarob/.config/quickshell/ii/scripts/images/least_busy_region.py
 /home/ncarob/.config/quickshell/ii/scripts/images/least-busy-region-venv.sh
+/home/ncarob/.config/quickshell/ii/scripts/images/text_color.py
+/home/ncarob/.config/quickshell/ii/scripts/images/text-color-venv.sh
 /home/ncarob/.config/quickshell/ii/scripts/keyring/is_unlocked.sh
 /home/ncarob/.config/quickshell/ii/scripts/keyring/try_lookup.sh
 /home/ncarob/.config/quickshell/ii/scripts/keyring/unlock.sh
@@ -919,8 +947,12 @@
 /home/ncarob/.config/quickshell/ii/services/EasyEffects.qml
 /home/ncarob/.config/quickshell/ii/services/Emojis.qml
 /home/ncarob/.config/quickshell/ii/services/FirstRunExperience.qml
+/home/ncarob/.config/quickshell/ii/services/gCloud/token_from_key.py
+/home/ncarob/.config/quickshell/ii/services/gCloud/token-from-key-venv.sh
 /home/ncarob/.config/quickshell/ii/services/GlobalFocusGrab.qml
+/home/ncarob/.config/quickshell/ii/services/GoogleCloud.qml
 /home/ncarob/.config/quickshell/ii/services/hyprlandAntiFlashbangShader/anti-flashbang.glsl
+/home/ncarob/.config/quickshell/ii/services/hyprlandAntiFlashbangShader/anti-flashbang-weak.glsl
 /home/ncarob/.config/quickshell/ii/services/HyprlandAntiFlashbangShader.qml
 /home/ncarob/.config/quickshell/ii/services/HyprlandConfig.qml
 /home/ncarob/.config/quickshell/ii/services/HyprlandData.qml

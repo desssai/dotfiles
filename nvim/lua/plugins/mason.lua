@@ -22,10 +22,10 @@ local plugin = {
 			'typescript-language-server', -- TS & JS LSP
 			'templ', -- Golang HTML Templates LSP
 			'python-lsp-server', -- Python LSP
-			'sqlls', -- SQL LSP
 			'tailwindcss-language-server', -- Tailwindcss LSP
 			'html-lsp', -- HTML LSP
 			'sqls', -- SQL LSP
+			'dcm', -- Dart LSP, Formatting
 
 			-- LINTING
 			'luacheck',

@@ -43,6 +43,7 @@ local plugin = {
 			'json',
 			'csv',
 			'yaml',
+			'dart',
 		}
 
 		require('nvim-treesitter').setup({})

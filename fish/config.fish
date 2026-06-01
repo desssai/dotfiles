@@ -6,7 +6,18 @@ function fish_prompt -d "Write out the prompt"
 		(set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
 end
 
-fish_add_path $HOME/.local/share/nvim/mason/bin $HOME/bin /usr/local/bin $HOME/go/bin/
+set -x PUB_CACHE $HOME/Dev/flutter/.dart_tool/.pub_cache
+set -x ANDROID_HOME $HOME/Dev/android-sdk
+set -x ANDROID_SDK_ROOT $HOME/Dev/android-sdk
+
+fish_add_path $HOME/Dev/flutter/bin \
+	$HOME/Dev/flutter/.dart_tool/.pub_cache/bin \
+	$ANDROID_HOME/platform-tools \
+	$ANDROID_HOME/emulator \
+	$ANDROID_HOME/cmdline-tools/latest/bin
+	$HOME/.local/share/nvim/mason/bin \
+	$HOME/bin /usr/local/bin \
+	$HOME/go/bin/
 
 set -g fish_autosuggestion_enabled 0
 set -g fish_sequence_key_delay_ms 200

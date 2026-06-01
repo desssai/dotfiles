@@ -1,6 +1,9 @@
 local plugin = {
 	deps = {
 		{
+			src = 'https://github.com/saghen/blink.lib',
+		},
+		{
 			src = 'https://github.com/rafamadriz/friendly-snippets',
 		},
 		{
@@ -28,8 +31,6 @@ local plugin = {
 					},
 					mappings = {
 						expand = '<C-s>',
-						jump_next = '<Tab>',
-						jump_prev = '<S-Tab>',
 						stop = '<C-c>',
 					},
 					-- `MiniSnippets.default_<field>()` default when `nil`.
@@ -53,20 +54,21 @@ local plugin = {
 				local data = ev.data or {}
 				local spec = data.spec or {}
 				if spec.name == 'blink.cmp' and data.kind == 'update' then
-					vim.schedule(function()
-						vim.cmd('BlinkCmp build')
-					end)
+					vim.schedule(function() end)
 				end
 			end,
 		})
 	end,
 	setup = function()
+		require('blink.cmp').build():wait(60000)
 		require('blink.cmp').setup({
 			keymap = {
 				['<C-e>'] = { 'hide', 'show', 'fallback' },
 				['<C-y>'] = { 'select_and_accept', 'fallback' },
 				['<Up>'] = { 'select_prev', 'fallback' },
 				['<Down>'] = { 'select_next', 'fallback' },
+				['<Tab>'] = { 'snippet_forward', 'fallback' },
+				['<S-Tab>'] = { 'snippet_backward', 'fallback' },
 				['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
 				['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
 				['<C-b>'] = { 'scroll_signature_up', 'scroll_documentation_up', 'fallback' },
@@ -123,17 +125,11 @@ local plugin = {
 				providers = {
 					lsp = {
 						fallbacks = {},
-						max_items = 5,
 					},
 					path = {
-						fallbacks = {},
 						max_items = 5,
 					},
 					snippets = {
-						score_offset = 5,
-						max_items = 5,
-					},
-					buffer = {
 						max_items = 5,
 					},
 				},
