@@ -157,7 +157,7 @@ hl.bind("SUPER + SHIFT + j", hl.dsp.window.swap({ direction = "d" }))
 hl.bind("SUPER + SHIFT + l", hl.dsp.window.swap({ direction = "r" }))
 
 hl.bind("SUPER + CTRL + F", hl.dsp.window.float({ action = "toggle" }), { description = "Toggle floating" })
-hl.bind("SUPER + CTRL + P", hl.dsp.layout("pseudo"), { description = "Toggle floating" })
+hl.bind("SUPER + CTRL + P", hl.dsp.window.pseudo(""), { description = "Toggle floating" })
 hl.bind("SUPER + CTRL + D", hl.dsp.window.pin(), { description = "Pin window" })
 hl.bind("SUPER + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }), { description = "Maximise" })
 hl.bind(

@@ -17,7 +17,10 @@
 -- windowrule = match:class org.kde.dolphin, float on, size 1800 1260
 -- windowrule = match:class spotify, float on, size 1800 1260
 --
--- windowrule = match:class zen, pseudo on, size 3458 1440
+hl.window_rule({ match = { class = "zen" }, size = { 3440, 1440 }, pseudo = true })
+hl.window_rule({ match = { class = "kitty" }, size = { 3440, 1440 } })
+hl.window_rule({ match = { initial_title = "btop" }, float = true, size = { 2000, 1300 } })
+hl.window_rule({ match = { initial_title = "figma-linux" }, size = { 3440, 1440 }, pseudo = true })
 -- windowrule = match:class kitty, size 3440 1440
 -- windowrule = match:title btop, float on
 -- # windowrule = match:class .*, suppress_event maximize

@@ -1,27 +1,16 @@
 hl.monitor({
 	output = "DP-1",
-	mode = "3440x1440@180",
-	position = "2560x0",
-	scale = 1,
-	bitdepth = 10,
-	cm = "srgb",
-	sdrbrightness = 1.3,
-	sdr_min_luminance = 0.1,
-	sdr_max_luminance = 80,
-	sdrsaturation = 1.5,
-})
-
-hl.monitor({
-	output = "DP-3",
-	mode = "2560x1440@180",
+	mode = "5120x1440@240",
 	position = "0x0",
 	scale = 1,
 	bitdepth = 10,
 	cm = "hdr",
+	sdr_eotf = "default", -- gamma22, srgb)
 	sdrbrightness = 1.3,
-	sdrsaturation = 1.5,
+	sdrsaturation = 1.05,
+	sdr_min_luminance = 0,
+	sdr_max_luminance = 150,
 })
-
 hl.config({
 	input = {
 		kb_layout = "us,ru",
@@ -53,12 +42,12 @@ hl.config({
 		-- rounding = 18,
 		-- rounding_power = 2.5,
 		active_opacity = 1.0,
-		inactive_opacity = 0.9,
+		inactive_opacity = 0.98,
 
 		-- Dim
 		dim_inactive = true,
 		dim_strength = 0.05,
-		dim_special = 0.2,
+		dim_special = 0.5,
 	},
 	animations = {
 		enabled = false,

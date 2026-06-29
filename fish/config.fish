@@ -10,13 +10,12 @@ set -x PUB_CACHE $HOME/Dev/flutter/.dart_tool/.pub_cache
 set -x ANDROID_HOME $HOME/Dev/android-sdk
 set -x ANDROID_SDK_ROOT $HOME/Dev/android-sdk
 
-fish_add_path $HOME/Dev/flutter/bin \
-	$HOME/Dev/flutter/.dart_tool/.pub_cache/bin \
-	$ANDROID_HOME/platform-tools \
-	$ANDROID_HOME/emulator \
-	$ANDROID_HOME/cmdline-tools/latest/bin
-	$HOME/.local/share/nvim/mason/bin \
-	$HOME/bin /usr/local/bin \
+fish_add_path $HOME/Dev/flutter/bin/ \
+	$HOME/Dev/flutter/.dart_tool/.pub_cache/bin/ \
+	$ANDROID_HOME/platform-tools/ \
+	$ANDROID_HOME/cmdline-tools/latest/bin/ \
+	$HOME/.local/share/nvim/mason/bin/ \
+	$HOME/bin/ /usr/local/bin/ \
 	$HOME/go/bin/
 
 set -g fish_autosuggestion_enabled 0
@@ -47,8 +46,10 @@ if status is-interactive # Commands to run in interactive sessions can go here
 	alias pamcan pacman
 	alias q "qs -c ii"
 	alias neofetch fastfetch
-	alias wgu "sudo awg-quick up $HOME/.config/amnezia/archdev.conf"
-	alias wgd "sudo awg-quick down $HOME/.config/amnezia/archdev.conf"
+	alias wgu "sudo awg-quick up $HOME/.config/wireguard/amsterdam.old.conf"
+	alias wgd "sudo awg-quick down $HOME/.config/wireguard/amsterdam.old.conf"
+	# alias wgu "sudo awg-quick up $HOME/.config/amnezia/archdev.conf"
+	# alias wgd "sudo awg-quick down $HOME/.config/amnezia/archdev.conf"
 	alias vpu "sudo vipnetclient --psw 'yfp,tkbphuec' start && sleep 1 && sudo resolvectl dns tun0 10.11.36.11 10.11.36.31"
 	alias vpd "sudo vipnetclient --psw 'yfp,tkbphuec' stop"
 	alias vim="nvim"
