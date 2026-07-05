@@ -14,19 +14,16 @@
 -- windowrule = match:initial_class obsidian, pseudo on, size 3440 1440
 -- windowrule = match:initial_title Media viewer, float on
 -- windowrule = match:class pavucontrol-qt, float on
--- windowrule = match:class org.kde.dolphin, float on, size 1800 1260
+-- windowrule = jatch:class org.kde.dolphin, float on, size 1800 1260
 -- windowrule = match:class spotify, float on, size 1800 1260
 --
+hl.window_rule({ match = { initial_class = "pavucontrol-qt" }, float = true, size = { 1400, 1000 } })
+hl.window_rule({ match = { initial_class = "org.kde.dolphin" }, float = true, size = { 1400, 1000 } })
 hl.window_rule({ match = { class = "zen" }, size = { 3440, 1440 }, pseudo = true })
 hl.window_rule({ match = { class = "kitty" }, size = { 3440, 1440 } })
-hl.window_rule({ match = { initial_title = "btop" }, float = true, size = { 2000, 1300 } })
+hl.window_rule({ match = { initial_title = "btop" }, float = true, size = { 1400, 1000 } })
 hl.window_rule({ match = { initial_title = "figma-linux" }, size = { 3440, 1440 }, pseudo = true })
 -- windowrule = match:class kitty, size 3440 1440
--- windowrule = match:title btop, float on
--- # windowrule = match:class .*, suppress_event maximize
--- # windowrule = match:class .*, suppress_event float
--- windowrule = match:class .*, suppress_event fullscreen 2
---
 -- layerrule {
 --     name = vicinae-blur
 --     blur = on
