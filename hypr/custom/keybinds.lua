@@ -131,7 +131,7 @@ hl.bind("SUPER + Return", hl.dsp.exec_cmd("ghostty"), { description = "Terminal"
 hl.bind("SUPER + Space", hl.dsp.exec_cmd("vicinae toggle"), { description = "App menu" })
 hl.bind("SUPER + W", hl.dsp.exec_cmd("zen-browser"), { description = "Browser" })
 hl.bind("SUPER + E", hl.dsp.exec_cmd("pkill -x dolphin || dolphin"), { description = "File manager" })
-hl.bind("SUPER + T", hl.dsp.exec_cmd("pkill -x btop || ghostty -e fish -lic btop"), { description = "Task manager" })
+hl.bind("SUPER + T", hl.dsp.exec_cmd("pkill -x btop || ghostty --title='btop' -e fish -lic btop"), { description = "Task manager" })
 hl.bind("SUPER + C", hl.dsp.exec_cmd("pkill -x hyprpicker || hyprpicker -a"), { description = "Color picker" })
 hl.bind("SUPER + V", hl.dsp.exec_cmd("pkill -x pavucontrol-qt || pavucontrol-qt"), { description = "Volume mixer" })
 

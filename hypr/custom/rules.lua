@@ -13,30 +13,18 @@
 -- windowrule = match:fullscreen true, decorate off
 -- windowrule = match:initial_class obsidian, pseudo on, size 3440 1440
 -- windowrule = match:initial_title Media viewer, float on
--- windowrule = match:class pavucontrol-qt, float on
--- windowrule = jatch:class org.kde.dolphin, float on, size 1800 1260
 -- windowrule = match:class spotify, float on, size 1800 1260
 --
 hl.window_rule({ match = { initial_class = "pavucontrol-qt" }, float = true, size = { 1400, 1000 } })
 hl.window_rule({ match = { initial_class = "org.kde.dolphin" }, float = true, size = { 1400, 1000 } })
-hl.window_rule({ match = { class = "zen" }, size = { 3440, 1440 }, pseudo = true })
-hl.window_rule({ match = { class = "kitty" }, size = { 3440, 1440 } })
+hl.window_rule({ match = { initial_class = "org.telegram.desktop" }, size = { 3560, 1440 }, pseudo = true })
+hl.window_rule({ match = { initial_class = "zen" }, size = { 3560, 1440 }, pseudo = true })
+hl.window_rule({ match = { initial_class = "obsidian" }, size = { 3560, 1440 }, pseudo = true })
+hl.window_rule({ match = { class = "ghostty" }, size = { 3440, 1440 } })
 hl.window_rule({ match = { initial_title = "btop" }, float = true, size = { 1400, 1000 } })
 hl.window_rule({ match = { initial_title = "figma-linux" }, size = { 3440, 1440 }, pseudo = true })
--- windowrule = match:class kitty, size 3440 1440
--- layerrule {
---     name = vicinae-blur
---     blur = on
---     ignore_alpha = 0
---     match:namespace = vicinae
--- }
---
--- # disable animation for vicinae only
--- layerrule {
---     name = vicinae-no-animation
---     no_anim = on
---     match:namespace = vicinae
--- }
+
+hl.layer_rule({ match = { namespace = "vicinae" }, name = "vicinae", blur = true, no_anim = true, ignore_alpha = 0 })
 
 hl.workspace_rule({ workspace = "1", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "2", monitor = "eDP-1" })
