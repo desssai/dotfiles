@@ -9,10 +9,13 @@ local plugin = {
 			winopts = {
 				border = 'none',
 				backdrop = 60,
+				winblend = 5,
 				preview = {
 					border = 'none',
+					winopts = { winblend = 5 },
 				},
 			},
+			fzf_colors = true,
 			keymap = {
 				builtin = {
 					['<c-f>'] = 'preview-page-down',

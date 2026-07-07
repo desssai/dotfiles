@@ -29,6 +29,10 @@ output_path = '~/.config/gtk-4.0/gtk.css'
 input_path = '~/.config/matugen/templates/kde/color.txt'
 output_path = '~/.local/state/quickshell/user/generated/color.txt'
 
+[templates.nvim]
+input_path = '~/.config/matugen/templates/nvim.lua'
+output_path = '~/.local/state/quickshell/user/generated/nvim_colors.lua'
+
 [templates.wallpaper]
 input_path = '~/.config/matugen/templates/wallpaper.txt'
 output_path = '~/.local/state/quickshell/user/generated/wallpaper/path.txt'

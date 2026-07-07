@@ -22,6 +22,8 @@ opt.pumborder = 'solid'
 opt.winborder = 'solid'
 opt.pummaxwidth = 80
 opt.completeopt = 'menu,menuone,noselect,popup'
+opt.winblend = 15
+opt.pumblend = 10
 
 -- Search
 opt.fillchars = { eob = ' ' }

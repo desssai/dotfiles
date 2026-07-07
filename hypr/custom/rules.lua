@@ -15,6 +15,8 @@
 -- windowrule = match:initial_title Media viewer, float on
 -- windowrule = match:class spotify, float on, size 1800 1260
 --
+hl.window_rule({ match = { initial_class = "com.mitchellh.ghostty" }, no_blur = false })
+hl.window_rule({ match = { initial_class = "kdesystemsettings" }, float = true, size = { 1400, 1000 } })
 hl.window_rule({ match = { initial_class = "pavucontrol-qt" }, float = true, size = { 1400, 1000 } })
 hl.window_rule({ match = { initial_class = "org.kde.dolphin" }, float = true, size = { 1400, 1000 } })
 hl.window_rule({ match = { initial_class = "org.telegram.desktop" }, size = { 3560, 1440 }, pseudo = true })

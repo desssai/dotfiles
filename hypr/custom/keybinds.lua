@@ -37,7 +37,7 @@ hl.bind("SUPER + SHIFT + W",        hl.dsp.global("quickshell:wallpaperSelectorT
 hl.bind("SUPER + SHIFT + CTRL + P", hl.dsp.global("quickshell:panelFamilyCycle"),        { description = "Cycle panel family" })
 hl.bind("SUPER + SHIFT + R",        hl.dsp.exec_cmd(killAllCmd),                         { description = "Restart widgets" })
 hl.bind("SUPER + SHIFT + Z",        hl.dsp.global("quickshell:sessionToggle"),           { description = "Toggle session menu" })
-hl.bind("SUPER + Escape",           hl.dsp.exec_cmd("pkill -f settings.qml || qs -p ~/.config/quickshell/$qsConfig/settings.qml"), { description = "Settings app" })
+hl.bind("SUPER + Escape",           hl.dsp.exec_cmd("qs -p ~/.config/quickshell/$qsConfig/settings.qml"), { description = "Settings app" })
 -- hl.bind("SUPER + Slash", hl.dsp.global("quickshell:cheatsheetToggle"), { description = "Toggle cheatsheet" })
 
 -- Media Controls

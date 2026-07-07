@@ -1,17 +1,25 @@
+window,
+window.background,
+window headerbar,
+window.background > * {
+  background: transparent;
+  background-color: transparent;
+}
+
 tabbox {
-	padding: 0px;
-	margin: 0px;
-	min-height: 8px;
+  padding: 0px;
+  margin: 0px;
+  min-height: 8px;
 }
 
 tabbar {
-	padding: 0px;
-	margin: -16px;
-	transform: translateY(-12px);
-	min-height: 8px;
+  padding: 0px;
+  margin: -16px;
+  transform: translateY(-12px);
+  min-height: 8px;
 }
 
 tabboxchild {
-	margin-top: -8px;
-	margin-bottom: -8px;
+  margin-top: -8px;
+  margin-bottom: -8px;
 }

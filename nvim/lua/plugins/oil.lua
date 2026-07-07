@@ -14,6 +14,7 @@ local plugin = {
 				'permissions',
 			},
 			win_options = {
+				winblend = 5,
 				colorcolumn = '',
 			},
 			float = {
