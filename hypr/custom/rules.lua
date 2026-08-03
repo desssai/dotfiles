@@ -15,14 +15,13 @@
 -- windowrule = match:initial_title Media viewer, float on
 -- windowrule = match:class spotify, float on, size 1800 1260
 --
-hl.window_rule({ match = { initial_class = "com.mitchellh.ghostty" }, no_blur = false })
+hl.window_rule({ match = { initial_class = "com.mitchellh.ghostty" }, no_blur = false, size = { 3560, 1440 } })
 hl.window_rule({ match = { initial_class = "kdesystemsettings" }, float = true, size = { 1400, 1000 } })
 hl.window_rule({ match = { initial_class = "pavucontrol-qt" }, float = true, size = { 1400, 1000 } })
 hl.window_rule({ match = { initial_class = "org.kde.dolphin" }, float = true, size = { 1400, 1000 } })
 hl.window_rule({ match = { initial_class = "org.telegram.desktop" }, size = { 3560, 1440 }, pseudo = true })
 hl.window_rule({ match = { initial_class = "zen" }, size = { 3560, 1440 }, pseudo = true })
 hl.window_rule({ match = { initial_class = "obsidian" }, size = { 3560, 1440 }, pseudo = true })
-hl.window_rule({ match = { class = "ghostty" }, size = { 3440, 1440 } })
 hl.window_rule({ match = { initial_title = "btop" }, float = true, size = { 1400, 1000 } })
 hl.window_rule({ match = { initial_title = "figma-linux" }, size = { 3440, 1440 }, pseudo = true })
 

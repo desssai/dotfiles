@@ -47,6 +47,14 @@ local plugin = {
 				['gt'] = { 'actions.toggle_trash', mode = 'n' },
 			},
 			use_default_keymaps = false,
+			view_options = {
+				show_hidden = false,
+				is_hidden_file = function(name, bufnr)
+					local m = name:match('^%.')
+					local templ = name:match('_templ%.go$')
+					return m ~= nil or templ ~= nil
+				end,
+			},
 		})
 	end,
 }
