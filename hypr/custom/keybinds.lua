@@ -79,8 +79,45 @@ for i = 1, 9 do
 	end)
 end
 
-hl.bind("CTRL + h",          hl.dsp.focus({ workspace = "e-1" },     { description = "Previous workspace" }))
-hl.bind("CTRL + l",          hl.dsp.focus({ workspace = "e+1" },     { description = "Next workspace" }))
+local backgroundLayerVisible = true
+
+hl.bind("SUPER + SHIFT + G", function()
+  if backgroundLayerVisible then
+    hl.dispatch(hl.dsp.exec_cmd("swaybg -c '#000000' &"))
+    hl.config({
+      general = {
+        gaps_in = 0,
+        gaps_out = 0,
+        border_size = 0,
+      },
+      decoration = {
+        rounding = 0,
+        blur = {
+          enabled = false,
+        },
+      },
+    })
+  else
+    hl.dispatch(hl.dsp.exec_cmd("pkill swaybg"))
+    hl.config({
+      general = {
+        gaps_in = 2,
+        gaps_out = 4,
+        border_size = 1,
+      },
+      decoration = {
+        rounding = 18,
+        blur = {
+          enabled = true,
+        },
+      },
+    })
+  end
+  backgroundLayerVisible = not backgroundLayerVisible
+end)
+
+hl.bind("CTRL + h",          hl.dsp.focus({ workspace = "e-1" }))
+hl.bind("CTRL + l",          hl.dsp.focus({ workspace = "e+1" }))
 
 hl.bind("SUPER + CTRL + h",  hl.dsp.window.move({ workspace = "-1",  follow = false }),  { description = "Send to previous workspace" })
 hl.bind("SUPER + CTRL + l",  hl.dsp.window.move({ workspace = "+1",  follow = false }),  { description = "Send to next workspace" })
@@ -106,7 +143,7 @@ hl.bind("SUPER + F",                 hl.dsp.window.fullscreen({ mode = "maximize
 hl.bind("SUPER + SHIFT + F",         hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),                 { description = "Fullscreen" })
 hl.bind("SUPER + Q",                 hl.dsp.window.close(),                                                                { description = "Close the application" })
 hl.bind("SUPER + SHIFT + Q",         hl.dsp.exec_cmd("hyprctl kill"),                                                      { description = "Kill the application" })
-hl.bind("SUPER + CTRL + Backslash",  hl.dsp.window.resize({ x = 1200, y = 800, "exact" }),                                 { description = "Resize window to 1200x800"})
+hl.bind("SUPER + CTRL + Backslash",  hl.dsp.window.resize({ x = 3440, y = 1440, "exact" }),                                { description = "Resize window to 3440x1440"})
 hl.bind("ALT + F4",                  hl.dsp.window.close())
 
 -- Window Resising

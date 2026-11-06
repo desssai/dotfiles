@@ -14,7 +14,7 @@ hl.monitor({
 hl.config({
 	input = {
 		kb_layout = "us,ru",
-		kb_options = "caps:ctrl_modifier",
+		kb_options = "ctrl:nocaps",
 		repeat_rate = 50,
 		repeat_delay = 300,
 		sensitivity = 0,
